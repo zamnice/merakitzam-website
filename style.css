@@ -16,16 +16,68 @@
   animation: float 6s ease-in-out infinite;
 }
 
-.sunburst {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120%;
-  height: 120%;
-  background: radial-gradient(circle, #F4C43020 0%, transparent 70%);
-  z-index: -1;
-  border-radius: 50%;
+/* Hero Section */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column-reverse; /* Mobile: image di bawah */
+  padding: 1rem;
+  background: #F5EFE6;
+  overflow: hidden;
+}
+
+.hero-content {
+  padding: 2rem 1rem;
+  z-index: 2;
+}
+
+.hero-image-container {
+  width: 100%;
+  margin: 0 -1rem; /* Keluar dari padding parent */
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center top;
+  max-height: 50vh;
+}
+
+/* Desktop Layout */
+@media (min-width: 768px) {
+  .hero-section {
+    flex-direction: row;
+    align-items: center;
+    padding: 2rem;
+  }
+  
+  .hero-content {
+    flex: 1;
+    padding: 0 4rem 0 2rem;
+  }
+  
+  .hero-image-container {
+    flex: 1;
+    margin: 0;
+    align-self: stretch;
+  }
+  
+  .hero-image {
+    max-height: 80vh;
+    border-radius: 1rem 0 0 1rem;
+  }
+}
+
+/* Animasi */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content {
+  animation: fadeInUp 0.8s ease-out;
 }
 
 /* Cards */
