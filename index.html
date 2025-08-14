@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merakitzam • Creative Learner</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Favicon -->
+  <link rel="icon" href="https://files.catbox.moe/wq0gn5.ico">
+</head>
+<body class="bg-[#F5EFE6] text-[#6F4E37] font-poppins">
+  <!-- Navbar -->
+  <nav class="fixed w-full bg-[#F5EFE6] shadow-sm z-50">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center py-3">
+      <a href="#" class="flex items-center">
+        <img src="https://files.catbox.moe/h0gnhf.svg" alt="Logo" class="h-10">
+        <span class="ml-2 text-xl font-bold font-libre">Merakitzam</span>
+      </a>
+      <button id="menu-btn" class="md:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="hidden md:flex space-x-6">
+        <a href="#about" class="hover:text-[#FF6B00]">About</a>
+        <a href="#projects" class="hover:text-[#FF6B00]">Projects</a>
+        <a href="#blog" class="hover:text-[#FF6B00]">Blog</a>
+        <a href="#contact" class="hover:text-[#FF6B00]">Contact</a>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#FFE8B0] px-4 py-2">
+      <a href="#about" class="block py-2 hover:text-[#FF6B00]">About</a>
+      <a href="#projects" class="block py-2 hover:text-[#FF6B00]">Projects</a>
+      <a href="#blog" class="block py-2 hover:text-[#FF6B00]">Blog</a>
+      <a href="#contact" class="block py-2 hover:text-[#FF6B00]">Contact</a>
+      <a href="gallery.html" class="block py-2 hover:text-[#FF6B00]"><i class="fas fa-images mr-2"></i>Gallery</a>
+      <a href="resume.html" class="block py-2 hover:text-[#FF6B00]"><i class="fas fa-file-alt mr-2"></i>Resume</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="min-h-screen pt-24 pb-12 px-6 flex flex-col md:flex-row items-center">
+    <div class="md:w-1/2 mb-12 md:mb-0">
+      <h1 class="text-4xl md:text-6xl font-libre font-bold mb-4">
+        Halo, I'm <span class="text-[#FF6B00]">ZAM ZAM</span>
+      </h1>
+      <p class="text-lg mb-8">
+        Pelajar ceria yang selalu nyetrum semangati Puriya, rasa ingin tahu tanpa batas, dan misi bikin belajar jadi seru!
+      </p>
+      <a href="#projects" class="bg-[#FF6B00] hover:bg-[#E05D00] text-white font-bold py-3 px-8 rounded-full inline-block transition">
+        <i class="fas fa-arrow-down mr-2"></i>Lihat Portfolio
+      </a>
+    </div>
+    <div class="md:w-1/2 relative">
+      <img src="https://files.catbox.moe/k891p7.png" alt="Zam Zam" class="w-full max-w-md mx-auto animate-float">
+      <div class="sunburst"></div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-16 px-6 bg-[#FFE8B0]">
+    <h2 class="text-3xl font-libre font-bold text-center mb-12">My Projects</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="project-card">
+        <img src="https://svgshare.com/i/11Wv.svg" alt="ZoreyAI" class="project-icon">
+        <h3>Zorey AI</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#" class="project-btn">Try Now <i class="fas fa-external-link-alt ml-2"></i></a>
+      </div>
+      <div class="project-card">
+        <img src="https://svgshare.com/i/11XM.svg" alt="Tugasfy" class="project-icon">
+        <h3>Tugasfy</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <a href="#" class="project-btn">Try Now <i class="fas fa-external-link-alt ml-2"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" class="py-16 px-6">
+    <h2 class="text-3xl font-libre font-bold text-center mb-12">My Blog</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div class="blog-card">
+        <div class="blog-date"><i class="far fa-calendar mr-2"></i>10 Aug 2025</div>
+        <h3>Produktif itu Nggak Harus Ribet</h3>
+        <p>Bright Kozma ism meti proaktif itu harus bangun jam 4 pagi.</p>
+        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+      </div>
+      <div class="blog-card">
+        <div class="blog-date"><i class="far fa-calendar mr-2"></i>5 Aug 2025</div>
+        <h3>Cara Nyolong Waktu Belajar</h3>
+        <p>Puriyo naggat ut, parena rapsir puriyo naggat kelujat hamajon.</p>
+        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right ml-2"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 px-6 bg-[#FFE8B0]">
+    <h2 class="text-3xl font-libre font-bold text-center mb-12">Contact Me</h2>
+    <div class="max-w-2xl mx-auto">
+      <iframe src="https://tally.so/embed/wdLgQr?alignLeft=1&hideTitle=1" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+    </div>
+    <div class="flex justify-center space-x-6 mt-8">
+      <a href="mailto:zam@merakitzam.my.id" class="contact-link">
+        <i class="fas fa-envelope"></i>
+      </a>
+      <a href="https://wa.me/628123456789" class="contact-link">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://linkedin.com/in/merakitzam" class="contact-link">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8 text-center">
+    <p>© 2025 Merakitzam.my.id | All Rights Reserved</p>
+    <div class="flex justify-center space-x-4 mt-4">
+      <a href="#" class="text-[#6F4E37] hover:text-[#FF6B00]"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="text-[#6F4E37] hover:text-[#FF6B00]"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="text-[#6F4E37] hover:text-[#FF6B00]"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="script.js"></script>
+</body>
+  </html>
