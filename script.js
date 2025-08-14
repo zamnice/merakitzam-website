@@ -18,6 +18,12 @@ sections.forEach(section => {
   observer.observe(section);
 });
 
+var wrapperMenu = document.querySelector('.wrapper-menu');
+
+wrapperMenu.addEventListener('click', function(){
+  wrapperMenu.classList.toggle('open');  
+})
+
 // SweetAlert for Form Submission (example)
 if (window.location.search.includes('form-submitted=true')) {
   Swal.fire({
@@ -27,3 +33,4 @@ if (window.location.search.includes('form-submitted=true')) {
     confirmButtonColor: '#FF6B00'
   });
 }
+
