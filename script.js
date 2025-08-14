@@ -1,12 +1,18 @@
+// Initialize AOS animations
+AOS.init({
+  duration: 800,
+  once: true
+});
+
 // Mobile Menu Toggle
 const menuBtn = document.getElementById('menu-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 
 menuBtn.addEventListener('click', function() {
   this.classList.toggle('is-active');
-  mobileMenu.classList.toggle('active');
+  mobileMenu.classList.toggle('hidden');
   
-  // Toggle aria-expanded attribute
+  // Update ARIA attributes
   const isExpanded = this.getAttribute('aria-expanded') === 'true';
   this.setAttribute('aria-expanded', !isExpanded);
   mobileMenu.setAttribute('aria-hidden', isExpanded);
@@ -16,13 +22,13 @@ menuBtn.addEventListener('click', function() {
 document.addEventListener('click', function(e) {
   if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
     menuBtn.classList.remove('is-active');
-    mobileMenu.classList.remove('active');
+    mobileMenu.classList.add('hidden');
     menuBtn.setAttribute('aria-expanded', 'false');
     mobileMenu.setAttribute('aria-hidden', 'true');
   }
 });
 
-// Smooth scrolling for anchor links
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
@@ -34,7 +40,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     if (targetElement) {
       // Close mobile menu if open
       menuBtn.classList.remove('is-active');
-      mobileMenu.classList.remove('active');
+      mobileMenu.classList.add('hidden');
       
       // Scroll to target
       window.scrollTo({
@@ -45,28 +51,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// Add animation on scroll
-const animateOnScroll = () => {
-  const elements = document.querySelectorAll('.project-card, .blog-card');
-  
-  elements.forEach(element => {
-    const elementPosition = element.getBoundingClientRect().top;
-    const screenPosition = window.innerHeight / 1.2;
-    
-    if (elementPosition < screenPosition) {
-      element.style.opacity = '1';
-      element.style.transform = 'translateY(0)';
-    }
-  });
-};
-
-// Set initial state for animated elements
-document.querySelectorAll('.project-card, .blog-card').forEach(element => {
-  element.style.opacity = '0';
-  element.style.transform = 'translateY(20px)';
-  element.style.transition = 'all 0.6s ease';
-});
-
-// Run on load and scroll
-window.addEventListener('load', animateOnScroll);
-window.addEventListener('scroll', animateOnScroll);
+// Infinite marquee animation
+const marqueeContent = document.querySelector('.marquee-content');
+const marqueeItems = marqueeContent.innerHTML;
+marqueeContent.innerHTML = marqueeItems + marqueeItems; // Duplicate for seamless loop
