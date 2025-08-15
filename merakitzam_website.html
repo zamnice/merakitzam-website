@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="id-ID" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ZAM ZAM - Pelajar ceria yang selalu nyetrum semangat! Passionate about learning, design, writing, and productivity.">
+    <meta name="keywords" content="ZAM ZAM, Merakitzam, pelajar, design, writing, productivity, portfolio">
+    <meta name="author" content="ZAM ZAM">
+    <meta property="og:title" content="Merakitzam - ZAM ZAM Personal Brand">
+    <meta property="og:description" content="Pelajar ceria yang selalu nyetrum semangat! Passionate about learning and creating.">
+    <meta property="og:image" content="https://files.catbox.moe/k891p7.png">
+    <meta property="og:url" content="https://merakitzam.my.id">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>Merakitzam - ZAM ZAM</title>
+    <link rel="icon" href="https://files.catbox.moe/wq0gn5.ico" type="image/x-icon">
+    
+    <!-- CDN Imports -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
+    
+    <style>
+        /* Custom CSS Variables */
+        :root {
+            --primary: #FF6B00;
+            --bg-light: #F5EFE6;
+            --text-dark: #6F4E37;
+            --bg-dark: #1E293B;
+            --text-light: #F1F5F9;
+        }
+        
+        /* Font Families */
+        .font-heading { font-family: 'Libre Baskerville', serif; }
+        .font-body { font-family: 'Poppins', sans-serif; }
+        
+        /* Custom Color Classes */
+        .bg-primary { background-color: var(--primary); }
+        .text-primary { color: var(--primary); }
+        .bg-cream { background-color: var(--bg-light); }
+        .text-dark { color: var(--text-dark); }
+        
+        /* Dark Mode Styles */
+        .dark {
+            --bg-light: #0F172A;
+            --text-dark: #F1F5F9;
+        }
+        
+        .dark .bg-cream { background-color: var(--bg-dark); }
+        .dark .text-dark { color: var(--text-light); }
+        .dark .bg-white { background-color: #334155; }
+        .dark .border-gray-200 { border-color: #475569; }
+        
+        /* Custom Animations */
+        @keyframes bounce-gentle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .bounce-gentle { animation: bounce-gentle 2s infinite; }
+        
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .marquee {
+            animation: marquee 20s linear infinite;
+            white-space: nowrap;
+        }
+        
+        /* Navbar Mobile Menu */
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        /* Custom Button Styles */
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), #FF8533);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 0, 0.3);
+        }
+        
+        /* Project Card Hover Effect */
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        /* Dark Mode Toggle Button */
+        .dark-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-toggle:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Hero Section Styling */
+        .hero-bg {
+            background: linear-gradient(135deg, #F5EFE6 0%, #FFE4B5 100%);
+        }
+        
+        .dark .hero-bg {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+        }
+    </style>
+</head>
+
+<body class="font-body bg-cream text-dark transition-colors duration-300">
+    <!-- Dark Mode Toggle -->
+    <button onclick="toggleDarkMode()" class="dark-toggle" aria-label="Toggle Dark Mode">
+        <i class="fas fa-moon dark:hidden"></i>
+        <i class="fas fa-sun hidden dark:block"></i>
+    </button>
+
+    <!-- Navigation -->
+    <nav class="bg-white dark:bg-gray-800 shadow-lg fixed w-full top-0 z-40 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="https://files.catbox.moe/h0gnhf.svg" alt="Merakitzam Logo" class="h-8 w-auto">
+                    <span class="ml-2 text-xl font-heading font-bold text-primary">merakitzam</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-dark dark:text-white hover:text-primary transition-colors">Home</a>
+                    <a href="#portfolio" class="text-dark dark:text-white hover:text-primary transition-colors">Portfolio</a>
+                    <a href="#projects" class="text-dark dark:text-white hover:text-primary transition-colors">Projects</a>
+                    <a href="#blog" class="text-dark dark:text-white hover:text-primary transition-colors">Blog</a>
+                    <a href="#contact" class="text-dark dark:text-white hover:text-primary transition-colors">Contact</a>
+                    
+                    <!-- Language Toggle -->
+                    <button onclick="toggleLanguage()" class="text-dark dark:text-white hover:text-primary transition-colors">
+                        <i class="fas fa-globe mr-1"></i>
+                        <span id="lang-indicator">EN</span>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMobileMenu()" class="text-dark dark:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white dark:bg-gray-800 absolute top-16 left-0 w-full shadow-lg">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#home" class="block text-dark dark:text-white hover:text-primary transition-colors">Home</a>
+                <a href="#portfolio" class="block text-dark dark:text-white hover:text-primary transition-colors">Portfolio</a>
+                <a href="#projects" class="block text-dark dark:text-white hover:text-primary transition-colors">Projects</a>
+                <a href="#blog" class="block text-dark dark:text-white hover:text-primary transition-colors">Blog</a>
+                <a href="#contact" class="block text-dark dark:text-white hover:text-primary transition-colors">Contact</a>
+                <button onclick="toggleLanguage()" class="block text-dark dark:text-white hover:text-primary transition-colors">
+                    <i class="fas fa-globe mr-1"></i>
+                    <span>Change Language</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center pt-16">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-lg text-dark dark:text-white mb-4" data-i18n="greeting">Halo, I'm</h1>
+                <h2 class="text-6xl md:text-8xl font-heading font-bold text-primary mb-6 bounce-gentle">ZAM ZAM</h2>
+                <p class="text-lg md:text-xl text-dark dark:text-white max-w-2xl mx-auto mb-8 leading-relaxed" data-i18n="subtitle">
+                    Pelajar (Oren) ceria yang selalu nyetrum semangat! Punya rasa ingin tahu tanpa batas, dan misi bikin belajar jadi seru, bermakna, dan penuh warna!
+                </p>
+                
+                <!-- Hero Image -->
+                <div class="mb-8" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="relative inline-block">
+                        <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full blur-2xl opacity-30"></div>
+                        <img src="https://files.catbox.moe/k891p7.png" alt="ZAM ZAM" class="relative w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full object-cover border-4 border-primary shadow-2xl">
+                    </div>
+                </div>
+                
+                <a href="#portfolio" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center" data-i18n="cta">
+                    LIHAT PORTOFOLIO
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Marquee -->
+    <section id="portfolio" class="bg-primary py-4 overflow-hidden">
+        <div class="marquee">
+            <span class="text-white text-2xl font-semibold mx-8" data-i18n="skills">
+                ⭐ Study • Habit • Design • Writing • Olympic • Productivity • Innovation • Learning • Creativity ⭐
+            </span>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-heading font-bold text-dark dark:text-white mb-4" data-i18n="my-projects">
+                    <i class="fas fa-code text-primary mr-2"></i>My Projects
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300" data-i18n="projects-subtitle">Apa Saja yang aku bagikan</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Zorey AI Project -->
+                <div class="project-card bg-cream dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-robot text-white text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-heading font-bold text-dark dark:text-white mb-2">Zorey AI</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">AI-powered learning assistant that helps students understand complex topics through interactive conversations and personalized explanations.</p>
+                            <div class="flex space-x-3">
+                                <button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-600 transition-colors" data-i18n="try-now">Try Now!</button>
+                                <button class="bg-gray-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition-colors">
+                                    <i class="fab fa-github mr-1"></i>Github
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tugasfy Project -->
+                <div class="project-card bg-cream dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-tasks text-white text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-heading font-bold text-dark dark:text-white mb-2">Tugasfy</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Task management platform designed specifically for students to organize assignments, deadlines, and study schedules effectively.</p>
+                            <div class="flex space-x-3">
+                                <button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-600 transition-colors" data-i18n="try-now">Try Now!</button>
+                                <button class="bg-gray-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition-colors">
+                                    <i class="fab fa-github mr-1"></i>Github
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pastiow Project -->
+                <div class="project-card bg-cream dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-check-circle text-white text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-heading font-bold text-dark dark:text-white mb-2">Pastiow</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Habit tracking application that motivates students to build positive daily routines and achieve their academic goals.</p>
+                            <div class="flex space-x-3">
+                                <button class="bg-primary text-white px-4 py-2 rounded-lg font-semibold hover:bg-orange-600 transition-colors" data-i18n="try-now">Try Now!</button>
+                                <button class="bg-gray-800 text-white px-4 py-2 rounded-lg font-semibold hover:bg-gray-700 transition-colors">
+                                    <i class="fab fa-github mr-1"></i>Github
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Zorey Game Project -->
+                <div class="project-card bg-cream dark:bg-gray-800 rounded-2xl p-8 border border-gray-200 dark:border-gray-700" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-gamepad text-white text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-heading font-bold text-dark dark:text-white mb-2">Zorey Game</h3>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">Educational gaming platform that makes learning fun through interactive quizzes, challenges, and gamified lessons.</p>
+                            <div class="flex space-x-3">
+                                <button class="bg-gray-400 text-white px-4 py-2 rounded-lg font-semibold cursor-not-allowed" disabled data-i18n="coming-soon">Coming Soon</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-cream dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-heading font-bold text-dark dark:text-white mb-4" data-i18n="my-blog">
+                    <i class="fas fa-blog text-primary mr-2"></i>My Blog
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-full h-48 bg-gradient-to-br from-orange-200 to-orange-400 rounded-xl mb-4 flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-dark dark:text-white mb-2" data-i18n="blog-title-1">Produktif Itu Nggak Harus Ribet, Bro!</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="blog-excerpt-1">Kadang kita mikir produktif itu harus bangun jam 4 pagi...</p>
+                    <div class="text-primary text-sm font-semibold">10 Agu 2025</div>
+                </article>
+                
+                <!-- Blog Post 2 -->
+                <article class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-full h-48 bg-gradient-to-br from-blue-200 to-blue-400 rounded-xl mb-4 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-dark dark:text-white mb-2" data-i18n="blog-title-2">Pelajar Malas vs Pelajar Rajin, Kamu Tim Mana?</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="blog-excerpt-2">Jujur aja, kita semua pernah jadi pelajar malas. tapi gimana...</p>
+                    <div class="text-primary text-sm font-semibold">10 Agu 2025</div>
+                </article>
+                
+                <!-- Blog Post 3 -->
+                <article class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-full h-48 bg-gradient-to-br from-green-200 to-green-400 rounded-xl mb-4 flex items-center justify-center">
+                        <i class="fas fa-clock text-white text-4xl"></i>
+                    </div>
+                    <h3 class="text-xl font-heading font-bold text-dark dark:text-white mb-2" data-i18n="blog-title-3">Cara Nyolong Waktu Belajar tanpa Rasa Berat</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm mb-3" data-i18n="blog-excerpt-3">Pernah nggak sih ngerasa nggak punya waktu belajar karena jadwal...</p>
+                    <div class="text-primary text-sm font-semibold">10 Agu 2025</div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-heading font-bold text-dark dark:text-white mb-4" data-i18n="gallery">
+                    <i class="fas fa-images text-primary mr-2"></i>Gallery
+                </h2>
+            </div>
+            
+            <!-- Swiper Gallery -->
+            <div class="swiper gallery-swiper" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="bg-gradient-to-br from-orange-200 to-orange-400 rounded-2xl h-64 flex items-center justify-center">
+                            <i class="fas fa-camera text-white text-6xl"></i>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-gradient-to-br from-blue-200 to-blue-400 rounded-2xl h-64 flex items-center justify-center">
+                            <i class="fas fa-paint-brush text-white text-6xl"></i>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-gradient-to-br from-green-200 to-green-400 rounded-2xl h-64 flex items-center justify-center">
+                            <i class="fas fa-trophy text-white text-6xl"></i>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="bg-gradient-to-br from-purple-200 to-purple-400 rounded-2xl h-64 flex items-center justify-center">
+                            <i class="fas fa-book text-white text-6xl"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Resources Section -->
+    <section class="py-20 bg-cream dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-heading font-bold text-dark dark:text-white mb-4" data-i18n="free-resources">
+                    <i class="fas fa-gift text-primary mr-2"></i>Free Resources
+                </h2>
+            </div>
+            
+            <div class="max-w-2xl mx-auto">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg" data-aos="fade-up">
+                    <h3 class="text-2xl font-heading font-bold text-dark dark:text-white mb-4" data-i18n="resource-title">Materi Belajar Olimpiade IPS Gratis</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">Kumpulan materi lengkap untuk persiapan olimpiade IPS tingkat SMA. Termasuk soal latihan, pembahasan, dan tips strategi mengerjakan soal.</p>
+                    <button class="btn-primary text-white px-6 py-3 rounded-lg font-semibold" data-i18n="download">Download Gratis</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-heading font-bold text-dark dark:text-white mb-4" data-i18n="contact-me">
+                    <i class="fas fa-envelope text-primary mr-2"></i>Contact Me
+                </h2>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div data-aos="fade-right">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4 p-4 bg-cream dark:bg-gray-800 rounded-xl">
+                            <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-dark dark:text-white">Email</h4>
+                                <p class="text-gray-600 dark:text-gray-300">zam@merakitzam.my.id</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4 p-4 bg-cream dark:bg-gray-800 rounded-xl">
+                            <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center">
+                                <i class="fab fa-whatsapp text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-dark dark:text-white" data-i18n="whatsapp">WhatsApp me!</h4>
+                                <p class="text-gray-600 dark:text-gray-300">+62 xxx xxx xxx</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center space-x-4 p-4 bg-cream dark:bg-gray-800 rounded-xl">
+                            <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
+                                <i class="fab fa-linkedin text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-dark dark:text-white" data-i18n="linkedin">Find me on LinkedIn!</h4>
+                                <p class="text-gray-600 dark:text-gray-300">@zamzam</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div data-aos="fade-left">
+                    <div class="bg-cream dark:bg-gray-800 rounded-2xl p-8">
+                        <h3 class="text-2xl font-heading font-bold text-dark dark:text-white mb-4" data-i18n="form-title">Beri kritik, saran dan masukan untuk perkembangan yang lebih baik!</h3>
+                        
+                        <!-- Tally.so Form Embed -->
+                        <div class="w-full" style="height: 400px;">
+                            <iframe 
+                                src="https://tally.so/embed/3xqVGy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+                                width="100%" 
+                                height="100%" 
+                                frameborder="0" 
+                                marginheight="0" 
+                                marginwidth="0" 
+                                title="Contact Form">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center">
+                <div class="flex justify-center items-center mb-6">
+                    <img src="https://files.catbox.moe/h0gnhf.svg" alt="Merakitzam Logo" class="h-8 w-auto mr-3">
+                    <span class="text-2xl font-heading font-bold text-primary">merakitzam</span>
+                </div>
+                
+                <p class="text-gray-300 mb-6" data-i18n="footer-text">
+                    Terima kasih sudah mampir! Mari terus belajar dan berkembang bersama.
+                </p>
+                
+                <div class="flex justify-center space-x-6 mb-8">
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                        <i class="fab fa-tiktok text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-8">
+                    <p class="text-gray-400 text-sm">
+                        ©2025 <a href="https://www.merakitzam.my.id" class="text-primary hover:underline">www.merakitzam.my.id</a>
+                        <br>All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            html.classList.toggle('dark');
+            
+            // Save to localStorage
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('darkMode', isDark);
+        }
+
+        // Load Dark Mode Preference
+        function loadDarkMode() {
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'true') {
+                document.documentElement.classList.add('dark');
+            }
+        }
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        // Language Toggle
+        let currentLang = 'id';
+        const translations = {
+            'id': {
+                'greeting': 'Halo, I\'m',
+                'subtitle': 'Pelajar (Oren) ceria yang selalu nyetrum semangat! Punya rasa ingin tahu tanpa batas, dan misi bikin belajar jadi seru, bermakna, dan penuh warna!',
+                'cta': 'LIHAT PORTOFOLIO',
+                'skills': '⭐ Study • Habit • Design • Writing • Olympic • Productivity • Innovation • Learning • Creativity ⭐',
+                'my-projects': 'My Projects',
+                'projects-subtitle': 'Apa Saja yang aku bagikan',
+                'try-now': 'Try Now!',
+                'coming-soon': 'Coming Soon',
+                'my-blog': 'My Blog',
+                'blog-title-1': 'Produktif Itu Nggak Harus Ribet, Bro!',
+                'blog-excerpt-1': 'Kadang kita mikir produktif itu harus bangun jam 4 pagi...',
+                'blog-title-2': 'Pelajar Malas vs Pelajar Rajin, Kamu Tim Mana?',
+                'blog-excerpt-2': 'Jujur aja, kita semua pernah jadi pelajar malas. tapi gimana...',
+                'blog-title-3': 'Cara Nyolong Waktu Belajar tanpa Rasa Berat',
+                'blog-excerpt-3': 'Pernah nggak sih ngerasa nggak punya waktu belajar karena jadwal...',
+                'gallery': 'Gallery',
+                'free-resources': 'Free Resources',
+                'resource-title': 'Materi Belajar Olimpiade IPS Gratis',
+                'download': 'Download Gratis',
+                'contact-me': 'Contact Me',
+                'whatsapp': 'WhatsApp me!',
+                'linkedin': 'Find me on LinkedIn!',
+                'form-title': 'Beri kritik, saran dan masukan untuk perkembangan yang lebih baik!',
+                'footer-text': 'Terima kasih sudah mampir! Mari terus belajar dan berkembang bersama.'
+            },
+            'en': {
+                'greeting': 'Hello, I\'m',
+                'subtitle': 'A cheerful student who always sparks enthusiasm! I have unlimited curiosity and a mission to make learning fun, meaningful, and colorful!',
+                'cta': 'VIEW PORTFOLIO',
+                'skills': '⭐ Study • Habit • Design • Writing • Olympic • Productivity • Innovation • Learning • Creativity ⭐',
+                'my-projects': 'My Projects',
+                'projects-subtitle': 'What I share with the world',
+                'try-now': 'Try Now!',
+                'coming-soon': 'Coming Soon',
+                'my-blog': 'My Blog',
+                'blog-title-1': 'Being Productive Doesn\'t Have to Be Complicated!',
+                'blog-excerpt-1': 'Sometimes we think being productive means waking up at 4 AM...',
+                'blog-title-2': 'Lazy vs Diligent Students, Which Team Are You?',
+                'blog-excerpt-2': 'Honestly, we\'ve all been lazy students before. But how...',
+                'blog-title-3': 'How to Steal Study Time Without Feeling Heavy',
+                'blog-excerpt-3': 'Have you ever felt like you don\'t have time to study because of schedule...',
+                'gallery': 'Gallery',
+                'free-resources': 'Free Resources',
+                'resource-title': 'Free Social Studies Olympiad Learning Materials',
+                'download': 'Free Download',
+                'contact-me': 'Contact Me',
+                'whatsapp': 'WhatsApp me!',
+                'linkedin': 'Find me on LinkedIn!',
+                'form-title': 'Give criticism, suggestions and input for better development!',
+                'footer-text': 'Thank you for visiting! Let\'s keep learning and growing together.'
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'id' ? 'en' : 'id';
+            updateLanguage();
+            
+            // Update language indicator
+            const langIndicator = document.getElementById('lang-indicator');
+            langIndicator.textContent = currentLang === 'id' ? 'EN' : 'ID';
+        }
+
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        // Initialize Swiper Gallery
+        function initSwiper() {
+            const swiper = new Swiper('.gallery-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                    },
+                }
+            });
+        }
+
+        // Smooth Scrolling for Navigation Links
+        function initSmoothScroll() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const headerOffset = 80;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // Close mobile menu if open
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        mobileMenu.classList.remove('active');
+                    }
+                });
+            });
+        }
+
+        // Navbar Background Change on Scroll
+        function initNavbarScroll() {
+            const navbar = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('backdrop-blur-md', 'bg-white/80', 'dark:bg-gray-800/80');
+                } else {
+                    navbar.classList.remove('backdrop-blur-md', 'bg-white/80', 'dark:bg-gray-800/80');
+                }
+            });
+        }
+
+        // Typing Animation for Hero Text
+        function initTypingAnimation() {
+            const texts = [
+                "Pelajar (Oren) ceria yang selalu nyetrum semangat!",
+                "Student passionate about learning and innovation!",
+                "Designer, Writer, and Productivity Enthusiast!"
+            ];
+            
+            let textIndex = 0;
+            let charIndex = 0;
+            const typingSpeed = 50;
+            const erasingSpeed = 25;
+            const delayBetweenTexts = 2000;
+            
+            const subtitleElement = document.querySelector('[data-i18n="subtitle"]');
+            
+            if (!subtitleElement) return;
+            
+            function type() {
+                if (charIndex < texts[textIndex].length) {
+                    subtitleElement.textContent += texts[textIndex].charAt(charIndex);
+                    charIndex++;
+                    setTimeout(type, typingSpeed);
+                } else {
+                    setTimeout(erase, delayBetweenTexts);
+                }
+            }
+            
+            function erase() {
+                if (charIndex > 0) {
+                    subtitleElement.textContent = texts[textIndex].substring(0, charIndex - 1);
+                    charIndex--;
+                    setTimeout(erase, erasingSpeed);
+                } else {
+                    textIndex = (textIndex + 1) % texts.length;
+                    setTimeout(type, typingSpeed);
+                }
+            }
+            
+            // Start typing animation after a delay
+            setTimeout(() => {
+                subtitleElement.textContent = '';
+                type();
+            }, 1000);
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDarkMode();
+            initSwiper();
+            initSmoothScroll();
+            initNavbarScroll();
+            // Uncomment the line below if you want the typing animation
+            // initTypingAnimation();
+            
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(e) {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const menuButton = document.querySelector('[onclick="toggleMobileMenu()"]');
+                
+                if (!mobileMenu.contains(e.target) && !menuButton.contains(e.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+            
+            // Add loading animation to buttons
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (!this.disabled) {
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = 'scale(1)';
+                        }, 150);
+                    }
+                });
+            });
+        });
+
+        // Performance optimization: Lazy load images
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.classList.remove('lazy');
+                            imageObserver.unobserve(img);
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Add some Easter eggs for fun
+        let konamiCode = [];
+        const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // Up, Up, Down, Down, Left, Right, Left, Right, B, A
+
+        document.addEventListener('keydown', function(e) {
+            konamiCode.push(e.keyCode);
+            if (konamiCode.length > konamiSequence.length) {
+                konamiCode.shift();
+            }
+            
+            if (konamiCode.length === konamiSequence.length && 
+                konamiCode.every((code, index) => code === konamiSequence[index])) {
+                
+                // Easter egg: Add party mode
+                document.body.style.animation = 'hue-rotate 2s infinite linear';
+                setTimeout(() => {
+                    document.body.style.animation = '';
+                    alert('🎉 Konami Code activated! You found the secret! 🎉');
+                }, 3000);
+                
+                konamiCode = [];
+            }
+        });
+
+        // Add CSS for the Easter egg
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes hue-rotate {
+                0% { filter: hue-rotate(0deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+    
+    <!-- Additional CSS for dark mode background fix -->
+    <style>
+        .bg-dark {
+            background-color: #1E293B;
+        }
+    </style>
+</body>
+</html>
