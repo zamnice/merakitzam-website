@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="id-ID" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merakitzam - Creative Learner</title>
+    <meta name="description" content="Hi, I'm ZAM ZAM - Designer, Writer, and Creative Professional. Explore my portfolio and projects.">
+    
+    <!-- SEO & Social Meta Tags -->
+    <meta property="og:title" content="MerakitZAM - Personal Brand Website">
+    <meta property="og:description" content="Hi, I'm ZAM ZAM - Designer, Writer, and Creative Professional. Explore my portfolio and projects.">
+    <meta property="og:image" content="https://files.catbox.moe/k891p7.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MerakitZAM - Personal Brand Website">
+    <meta name="twitter:description" content="Hi, I'm ZAM ZAM - Designer, Writer, and Creative Professional. Explore my portfolio and projects.">
+    <meta name="twitter:image" content="https://files.catbox.moe/k891p7.png">
+    
+    <link rel="icon" type="image/x-icon" href="https://files.catbox.moe/wq0gn5.ico">
+    
+    <!-- CDN Links -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        // Tailwind config
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B00',
+                        background: '#F5EFE6',
+                        text: '#6F4E37'
+                    },
+                    fontFamily: {
+                        'heading': ['Libre Baskerville', 'serif'],
+                        'body': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .font-heading {
+            font-family: 'Libre Baskerville', serif;
+        }
+        
+        /* Dark mode styles */
+        .dark {
+            --tw-bg-opacity: 1;
+            background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+            color: rgb(243 244 246 / var(--tw-text-opacity));
+        }
+        
+        /* Marquee animation */
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        .marquee {
+            animation: marquee 20s linear infinite;
+        }
+        
+        /* Hero background */
+        .hero-bg {
+            background: radial-gradient(circle at center, rgba(255, 107, 0, 0.1) 0%, transparent 70%);
+        }
+        
+        /* Navbar transition */
+        .navbar-scrolled {
+            background-color: rgba(245, 239, 230, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .dark .navbar-scrolled {
+            background-color: rgba(17, 24, 39, 0.95);
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 50;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Hamburger animation */
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger-active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger-active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger-active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+    </style>
+</head>
+
+<body class="bg-background dark:bg-gray-900 text-text dark:text-gray-100 transition-colors duration-300">
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center space-x-2">
+                <img src="https://files.catbox.moe/h0gnhf.svg" alt="Merakitzam Logo" class="h-7 w-auto">
+            </div>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link hover:text-primary transition-colors" data-translate="nav.home">Beranda</a>
+                <a href="#projects" class="nav-link hover:text-primary transition-colors" data-translate="nav.projects">Proyek</a>
+                <a href="#blog" class="nav-link hover:text-primary transition-colors" data-translate="nav.blog">Blog</a>
+                <a href="#gallery" class="nav-link hover:text-primary transition-colors" data-translate="nav.gallery">Galeri</a>
+                <a href="#contact" class="nav-link hover:text-primary transition-colors" data-translate="nav.contact">Kontak</a>
+            </div>
+            
+            <!-- Controls -->
+            <div class="flex items-center space-x-4">
+                <!-- Language Toggle -->
+                <button id="langToggle" class="px-3 py-1 rounded-full bg-primary text-white text-sm font-medium hover:bg-orange-600 transition-colors">
+                    EN
+                </button>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="darkToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2">
+                    <div class="hamburger w-6 h-6 flex flex-col justify-center items-center">
+                        <div class="hamburger-line w-6 h-0.5 bg-current mb-1"></div>
+                        <div class="hamburger-line w-6 h-0.5 bg-current mb-1"></div>
+                        <div class="hamburger-line w-6 h-0.5 bg-current"></div>
+                    </div>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-background dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
+            <div class="container mx-auto px-4 py-4 space-y-4">
+                <a href="#home" class="block nav-link hover:text-primary transition-colors" data-translate="nav.home">Beranda</a>
+                <a href="#projects" class="block nav-link hover:text-primary transition-colors" data-translate="nav.projects">Proyek</a>
+                <a href="#blog" class="block nav-link hover:text-primary transition-colors" data-translate="nav.blog">Blog</a>
+                <a href="#gallery" class="block nav-link hover:text-primary transition-colors" data-translate="nav.gallery">Galeri</a>
+                <a href="#contact" class="block nav-link hover:text-primary transition-colors" data-translate="nav.contact">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center hero-bg pt-20">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-4xl mx-auto" data-aos="fade-up">
+                <!-- EDIT HERE: Hero content -->
+                <h1 class="font-heading text-5xl md:text-7xl font-bold mb-6 text-text dark:text-white" data-translate="hero.title">
+                    Hai, Saya ZAM ZAM
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300" data-translate="hero.subtitle">
+                    Pelajar (oren) ceria yang selalu nyetrum semangat! Punya rasa ingin tahu tanpa batas, dan misi bikin belajar jadi seru, bermakna, dan penuh warna!
+                </p>
+                <a href="#projects" class="inline-block bg-primary hover:bg-orange-600 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" data-translate="hero.cta">
+                    LIHAT PORTFOLIO
+                </a>
+            </div>
+            
+            <!-- Hero Image -->
+            <div class="mt-12" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://files.catbox.moe/k891p7.png" alt="ZAM ZAM" class="mx-auto max-w-md w-full rounded-2xl shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee Section -->
+    <section class="py-8 bg-primary overflow-hidden">
+        <div class="marquee whitespace-nowrap text-white text-2xl font-semibold">
+            <!-- EDIT HERE: Marquee text -->
+            <span data-translate="marquee.text">Design • Writing • Olympic • Productivity • Study • Habit • Design • Writing • Olympic • Productivity • Study • Habit</span>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="font-heading text-4xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up" data-translate="projects.title">
+                Proyek Saya
+            </h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- EDIT HERE: Project cards -->
+                <div class="bg-background dark:bg-gray-700 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" data-aos="fade-up">
+                    <h3 class="font-heading text-2xl font-bold mb-4 text-primary">Zorey AI</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6" data-translate="projects.zorey.desc">Platform AI untuk kreativitas dan produktivitas</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors" data-translate="projects.try">Coba Sekarang!</a>
+                        <a href="#" class="border border-primary text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-lg font-medium transition-colors">Github -></a>
+                    </div>
+                </div>
+                
+                <div class="bg-background dark:bg-gray-700 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="font-heading text-2xl font-bold mb-4 text-primary">Tugasfy</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6" data-translate="projects.tugasfy.desc">Aplikasi manajemen tugas untuk mahasiswa</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors" data-translate="projects.try">Coba Sekarang!</a>
+                        <a href="#" class="border border-primary text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-lg font-medium transition-colors">Github -></a>
+                    </div>
+                </div>
+                
+                <div class="bg-background dark:bg-gray-700 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="font-heading text-2xl font-bold mb-4 text-primary">Pastiow</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6" data-translate="projects.pastiow.desc">Platform pembelajaran online interaktif</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors" data-translate="projects.try">Coba Sekarang!</a>
+                        <a href="#" class="border border-primary text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-lg font-medium transition-colors">Github -></a>
+                    </div>
+                </div>
+                
+                <div class="bg-background dark:bg-gray-700 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="font-heading text-2xl font-bold mb-4 text-primary">Zorey Game</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6" data-translate="projects.game.desc">Game edukatif untuk meningkatkan kreativitas</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="bg-primary hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-medium transition-colors" data-translate="projects.try">Coba Sekarang!</a>
+                        <a href="#" class="border border-primary text-primary hover:bg-primary hover:text-white px-4 py-2 rounded-lg font-medium transition-colors">Github -></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-background dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="font-heading text-4xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up" data-translate="blog.title">
+                Blog Terbaru
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- EDIT HERE: Blog cards -->
+                <article class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" data-aos="fade-up">
+                    <div class="h-48 bg-gradient-to-br from-primary to-orange-400"></div>
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">15 Agustus 2025</div>
+                        <h3 class="font-heading text-xl font-bold mb-3" data-translate="blog.post1.title">Tips Produktivitas untuk Desainer</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm" data-translate="blog.post1.excerpt">Bagaimana meningkatkan produktivitas dalam proses desain...</p>
+                    </div>
+                </article>
+                
+                <article class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600"></div>
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">12 Agustus 2025</div>
+                        <h3 class="font-heading text-xl font-bold mb-3" data-translate="blog.post2.title">Tren Desain 2024</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm" data-translate="blog.post2.excerpt">Eksplorasi tren desain terbaru yang akan mendominasi tahun ini...</p>
+                    </div>
+                </article>
+                
+                <article class="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600"></div>
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 dark:text-gray-400 mb-2">10 Agustus 2025</div>
+                        <h3 class="font-heading text-xl font-bold mb-3" data-translate="blog.post3.title">Membangun Habit Kreatif</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm" data-translate="blog.post3.excerpt">Strategi membangun kebiasaan kreatif yang berkelanjutan...</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Resources Section -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <div class="max-w-2xl mx-auto bg-gradient-to-r from-primary to-orange-400 rounded-3xl p-12 text-white shadow-2xl" data-aos="fade-up">
+                <!-- EDIT HERE: Free resources content -->
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6" data-translate="resources.title">
+                    Sumber Daya Gratis
+                </h2>
+                <p class="text-xl mb-8 opacity-90" data-translate="resources.desc">
+                    Dapatkan template, panduan, dan tools gratis untuk meningkatkan kreativitas Anda
+                </p>
+                <a href="#contact" class="inline-block bg-white text-primary px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105" data-translate="resources.cta">
+                    Dapatkan Sekarang
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-background dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="font-heading text-4xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up" data-translate="gallery.title">
+                Galeri Karya
+            </h2>
+            
+            <!-- Swiper -->
+            <div class="swiper gallerySwiper max-w-4xl mx-auto" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <!-- EDIT HERE: Gallery images - modify galleryImages array in JavaScript -->
+                    <div class="swiper-slide">
+                        <img src="https://via.placeholder.com/900x600?text=Image+1" alt="Gallery Image 1" class="w-full h-96 object-cover rounded-2xl shadow-lg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://via.placeholder.com/900x600?text=Image+2" alt="Gallery Image 2" class="w-full h-96 object-cover rounded-2xl shadow-lg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://via.placeholder.com/900x600?text=Image+3" alt="Gallery Image 3" class="w-full h-96 object-cover rounded-2xl shadow-lg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://via.placeholder.com/900x600?text=Image+4" alt="Gallery Image 4" class="w-full h-96 object-cover rounded-2xl shadow-lg">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://via.placeholder.com/900x600?text=Image+5" alt="Gallery Image 5" class="w-full h-96 object-cover rounded-2xl shadow-lg">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="font-heading text-4xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up" data-translate="contact.title">
+                Mari Berkolaborasi
+            </h2>
+            
+            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8">
+                <!-- EDIT HERE: Contact information -->
+                <a href="mailto:zam@merakitzam.com" class="bg-background dark:bg-gray-700 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group" data-aos="fade-up">
+                    <div class="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fas fa-envelope text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-2" data-translate="contact.email">Email</h3>
+                    <p class="text-gray-600 dark:text-gray-300">zam@merakitzam.my.id</p>
+                </a>
+                
+                <a href="https://wa.me/1234567890" class="bg-background dark:bg-gray-700 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fab fa-whatsapp text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-2">WhatsApp</h3>
+                    <p class="text-gray-600 dark:text-gray-300">+62 878 4800 5004</p>
+                </a>
+                
+                <a href="https://linkedin.com/in/zamzam" class="bg-background dark:bg-gray-700 rounded-2xl p-8 text-center shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                        <i class="fab fa-linkedin text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-2">LinkedIn</h3>
+                    <p class="text-gray-600 dark:text-gray-300">@merakitzam</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inbox Section -->
+    <section class="py-20 bg-background dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="font-heading text-4xl md:text-5xl font-bold text-center mb-16" data-aos="fade-up" data-translate="inbox.title">
+                Kontak Saya
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-6" data-translate="contact.desc">Beri kritik, saran dan masukan untuk perkembangan yang lebih baik!</p>
+            <div class="max-w-2xl mx-auto" data-aos="fade-up">
+                <!-- Tally.so Embed -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
+                    <iframe 
+                        src="https://tally.so/embed/3xqVGy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" 
+                        width="100%" 
+                        height="500" 
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0" 
+                        title="Contact Form"
+                        class="w-full">
+                    </iframe>
+                </div>
+                
+                <!-- Fallback Form -->
+                <div id="fallbackForm" class="hidden bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-2" data-translate="form.name">Nama</label>
+                            <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2" data-translate="form.email">Email</label>
+                            <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:ring-2 focus:ring-primary focus:border-transparent" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2" data-translate="form.message">Pesan</label>
+                            <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:ring-2 focus:ring-primary focus:border-transparent" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-primary hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition-colors" data-translate="form.submit">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-text dark:bg-gray-900 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <!-- EDIT HERE: Footer content -->
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-2xl hover:text-primary transition-colors">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="text-2xl hover:text-primary transition-colors">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="text-2xl hover:text-primary transition-colors">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="text-2xl hover:text-primary transition-colors">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
+            <p class="text-gray-400" data-translate="footer.copyright">
+                ©2025 www.merakitzam.my.id Semua hak dilindungi.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top bg-primary hover:bg-orange-600 text-white p-3 rounded-full shadow-lg transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <script>
+        // Translations object - EDIT HERE to change language strings
+        const translations = {
+            id: {
+                'nav.home': 'Beranda',
+                'nav.projects': 'Proyek',
+                'nav.blog': 'Blog',
+                'nav.gallery': 'Galeri',
+                'nav.contact': 'Kontak',
+                'hero.title': 'Hai, Saya ZAM ZAM',
+                'hero.subtitle': 'Desainer, Penulis, dan Profesional Kreatif',
+                'hero.cta': 'LIHAT PORTFOLIO',
+                'marquee.text': 'Design • Writing • Olympic • Productivity • Study • Habit • Design • Writing • Olympic • Productivity • Study • Habit',
+                'projects.title': 'Proyek Saya',
+                'projects.try': 'Coba Sekarang!',
+                'projects.zorey.desc': 'Platform AI untuk kreativitas dan produktivitas',
+                'projects.tugasfy.desc': 'Aplikasi manajemen tugas untuk mahasiswa',
+                'projects.pastiow.desc': 'Platform pembelajaran online interaktif',
+                'projects.game.desc': 'Game edukatif untuk meningkatkan kreativitas',
+                'blog.title': 'Blog Terbaru',
+                'blog.post1.title': 'Tips Produktivitas untuk Desainer',
+                'blog.post1.excerpt': 'Bagaimana meningkatkan produktivitas dalam proses desain...',
+                'blog.post2.title': 'Tren Desain 2024',
+                'blog.post2.excerpt': 'Eksplorasi tren desain terbaru yang akan mendominasi tahun ini...',
+                'blog.post3.title': 'Membangun Habit Kreatif',
+                'blog.post3.excerpt': 'Strategi membangun kebiasaan kreatif yang berkelanjutan...',
+                'resources.title': 'Sumber Daya Gratis',
+                'resources.desc': 'Dapatkan template, panduan, dan tools gratis untuk meningkatkan kreativitas Anda',
+                'resources.cta': 'Dapatkan Sekarang',
+                'gallery.title': 'Galeri Karya',
+                'contact.title': 'Mari Berkolaborasi',
+                'contact.email': 'Email',
+                'inbox.title': 'Kirim Pesan',
+                'form.name': 'Nama',
+                'form.email': 'Email',
+                'form.message': 'Pesan',
+                'form.submit': 'Kirim Pesan',
+                'footer.copyright': '© 2024 MerakitZAM. Semua hak dilindungi.'
+            },
+            en: {
+                'nav.home': 'Home',
+                'nav.projects': 'Projects',
+                'nav.blog': 'Blog',
+                'nav.gallery': 'Gallery',
+                'nav.contact': 'Contact',
+                'hero.title': 'Hi, I\'m ZAM ZAM',
+                'hero.subtitle': 'Designer, Writer, and Creative Professional',
+                'hero.cta': 'VIEW PORTFOLIO',
+                'marquee.text': 'Design • Writing • Olympic • Productivity • Study • Habit • Design • Writing • Olympic • Productivity • Study • Habit',
+                'projects.title': 'My Projects',
+                'projects.try': 'Try now!',
+                'projects.zorey.desc': 'AI platform for creativity and productivity',
+                'projects.tugasfy.desc': 'Task management app for students',
+                'projects.pastiow.desc': 'Interactive online learning platform',
+                'projects.game.desc': 'Educational game to enhance creativity',
+                'blog.title': 'Latest Blog',
+                'blog.post1.title': 'Productivity Tips for Designers',
+                'blog.post1.excerpt': 'How to increase productivity in the design process...',
+                'blog.post2.title': 'Design Trends 2024',
+                'blog.post2.excerpt': 'Exploring the latest design trends that will dominate this year...',
+                'blog.post3.title': 'Building Creative Habits',
+                'blog.post3.excerpt': 'Strategies for building sustainable creative habits...',
+                'resources.title': 'Free Resources',
+                'resources.desc': 'Get free templates, guides, and tools to enhance your creativity',
+                'resources.cta': 'Get Now',
+                'gallery.title': 'Work Gallery',
+                'contact.title': 'Let\'s Collaborate'
+                'contact.desc': 'Give criticism, suggestions and input for better development!',
+                'contact.email': 'Email',
+                'inbox.title': 'Send Message',
+                'form.name': 'Name',
+                'form.email': 'Email',
+                'form.message': 'Message',
+                'form.submit': 'Send Message',
+                'footer.copyright': '© 2025 www.merakitzam.my.id All rights reserved.'
+            }
+        };
+
+        // Current language
+        let currentLang = localStorage.getItem('language') || 'id';
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                easing: 'ease-in-out',
+                once: true
+            });
+
+            // Initialize Swiper
+            const swiper = new Swiper('.gallerySwiper', {
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                    },
+                    768: {
+                        slidesPerView: 1,
+                    },
+                    1024: {
+                        slidesPerView: 1,
+                    },
+                }
+            });
+
+            // Initialize dark mode
+            initDarkMode();
+            
+            // Initialize language
+            updateLanguage();
+            
+            // Initialize navigation
+            initNavigation();
+            
+            // Initialize scroll effects
+            initScrollEffects();
+        });
+
+        // Dark mode functionality
+        function initDarkMode() {
+            const darkToggle = document.getElementById('darkToggle');
+            const isDark = localStorage.getItem('darkMode') === 'true';
+            
+            if (isDark) {
+                document.documentElement.classList.add('dark');
+            }
+            
+            darkToggle.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark');
+                localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+            });
+        }
+
+        // Language functionality
+        function updateLanguage() {
+            const langToggle = document.getElementById('langToggle');
+            const elements = document.querySelectorAll('[data-translate]');
+            
+            langToggle.textContent = currentLang === 'id' ? 'EN' : 'ID';
+            document.documentElement.lang = currentLang === 'id' ? 'id-ID' : 'en-US';
+            
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+            
+            langToggle.addEventListener('click', () => {
+                currentLang = currentLang === 'id' ? 'en' : 'id';
+                localStorage.setItem('language', currentLang);
+                updateLanguage();
+            });
+        }
+
+        // Navigation functionality
+        function initNavigation() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const navbar = document.getElementById('navbar');
+            
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuBtn.querySelector('.hamburger').classList.toggle('hamburger-active');
+            });
+            
+            // Smooth scroll for navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                    
+                    // Close mobile menu
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuBtn.querySelector('.hamburger').classList.remove('hamburger-active');
+                });
+            });
+            
+            // Active link highlighting
+            window.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('section[id]');
+                const scrollPos = window.scrollY + 100;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+                    const sectionId = section.getAttribute('id');
+                    
+                    if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('text-primary');
+                            if (link.getAttribute('href') === `#${sectionId}`) {
+                                link.classList.add('text-primary');
+                            }
+                        });
+                    }
+                });
+            });
+        }
+
+        // Scroll effects
+        function initScrollEffects() {
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', () => {
+                // Navbar background on scroll
+                if (window.scrollY > 50) {
+                    navbar.classList.add('navbar-scrolled');
+                } else {
+                    navbar.classList.remove('navbar-scrolled');
+                }
+                
+                // Back to top button
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('show');
+                } else {
+                    backToTop.classList.remove('show');
+                }
+            });
+            
+            // Back to top functionality
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Form submission (fallback)
+        document.getElementById('fallbackForm')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert(currentLang === 'id' ? 'Terima kasih! Pesan Anda telah dikirim.' : 'Thank you! Your message has been sent.');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96ff688d9426ea77',t:'MTc1NTMzMTMzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
