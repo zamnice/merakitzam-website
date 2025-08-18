@@ -24,6 +24,18 @@ collections:
       - label: "Isi Konten"
         name: "body"
         widget: "markdown"
-        buttons: ["bold", "italic", "link", "heading-two", "heading-three", "heading-four", "quote", "code", "image"]
-        editor_components: ["image", "youtube-embed"]
+        buttons:
+          - bold
+          - italic
+          - code
+          - link
+          - heading-two
+          - heading-three
+          - heading-four
+          - quote
+          - bulleted-list
+          - numbered-list
+        editor_components:
+          - image
+          - youtube-embed
       - { label: "Featured Post", name: "featured", widget: "boolean", default: false }
