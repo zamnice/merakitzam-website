@@ -122,11 +122,6 @@
     </div>
   </div>
 
-  <!-- Loading Animation -->
-  <div id="loadingOverlay" class="fixed inset-0 bg-white/80 dark:bg-gray-900/80 flex items-center justify-center z-50">
-    <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-primary border-opacity-80"></div>
-  </div>
-
   <!-- CMS Container -->
   <div id="cms-container" class="opacity-0 transform translate-y-5 transition-all duration-300">
     <script src="https://unpkg.com/netlify-cms@^3.0.0/dist/netlify-cms.js"></script>
@@ -162,13 +157,8 @@
       CMS.registerPreviewStyle("/css/style.css");
       
       // Custom preview templates can be registered here
-      // CMS.registerPreviewTemplate("blog", MyBlogPreviewComponent);
+      CMS.registerPreviewTemplate("blog", MyBlogPreviewComponent);
       
-      // Hide loading overlay when CMS is ready
-      document.getElementById('loadingOverlay').style.display = 'none';
-      document.getElementById('cms-container').classList.remove('opacity-0', 'translate-y-5');
-    }, 1000);
-    
     // Initialize Netlify Identity
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
