@@ -1,31 +1,34 @@
 <!DOCTYPE html>
 <html lang="id-ID" class="">
 <head>
+    <!-- Primary Meta Tags -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZAM ZAM • Creative Learner</title>
-    <meta name="description" content="Creative learning solutions, design inspiration, and productivity tips from ZAM ZAM">
-    
-    <!-- PWA Configuration -->
-    <link rel="manifest" href="site.webmanifest">
+    <meta name="title" content="ZAM ZAM • Creative Learner">
+    <meta name="description" content="ZAM ZAM berbagi tips belajar, inspirasi kreatif, dan solusi produktif untuk pelajar. Temukan cara belajar seru dan bermakna bersama ZAM ZAM.">
+    <meta name="author" content="ZAM ZAM">
+    <meta name="keywords" content="ZAM ZAM, studygram, tips belajar, kreatif, produktif, pelajar SMP, belajar menyenangkan, pendidikan, self-improvement, catatan belajar">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="language" content="id-ID">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#FF6B00">
-    
+
     <!-- Favicon -->
-    <link rel="icon" href="https://files.catbox.moe/wq0gn5.ico">
-    
-    <!-- Preconnect to CDNs -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <!-- CSS Libraries -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
-    
+    <link rel="apple-touch-icon" sizes="192x192" href="/assets/favicon/web-app-manifest-192x192.png/">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon.ico/">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon.ico/">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="canonical" href="https://merakitzam.my.id">
+
+    <!-- Font Awesome & CSS Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -34,12 +37,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: {
-                            DEFAULT: '#FF6B00',
-                            light: '#FF8C42',
-                            dark: '#E05D00'
-                        },
-                        secondary: '#FFD166',
+                        primary: { DEFAULT: '#FF6B00', light: '#FF8C42', dark: '#E05D00' },
+                        secondary: '#F4C430',
                         background: '#F5EFE6',
                         text: '#6F4E37',
                         accent: '#EF476F'
@@ -56,10 +55,50 @@
             }
         }
     </script>
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/globals.css">
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://merakitzam.my.id/">
+    <meta property="og:title" content="ZAM ZAM • Creative Learner">
+    <meta property="og:description" content="Belajar jadi lebih seru dan bermakna bersama ZAM ZAM. Tips belajar, inspirasi kreatif, dan produktivitas untuk pelajar.">
+    <meta property="og:image" content="https://merakitzam.my.id/assets/og-image.png/">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="MerakitZAM">
+    <meta property="og:locale" content="id_ID">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://merakitzam.my.id/">
+    <meta name="twitter:title" content="ZAM ZAM • Creative Learner">
+    <meta name="twitter:description" content="Belajar seru, kreatif, dan produktif dengan ZAM ZAM. Tips belajar, ide kreatif, dan catatan produktif untuk pelajar.">
+    <meta name="twitter:image" content="https://merakitzam.my.id/assets/og-image.png/">
+    <meta name="twitter:creator" content="@merakitzam">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "ZAM ZAM",
+        "url": "https://merakitzam.my.id",
+        "image": "https://merakitzam.my.id/assets/og-image.png/",
+        "sameAs": [
+            "https://www.instagram.com/merakitzam",
+            "https://www.tiktok.com/@merakitzam",
+            "https://www.youtube.com/@merakitzam"
+        ],
+        "jobTitle": "Creative Learner & Studygram Creator",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "MerakitZAM"
+        }
+    }
+    </script>
 </head>
 
 <body class="bg-background dark:bg-gray-900 text-text dark:text-gray-100 transition-colors duration-300">
