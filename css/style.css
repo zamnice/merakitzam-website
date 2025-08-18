@@ -6,60 +6,82 @@
     background: radial-gradient(circle at center, rgba(255, 107, 0, 0.1) 0%, transparent 70%);
 }
 
-/* Navbar Base Style */
+#home {
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px; /* Sesuaikan dengan tinggi navbar */
+}
+
+.hero-image-container {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Untuk memastikan hero content tetap di tengah */
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar Fixes */
 #navbar {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 15px 0;
     transition: all 0.3s ease;
-    /* State awal - transparan */
-    background-color: transparent;
-    backdrop-filter: none;
-}
-
-/* Navbar dengan background saat scroll */
-#navbar-scrolled {
-    background-color: rgba(245, 239, 230, 0.95); /* Warna light mode */
+    padding: 15px 0;
+    background-color: rgba(245, 239, 230, 0.95); /* Warna light mode dengan opacity */
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Dark mode support */
-.dark #navbar.scrolled {
-    background-color: rgba(17, 24, 39, 0.95); /* Warna dark mode */
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+.dark #navbar {
+    background-color: rgba(17, 24, 39, 0.95); /* Warna dark mode dengan opacity */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Logo dan menu items */
-.navbar-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Untuk memastikan konten navbar tetap rapi */
+.navbar-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Style untuk nav links */
-.nav-link {
-    color: inherit;
-    position: relative;
-    padding: 8px 12px;
-    transition: color 0.3s ease;
+/* Logo styling */
+.navbar-logo {
+    height: 40px;
+    width: auto;
+    transition: transform 0.3s ease;
 }
 
-/* Style khusus untuk state awal (transparan) */
-#navbar:not(.scrolled) .nav-link {
-    color: white; /* Warna teks saat navbar transparan */
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Membantu keterbacaan */
+.navbar-logo:hover {
+    transform: scale(1.05);
 }
 
-/* Hover effect */
-.nav-link:hover {
-    color: #FF6B00; /* Warna brand */
+.navbar-solid {
+    background-color: rgba(245, 239, 230, 0.98) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.dark .navbar-solid {
+    background-color: rgba(17, 24, 39, 0.98) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Project Card Hover Effect */
