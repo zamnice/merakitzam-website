@@ -74,22 +74,47 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Back to top button
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTop.classList.add('show');
-        } else {
-            backToTop.classList.remove('show');
+    // Back to top button functionality
+const backToTop = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTop.classList.add('show');
+        
+        // Add pulse animation when first appears
+        if (!backToTop.classList.contains('pulse')) {
+            backToTop.classList.add('pulse');
+            setTimeout(() => {
+                backToTop.classList.remove('pulse');
+            }, 3000);
         }
+    } else {
+        backToTop.classList.remove('show');
+    }
+});
+
+backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
     });
     
-    backToTop.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+    // Add temporary pulse effect on click
+    backToTop.classList.add('pulse');
+    setTimeout(() => {
+        backToTop.classList.remove('pulse');
+    }, 1500);
+});
+
+// Hover effect for touch devices
+backToTop.addEventListener('touchstart', () => {
+    backToTop.classList.add('hover');
+});
+
+backToTop.addEventListener('touchend', () => {
+    backToTop.classList.remove('hover');
+});
 
     // FAQ Accordion
     const accordionHeaders = document.querySelectorAll('.accordion-header button');
