@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MerakitZAM | Official Landing Page</title>
+  <link rel="icon" href="https://files.catbox.moe/wq0gn5.ico" type="image/x-icon"/>
+
+  <!-- Primary Meta Tags -->
+  <meta name="title" content="MerakitZAM | Official Landing Page">
+  <meta name="description" content="MerakitZAM - Belajar | Berkarya | Berbagi. Temukan semua link resmi MerakitZAM di satu halaman.">
+  <meta name="keywords" content="MerakitZAM, belajar, edukasi, produktif, karya pelajar, link resmi, branding pelajar, studygram Indonesia">
+  <meta name="author" content="MerakitZAM">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.merakitzam.my.id/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.merakitzam.my.id/">
+  <meta property="og:title" content="MerakitZAM | Official Landing Page">
+  <meta property="og:description" content="MerakitZAM - Belajar | Berkarya | Berbagi. Temukan semua link resmi MerakitZAM di satu halaman.">
+  <meta property="og:image" content="https://files.catbox.moe/hke5qq.png">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://www.merakitzam.my.id/">
+  <meta property="twitter:title" content="MerakitZAM | Official Landing Page">
+  <meta property="twitter:description" content="MerakitZAM - Belajar | Berkarya | Berbagi. Temukan semua link resmi MerakitZAM di satu halaman.">
+  <meta property="twitter:image" content="https://files.catbox.moe/hke5qq.png">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "MerakitZAM",
+    "url": "https://www.merakitzam.my.id/",
+    "image": "https://files.catbox.moe/twmsyn.png",
+    "sameAs": [
+      "https://www.instagram.com/merakitzam",
+      "https://www.linkedin.com/in/merakitzam",
+      "https://www.tiktok.com/@merakitzam",
+      "https://medium.com/@merakitzam",
+      "https://youtube.com/@merakitzam",
+      "https://x.com/merakitzam",
+      "https://www.threads.net/@merakitzam",
+      "https://id.quora.com/profile/Merakit-Zam",
+      "https://zamnice.bsky.social/",
+      "https://github.com/zamnice",
+      "https://pin.it/7kz7KmcCM"
+    ],
+    "jobTitle": "Pelajar Kreatif & Studygram Creator",
+    "description": "MerakitZAM - Belajar | Berkarya | Berbagi. Personal branding pelajar kreatif Indonesia."
+  }
+  </script>
+
+  <!-- Fonts & CDN -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/js/tw-elements.umd.min.js"></script>
+  
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg,#FF6B00,#F4C430,#FFE8B0);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+    /* Bubble animation */
+    .bubble {
+      position: absolute;
+      bottom: -50px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: rise 15s infinite ease-in;
+    }
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1);}
+      100% { transform: translateY(-120vh) scale(0.5);}
+    }
+    /* Navbar shape */
+    .nav-shape {
+      border-radius: 2rem;
+      background: #F5EFE6;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #F5EFE6;
+    }
+    .link-card {
+      background: #F5EFE6;
+      border-radius: 1rem;
+      transition: all 0.3s;
+    }
+    .link-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+  </style>
+</head>
+<body class="relative">
+  <!-- Navbar -->
+  <nav class="nav-shape fixed top-4 left-1/2 transform -translate-x-1/2 w-11/12 md:w-2/3 px-6 py-3 flex items-center justify-between z-50">
+    <img src="https://files.catbox.moe/h0gnhf.svg" alt="Logo" class="h-8">
+    <div class="flex items-center gap-3">
+      <input id="searchInput" type="text" placeholder="Search link..." class="rounded-full px-4 py-1 text-sm border focus:outline-none"/>
+      <button onclick="searchLinks()" class="bg-[#FF6B00] text-white px-3 py-1 rounded-full"><i class="fa fa-search"></i></button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="flex flex-col items-center text-center pt-32 px-4" data-aos="fade-up">
+    <img src="https://files.catbox.moe/twmsyn.png" alt="Profile" class="profile-img mb-4">
+    <h1 class="text-3xl font-bold text-white">MerakitZAM</h1>
+    <p class="text-white/80">Belajar | Berkarya | Berbagi</p>
+  </section>
+
+  <!-- Links -->
+  <section class="max-w-lg mx-auto mt-10 px-4 space-y-4">
+    <div id="linkList" class="space-y-4">
+      <a href="https://www.instagram.com/merakitzam" target="_blank" class="link-card flex items-center gap-3 p-4" data-title="Instagram"><i class="fab fa-instagram text-pink-500 text-xl"></i> Instagram</a>
+      <a href="https://www.linkedin.com/in/merakitzam" target="_blank" class="link-card flex items-center gap-3 p-4" data-title="LinkedIn"><i class="fab fa-linkedin text-blue-600 text-xl"></i> LinkedIn</a>
+      <a href="https://www.tiktok.com/@merakitzam" target="_blank" class="link-card flex items-center gap-3 p-4" data-title="TikTok"><i class="fab fa-tiktok text-black text-xl"></i> TikTok</a>
+      <a href="https://medium.com/@merakitzam" target="_blank" class="link-card flex items-center gap-3 p-4" data-title="Medium"><i class="fab fa-medium text-green-700 text-xl"></i> Medium</a>
+      <a href="https://youtube.com/@merakitzam" target="_blank" class="link-card flex items-center gap-3 p-4" data-title="YouTube"><i class="fab fa-youtube text-red-600 text-xl"></i> YouTube</a>
+      <a href="https://x.com/merakitzam" target="_blank" class="link-card flex items-center gap-3 p-4" data-title="X"><i class="fab fa-x-twitter text-black text-xl"></i> X</a>
+      <a href="https://www.threads.net/@merakitzam" target="_blank" class="link-card flex items-center gap-3 p-4" data-title="Threads"><i class="fa-solid fa-at text-purple-600 text-xl"></i> Threads</a>
+      <a href="https://id.quora.com/profile/Merakit-Zam" target="_blank" class="link-card flex items-center gap-3 p-4" data-title="Quora"><i class="fab fa-quora text-red-700 text-xl"></i> Quora</a>
+      <a href="https://zamnice.bsky.social/" target="_blank" class="link-card flex items-center gap-3 p-4" data-title="Bluesky"><i class="fa-solid fa-cloud text-sky-600 text-xl"></i> Bluesky</a>
+      <a href="https://github.com/zamnice" target="_blank" class="link-card flex items-center gap-3 p-4" data-title="Github"><i class="fab fa-github text-gray-800 text-xl"></i> Github</a>
+      <a href="https://pin.it/7kz7KmcCM" target="_blank" class="link-card flex items-center gap-3 p-4" data-title="Pinterest"><i class="fab fa-pinterest text-red-600 text-xl"></i> Pinterest</a>
+      <a href="http://www.merakitzam.my.id" target="_blank" class="link-card flex items-center gap-3 p-4" data-title="Website"><i class="fa-solid fa-globe text-blue-500 text-xl"></i> Website</a>
+      <a href="mailto:zam@merakitzam.my.id" class="link-card flex items-center gap-3 p-4" data-title="Email"><i class="fa-solid fa-envelope text-orange-500 text-xl"></i> Email</a>
+    </div>
+  </section>
+
+  <!-- Bubble Background -->
+  <script>
+    for (let i = 0; i < 15; i++) {
+      let bubble = document.createElement("div");
+      let size = Math.random() * 40 + 10;
+      bubble.classList.add("bubble");
+      bubble.style.width = size + "px";
+      bubble.style.height = size + "px";
+      bubble.style.left = Math.random() * 100 + "vw";
+      bubble.style.animationDuration = (Math.random() * 10 + 10) + "s";
+      document.body.appendChild(bubble);
+    }
+
+    // Search Filter
+    function searchLinks() {
+      let input = document.getElementById("searchInput").value.toLowerCase();
+      let links = document.querySelectorAll("#linkList a");
+      links.forEach(link => {
+        let title = link.getAttribute("data-title").toLowerCase();
+        link.style.display = title.includes(input) ? "flex" : "none";
+      });
+    }
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>AOS.init();</script>
+</body>
+</html>
