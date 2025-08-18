@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
             'nav.contact': 'Kolaborasi',
             
             // Hero
-            'hero.title': 'Kreasi & Belajar <span class="text-primary">Tanpa Batas</span>',
-            'hero.subtitle': 'Temukan dunia kreativitas dan pembelajaran yang menyenangkan bersama ZAM ZAM. Mari berkolaborasi untuk menciptakan sesuatu yang bermakna!',
+            'hero.title': 'Halo, Aku <span class="text-primary">Zam Zam</span>',
+            'hero.subtitle': 'Pelajar (Oren) ceria yang selalu nyetrum semangat! Punya rasa ingin tahu tanpa batas, dan misi bikin belajar jadi seru, bermakna, dan penuh warna!',
             'hero.cta': 'Jelajahi Karya',
             'hero.contact': 'Hubungi Saya',
             
@@ -109,8 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
             'nav.contact': 'Collaborate',
             
             // Hero
-            'hero.title': 'Creativity & Learning <span class="text-primary">Without Limits</span>',
-            'hero.subtitle': 'Discover a world of fun creativity and learning with ZAM ZAM. Let\'s collaborate to create something meaningful!',
+            'hero.title': 'Hello, I\'m <span class="text-primary">Zam Zam</span>',
+            'hero.subtitle': 'A cheerful student (Oren) who always sparks enthusiasm! Has boundless curiosity, and a mission to make learning fun and meaningful!',
             'hero.cta': 'Explore Works',
             'hero.contact': 'Contact Me',
             
