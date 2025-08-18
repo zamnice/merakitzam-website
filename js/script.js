@@ -65,14 +65,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Navbar scroll effect
+    window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('navbar-scrolled');
-        } else {
-            navbar.classList.remove('navbar-scrolled');
-        }
-    });
+    const scrollPosition = window.scrollY;
+    
+    // Tambahkan class 'scrolled' setelah scroll 50px
+    if (scrollPosition > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Inisialisasi awal - cek posisi scroll saat load
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.scrollY > 50) {
+        document.getElementById('navbar').classList.add('scrolled');
+    }
+});
 
     // Back to top button functionality
 const backToTop = document.getElementById('backToTop');
@@ -137,27 +147,6 @@ backToTop.addEventListener('touchend', () => {
         });
     });
 
-    // Contact form submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Here you would normally send the form data to your server
-            // For demo purposes, we'll just show a success message
-            
-            Swal.fire({
-                title: currentLang === 'id' ? 'Pesan Terkirim!' : 'Message Sent!',
-                text: currentLang === 'id' ? 'Terima kasih atas pesan Anda. Saya akan segera menghubungi Anda kembali.' : 'Thank you for your message. I will get back to you soon.',
-                icon: 'success',
-                confirmButtonText: currentLang === 'id' ? 'OK' : 'OK',
-                confirmButtonColor: '#FF6B00'
-            });
-            
-            // Reset form
-            contactForm.reset();
-        });
-    }
 
     // Newsletter form submission
     const newsletterForm = document.querySelector('.newsletter form');
