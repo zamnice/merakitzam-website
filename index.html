@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id-ID" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MerakitZAM | Creative Learning & Design</title>
+    <meta name="description" content="Creative learning solutions, design inspiration, and productivity tips from ZAM ZAM">
+    
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#FF6B00">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://files.catbox.moe/wq0gn5.ico">
+    
+    <!-- Preconnect to CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#FF6B00',
+                            light: '#FF8C42',
+                            dark: '#E05D00'
+                        },
+                        secondary: '#FFD166',
+                        background: '#F5EFE6',
+                        text: '#6F4E37',
+                        accent: '#EF476F'
+                    },
+                    fontFamily: {
+                        heading: ['Libre Baskerville', 'serif'],
+                        body: ['Poppins', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px rgba(0, 0, 0, 0.08)',
+                        'soft-dark': '0 4px 20px rgba(0, 0, 0, 0.2)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/globals.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-background dark:bg-gray-900 text-text dark:text-gray-100 transition-colors duration-300">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center space-x-2 group">
+                <img src="https://files.catbox.moe/h0gnhf.svg" alt="MerakitZAM Logo" class="h-8 transition-transform group-hover:scale-105">
+                <span class="font-heading text-xl font-bold hidden sm:inline">MerakitZAM</span>
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#home" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.home">Beranda</a>
+                <a href="#projects" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.projects">Kreasi</a>
+                <a href="#blog" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.blog">Inspirasi</a>
+                <a href="#gallery" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.gallery">Galeri</a>
+                <a href="#faq" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.faq">FAQ</a>
+                <a href="#contact" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.contact">Kolaborasi</a>
+            </div>
+            
+            <!-- Controls -->
+            <div class="flex items-center space-x-4">
+                <!-- Language Toggle -->
+                <button id="langToggle" class="px-3 py-1 rounded-full bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors flex items-center space-x-1">
+                    <span class="lang-label">EN</span>
+                    <i class="fas fa-globe text-sm"></i>
+                </button>
+                
+                <!-- Dark Mode Toggle -->
+                <button id="darkToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2">
+                    <div class="hamburger w-6 h-6 flex flex-col justify-center items-center">
+                        <div class="hamburger-line w-6 h-0.5 bg-current mb-1.5 transition-all"></div>
+                        <div class="hamburger-line w-6 h-0.5 bg-current mb-1.5 transition-all"></div>
+                        <div class="hamburger-line w-6 h-0.5 bg-current transition-all"></div>
+                    </div>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-background dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
+            <div class="container mx-auto px-4 py-4 space-y-2">
+                <a href="#home" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.home">Beranda</a>
+                <a href="#projects" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.projects">Kreasi</a>
+                <a href="#blog" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.blog">Inspirasi</a>
+                <a href="#gallery" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.gallery">Galeri</a>
+                <a href="#faq" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.faq">FAQ</a>
+                <a href="#contact" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.contact">Kolaborasi</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 pb-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                <!-- Hero Content -->
+                <div class="lg:w-1/2 text-center lg:text-left" data-aos="fade-right">
+                    <h1 class="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight" data-translate="hero.title">
+                        Kreasi & Belajar <span class="text-primary">Tanpa Batas</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-8 text-gray-600 dark:text-gray-300 max-w-2xl" data-translate="hero.subtitle">
+                        Temukan dunia kreativitas dan pembelajaran yang menyenangkan bersama ZAM ZAM. Mari berkolaborasi untuk menciptakan sesuatu yang bermakna!
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#projects" class="btn-primary" data-translate="hero.cta">
+                            Jelajahi Karya
+                        </a>
+                        <a href="#contact" class="btn-outline" data-translate="hero.contact">
+                            Hubungi Saya
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="lg:w-1/2" data-aos="fade-left" data-aos-delay="200">
+                    <div class="relative">
+                        <div class="absolute -inset-8 bg-primary/20 rounded-3xl -rotate-6 -z-10"></div>
+                        <img src="https://files.catbox.moe/k891p7.png" alt="ZAM ZAM" class="rounded-2xl shadow-2xl w-full max-w-md mx-auto">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee Section -->
+    <section class="py-6 bg-primary text-white overflow-hidden">
+        <div class="marquee-container">
+            <div class="marquee whitespace-nowrap text-xl font-semibold">
+                <span data-translate="marquee.text">Design • Writing • Productivity • Learning • Creativity • Innovation • Design • Writing • Productivity • Learning • Creativity • Innovation</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full font-medium mb-4" data-translate="projects.subtitle">Portfolio</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4" data-translate="projects.title">
+                    Karya Terbaru
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-translate="projects.description">
+                    Beberapa proyek terbaik yang telah saya kerjakan dengan penuh semangat dan kreativitas.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-image bg-gradient-to-br from-primary to-orange-400 h-48 rounded-t-2xl flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-6xl opacity-90"></i>
+                    </div>
+                    <div class="project-content p-6">
+                        <h3 class="font-heading text-2xl font-bold mb-3" data-translate="projects.zorey.title">Zorey AI</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-5" data-translate="projects.zorey.desc">
+                            Platform AI untuk meningkatkan kreativitas dan produktivitas dengan teknologi terbaru.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="tech-tag">AI</span>
+                            <span class="tech-tag">Productivity</span>
+                            <span class="tech-tag">Web App</span>
+                        </div>
+                        <div class="mt-6 flex gap-3">
+                            <a href="#" class="btn-primary-sm" data-translate="projects.demo">Demo</a>
+                            <a href="#" class="btn-outline-sm">GitHub <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image bg-gradient-to-br from-blue-500 to-purple-600 h-48 rounded-t-2xl flex items-center justify-center">
+                        <i class="fas fa-tasks text-white text-6xl opacity-90"></i>
+                    </div>
+                    <div class="project-content p-6">
+                        <h3 class="font-heading text-2xl font-bold mb-3" data-translate="projects.tugasfy.title">Tugasfy</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-5" data-translate="projects.tugasfy.desc">
+                            Aplikasi manajemen tugas yang membantu siswa dan mahasiswa lebih terorganisir.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="tech-tag">Mobile</span>
+                            <span class="tech-tag">Productivity</span>
+                            <span class="tech-tag">Education</span>
+                        </div>
+                        <div class="mt-6 flex gap-3">
+                            <a href="#" class="btn-primary-sm" data-translate="projects.demo">Demo</a>
+                            <a href="#" class="btn-outline-sm">GitHub <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image bg-gradient-to-br from-green-500 to-teal-600 h-48 rounded-t-2xl flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white text-6xl opacity-90"></i>
+                    </div>
+                    <div class="project-content p-6">
+                        <h3 class="font-heading text-2xl font-bold mb-3" data-translate="projects.pastiow.title">Pastiow</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-5" data-translate="projects.pastiow.desc">
+                            Platform pembelajaran online interaktif dengan pendekatan yang menyenangkan.
+                        </p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="tech-tag">E-Learning</span>
+                            <span class="tech-tag">Interactive</span>
+                            <span class="tech-tag">Web App</span>
+                        </div>
+                        <div class="mt-6 flex gap-3">
+                            <a href="#" class="btn-primary-sm" data-translate="projects.demo">Demo</a>
+                            <a href="#" class="btn-outline-sm">GitHub <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="#" class="btn-outline" data-translate="projects.more">
+                    Lihat Semua Proyek <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-background dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full font-medium mb-4" data-translate="blog.subtitle">Artikel Terkini</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4" data-translate="blog.title">
+                    Inspirasi & Tips
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-translate="blog.description">
+                    Tulisan terbaru tentang kreativitas, produktivitas, dan dunia pembelajaran yang menyenangkan.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <article class="blog-card" data-aos="fade-up">
+                    <div class="blog-image h-48 bg-gradient-to-br from-primary to-orange-400 rounded-t-2xl relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-lightbulb text-white text-6xl opacity-30"></i>
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-white/90 text-primary px-3 py-1 rounded-full text-xs font-semibold" data-translate="blog.category.productivity">Produktivitas</div>
+                    </div>
+                    <div class="blog-content p-6">
+                        <div class="text-sm text-gray-500 dark:text-gray-400 mb-3 flex items-center">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span data-translate="blog.post1.date">15 Desember 2024</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold mb-3" data-translate="blog.post1.title">10 Tips Meningkatkan Produktivitas Kreatif</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4" data-translate="blog.post1.excerpt">
+                            Bagaimana cara tetap produktif tanpa kehilangan kreativitas dalam pekerjaan sehari-hari...
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium group" data-translate="blog.readmore">
+                            Baca selengkapnya
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                <!-- Blog Post 2 -->
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-image h-48 bg-gradient-to-br from-blue-500 to-purple-600 rounded-t-2xl relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-paint-brush text-white text-6xl opacity-30"></i>
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-white/90 text-blue-600 px-3 py-1 rounded-full text-xs font-semibold" data-translate="blog.category.design">Desain</div>
+                    </div>
+                    <div class="blog-content p-6">
+                        <div class="text-sm text-gray-500 dark:text-gray-400 mb-3 flex items-center">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span data-translate="blog.post2.date">12 Desember 2024</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold mb-3" data-translate="blog.post2.title">Tren Desain 2024: Apa yang Perlu Anda Ketahui</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4" data-translate="blog.post2.excerpt">
+                            Eksplorasi tren desain terbaru yang akan mendominasi tahun ini dan bagaimana memanfaatkannya...
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium group" data-translate="blog.readmore">
+                            Baca selengkapnya
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+                
+                       <!-- Blog Post 3 -->
+                <article class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-image h-48 bg-gradient-to-br from-green-500 to-teal-600 rounded-t-2xl relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-brain text-white text-6xl opacity-30"></i>
+                        </div>
+                        <div class="absolute bottom-4 left-4 bg-white/90 text-green-600 px-3 py-1 rounded-full text-xs font-semibold" data-translate="blog.category.learning">Pembelajaran</div>
+                    </div>
+                    <div class="blog-content p-6">
+                        <div class="text-sm text-gray-500 dark:text-gray-400 mb-3 flex items-center">
+                            <i class="far fa-calendar mr-2"></i>
+                            <span data-translate="blog.post3.date">10 Desember 2024</span>
+                        </div>
+                        <h3 class="font-heading text-xl font-bold mb-3" data-translate="blog.post3.title">Membangun Kebiasaan Belajar yang Efektif</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4" data-translate="blog.post3.excerpt">
+                            Strategi membangun kebiasaan belajar yang berkelanjutan dan menyenangkan untuk semua usia...
+                        </p>
+                        <a href="#" class="inline-flex items-center text-primary font-medium group" data-translate="blog.readmore">
+                            Baca selengkapnya
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="#" class="btn-outline" data-translate="blog.more">
+                    Lihat Semua Artikel <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full font-medium mb-4" data-translate="gallery.subtitle">Koleksi Visual</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4" data-translate="gallery.title">
+                    Galeri Karya
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-translate="gallery.description">
+                    Kumpulan karya visual yang telah saya buat dalam berbagai proyek kreatif.
+                </p>
+            </div>
+            
+            <!-- Swiper Gallery -->
+            <div class="swiper gallerySwiper max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-lg" data-aos="fade-up">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://files.catbox.moe/lfwvki.png" alt="Design Project 1" class="w-full h-96 object-cover">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://files.catbox.moe/lfwvki.png" alt="Design Project 2" class="w-full h-96 object-cover">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://files.catbox.moe/lfwvki.png" alt="Design Project 3" class="w-full h-96 object-cover">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://files.catbox.moe/lfwvki.png" alt="Design Project 4" class="w-full h-96 object-cover">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 bg-background dark:bg-gray-900">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full font-medium mb-4" data-translate="faq.subtitle">Pertanyaan Umum</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4" data-translate="faq.title">
+                    FAQ
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-translate="faq.description">
+                    Beberapa pertanyaan yang sering diajukan tentang karya dan layanan saya.
+                </p>
+            </div>
+            
+            <div class="space-y-4" data-aos="fade-up">
+                <!-- FAQ Item 1 -->
+                <div class="accordion-item bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button flex items-center justify-between w-full px-6 py-5 text-left font-semibold text-lg" data-translate="faq.q1">
+                            Bagaimana cara memulai proyek kolaborasi?
+                        </button>
+                    </h3>
+                    <div class="accordion-content hidden px-6 pb-5">
+                        <p class="text-gray-600 dark:text-gray-300" data-translate="faq.a1">
+                            Anda bisa menghubungi saya melalui halaman kontak atau langsung mengirim email. Kami akan mendiskusikan detail proyek, timeline, dan anggaran untuk memastikan semuanya sesuai dengan kebutuhan Anda.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="accordion-item bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button flex items-center justify-between w-full px-6 py-5 text-left font-semibold text-lg" data-translate="faq.q2">
+                            Apa saja layanan yang Anda tawarkan?
+                        </button>
+                    </h3>
+                    <div class="accordion-content hidden px-6 pb-5">
+                        <p class="text-gray-600 dark:text-gray-300" data-translate="faq.a2">
+                            Saya menawarkan berbagai layanan termasuk desain grafis, pengembangan web, penulisan kreatif, konsultasi pembelajaran, dan pembuatan konten edukatif. Silakan lihat bagian proyek untuk contoh pekerjaan saya.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="accordion-item bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button flex items-center justify-between w-full px-6 py-5 text-left font-semibold text-lg" data-translate="faq.q3">
+                            Berapa lama waktu pengerjaan proyek?
+                        </button>
+                    </h3>
+                    <div class="accordion-content hidden px-6 pb-5">
+                        <p class="text-gray-600 dark:text-gray-300" data-translate="faq.a3">
+                            Waktu pengerjaan bervariasi tergantung kompleksitas proyek. Proyek sederhana mungkin selesai dalam 1-2 minggu, sementara proyek yang lebih kompleks bisa memakan waktu 1-3 bulan. Timeline pasti akan didiskusikan sebelum proyek dimulai.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="accordion-item bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
+                    <h3 class="accordion-header">
+                        <button class="accordion-button flex items-center justify-between w-full px-6 py-5 text-left font-semibold text-lg" data-translate="faq.q4">
+                            Apakah Anda menerima proyek freelance?
+                        </button>
+                    </h3>
+                    <div class="accordion-content hidden px-6 pb-5">
+                        <p class="text-gray-600 dark:text-gray-300" data-translate="faq.a4">
+                            Ya, saya terbuka untuk proyek freelance yang sesuai dengan minat dan keahlian saya. Silakan hubungi saya untuk mendiskusikan detail proyek Anda.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <span class="inline-block px-4 py-1 bg-primary/10 text-primary rounded-full font-medium mb-4" data-translate="contact.subtitle">Mari Bekerja Sama</span>
+                <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4" data-translate="contact.title">
+                    Hubungi Saya
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto" data-translate="contact.description">
+                    Tertarik berkolaborasi atau memiliki pertanyaan? Silakan hubungi saya melalui salah satu cara berikut.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <!-- Contact Method 1 -->
+                <div class="contact-card" data-aos="fade-up">
+                    <div class="contact-icon bg-primary text-white">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-2" data-translate="contact.email">Email</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">zam@merakitzam.my.id</p>
+                    <a href="mailto:zam@merakitzam.my.id" class="btn-outline-sm" data-translate="contact.send">
+                        Kirim Email
+                    </a>
+                </div>
+                
+                <!-- Contact Method 2 -->
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-icon bg-green-500 text-white">
+                        <i class="fab fa-whatsapp text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-2">WhatsApp</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">+62 878 4800 5004</p>
+                    <a href="https://wa.me/6287848005004" class="btn-outline-sm" data-translate="contact.message">
+                        Kirim Pesan
+                    </a>
+                </div>
+                
+                <!-- Contact Method 3 -->
+                <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-icon bg-blue-600 text-white">
+                        <i class="fab fa-linkedin-in text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-2">LinkedIn</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">@merakitzam</p>
+                    <a href="https://linkedin.com/in/merakitzam" class="btn-outline-sm" data-translate="contact.connect">
+                        Terhubung
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-10 bg-background dark:bg-gray-900">
+        <div class="container mx-auto px-4 max-w-2xl">
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden" data-aos="fade-up">
+                <div class="p-8">
+                    <h3 class="font-heading text-2xl font-bold mb-6 text-center" data-translate="form.title">
+                        Kirim Pesan Langsung
+                    </h3>
+                    <form id="contactForm" class="space-y-5">
+                        <div>
+                            <label for="name" class="block text-sm font-medium mb-2" data-translate="form.name">Nama Lengkap</label>
+                            <input type="text" id="name" name="name" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2" data-translate="form.email">Alamat Email</label>
+                            <input type="email" id="email" name="email" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium mb-2" data-translate="form.subject">Subjek</label>
+                            <input type="text" id="subject" name="subject" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2" data-translate="form.message">Pesan Anda</label>
+                            <textarea id="message" name="message" rows="4" class="form-input" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary w-full" data-translate="form.submit">
+                            Kirim Pesan
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-gradient-to-r from-primary to-orange-400 text-white">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4" data-translate="newsletter.title">
+                Tetap Terhubung
+            </h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto opacity-90" data-translate="newsletter.description">
+                Berlangganan newsletter untuk mendapatkan update terbaru tentang proyek, artikel, dan sumber daya gratis.
+            </p>
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+                <input type="email" placeholder="Alamat email Anda" class="flex-grow px-4 py-3 rounded-full focus:outline-none focus:ring-2 focus:ring-white text-gray-900">
+                <button type="submit" class="btn-white" data-translate="newsletter.subscribe">
+                    Berlangganan
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-16 pb-8 bg-text dark:bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <!-- About Column -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="https://files.catbox.moe/h0gnhf.svg" alt="MerakitZAM Logo" class="h-8">
+                        <span class="font-heading text-xl font-bold">MerakitZAM</span>
+                    </div>
+                    <p class="text-gray-300 mb-4" data-translate="footer.about">
+                        Kreativitas tanpa batas, pembelajaran yang menyenangkan. Berbagi inspirasi dan solusi untuk dunia yang lebih baik.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors text-xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors text-xl">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition-colors text-xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Links Column -->
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-4" data-translate="footer.links">Tautan Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors" data-translate="nav.home">Beranda</a></li>
+                        <li><a href="#projects" class="text-gray-300 hover:text-white transition-colors" data-translate="nav.projects">Kreasi</a></li>
+                        <li><a href="#blog" class="text-gray-300 hover:text-white transition-colors" data-translate="nav.blog">Inspirasi</a></li>
+                        <li><a href="#gallery" class="text-gray-300 hover:text-white transition-colors" data-translate="nav.gallery">Galeri</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors" data-translate="nav.contact">Kolaborasi</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Column -->
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-4" data-translate="footer.contact">Kontak</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-gray-300"></i>
+                            <span class="text-gray-300">zam@merakitzam.my.id</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-gray-300"></i>
+                            <span class="text-gray-300">+62 878 4800 5004</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-300"></i>
+                            <span class="text-gray-300" data-translate="footer.location">Indonesia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400" data-translate="footer.copyright">
+                    © 2025 MerakitZAM. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top bg-primary hover:bg-primary-dark text-white p-3 rounded-full shadow-lg transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/darkmode.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
