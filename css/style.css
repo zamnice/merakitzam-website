@@ -142,3 +142,43 @@
 ::-webkit-scrollbar-thumb:hover {
     @apply bg-primary-dark;
 }
+
+/* Blog Specific Styles */
+.prose {
+  max-width: 65ch;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.prose h2 {
+  @apply font-heading text-2xl font-bold mt-8 mb-4 text-primary;
+}
+
+.prose h3 {
+  @apply font-heading text-xl font-bold mt-6 mb-3;
+}
+
+.prose p {
+  @apply mb-4;
+}
+
+.prose img {
+  @apply rounded-lg my-6;
+}
+
+.prose a {
+  @apply text-primary underline hover:text-primary-dark;
+}
+
+.prose code {
+  @apply bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded text-sm;
+}
+
+.prose pre {
+  @apply bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto my-6;
+}
+
+/* Blog list item hover effect */
+.blog-item:hover h2 {
+  @apply text-primary;
+}
