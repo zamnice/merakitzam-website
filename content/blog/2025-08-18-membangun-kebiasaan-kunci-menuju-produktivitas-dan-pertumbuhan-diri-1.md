@@ -13,6 +13,6 @@ excerpt: Kebiasaan adalah fondasi dari kehidupan kita. Menurut penelitian dari
   Duke University, 40-45% aktivitas harian kita dilakukan secara otomatis
   berdasarkan kebiasaan. Artikel ini akan membahas bagaimana membangun kebiasaan
   baik secara efektif.
-featured: false
+featured: true
 ---
 ![]()
