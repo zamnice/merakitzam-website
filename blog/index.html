@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="id-ID" class="">
+<head>
+  <!-- Copy head content from your index.html -->
+  <title>Blog | ZAM ZAM</title>
+  <meta name="description" content="Kumpulan artikel tentang kreativitas, produktivitas, dan pembelajaran menyenangkan">
+  <!-- PWA Configuration -->
+    <link rel="manifest" href="site.webmanifest">
+    <meta name="theme-color" content="#FF6B00">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://files.catbox.moe/wq0gn5.ico">
+    
+    <!-- Preconnect to CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- CSS Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#FF6B00',
+                            light: '#FF8C42',
+                            dark: '#E05D00'
+                        },
+                        secondary: '#FFD166',
+                        background: '#F5EFE6',
+                        text: '#6F4E37',
+                        accent: '#EF476F'
+                    },
+                    fontFamily: {
+                        heading: ['Libre Baskerville', 'serif'],
+                        body: ['Poppins', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px rgba(0, 0, 0, 0.08)',
+                        'soft-dark': '0 4px 20px rgba(0, 0, 0, 0.2)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/globals.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-background dark:bg-gray-900 text-text dark:text-gray-100">
+   <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
+        <div class="container mx-auto px-4 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#home" class="flex items-center space-x-2 group">
+                <img src="https://files.catbox.moe/h0gnhf.svg" alt="MerakitZAM Logo" class="h-8 transition-transform group-hover:scale-105">
+            </a>
+            
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#home" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.home">Beranda</a>
+                <a href="#projects" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.projects">Kreasi</a>
+                <a href="#blog" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.blog">Inspirasi</a>
+                <a href="#gallery" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.gallery">Galeri</a>
+                <a href="#faq" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.faq">FAQ</a>
+                <a href="#contact" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.contact">Kolaborasi</a>
+                <a href="/bio-link" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors">Link</a>
+            </div>
+            
+            <!-- Controls -->
+            <div class="flex items-center space-x-4">
+                <!-- Dark Mode Toggle -->
+                <button id="darkToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+      
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2">
+                    <div class="hamburger w-6 h-6 flex flex-col justify-center items-center">
+                        <div class="hamburger-line w-6 h-0.5 bg-current mb-1.5 transition-all"></div>
+                        <div class="hamburger-line w-6 h-0.5 bg-current mb-1.5 transition-all"></div>
+                        <div class="hamburger-line w-6 h-0.5 bg-current transition-all"></div>
+                    </div>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="md:hidden hidden bg-background dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
+            <div class="container mx-auto px-4 py-4 space-y-2">
+                <a href="#home" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.home">Beranda</a>
+                <a href="#projects" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.projects">Kreasi</a>
+                <a href="#blog" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.blog">Inspirasi</a>
+                <a href="#gallery" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.gallery">Galeri</a>
+                <a href="#faq" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.faq">FAQ</a>
+                <a href="#contact" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.contact">Kolaborasi</a>
+                <a href="/bio-link" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors">Link</a>
+                <!-- Language Toggle -->
+                <button id="langToggle" class="px-3 py-1 rounded-full bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors flex items-center space-x-1">
+                    <span class="lang-label">EN</span>
+                    <i class="fas fa-globe text-sm"></i>
+                </button>
+            </div>
+        </div>
+      </nav>
+  
+  <main class="container mx-auto px-4 py-16">
+    <div class="text-center mb-16">
+      <h1 class="font-heading text-4xl md:text-5xl font-bold mb-4">My Blog</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Temukan inspirasi dan tips terbaru seputar kreativitas dan pembelajaran
+      </p>
+    </div>
+
+    <!-- Search Box -->
+    <div class="max-w-2xl mx-auto mb-12">
+      <input type="text" id="searchInput" placeholder="Cari artikel..." 
+             class="w-full px-6 py-3 rounded-full border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-primary focus:border-transparent">
+    </div>
+
+    <!-- Categories Filter -->
+    <div class="flex flex-wrap gap-3 justify-center mb-12">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn" data-filter="featured">Featured</button>
+      <button class="filter-btn" data-filter="Tips">Tips</button>
+      <button class="filter-btn" data-filter="Tutorial">Tutorial</button>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="blogContainer">
+      <!-- Posts will be loaded here by JavaScript -->
+    </div>
+  </main>
+
+    <!-- Footer -->
+    <footer class="pt-16 pb-8 bg-text dark:bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-10 mb-12">
+                <!-- About Column -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="https://files.catbox.moe/h0gnhf.svg" alt="MerakitZAM Logo" class="h-8">
+                    </div>
+                    <p class="text-gray-300 mb-4" data-translate="footer.about">
+                        Kreativitas tanpa batas, pembelajaran yang menyenangkan. Berbagi inspirasi dan solusi untuk dunia yang lebih baik.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://instagram.com/merakitzam" class="text-primary hover:text-white transition-colors text-xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://tiktok.com/merakitzam" class="text-primary hover:text-white transition-colors text-xl">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://x.com/merakitzam" class="text-primary hover:text-white transition-colors text-xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/merakitzam" class="text-primary hover:text-white transition-colors text-xl">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/zamnice" class="text-primary hover:text-white transition-colors text-xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://medium.com/merakitzam" class="text-primary hover:text-white transition-colors text-xl">
+                            <i class="fab fa-medium"></i>
+                        </a>
+                        <a href="https://youtube.com/merakitzam" class="text-primary hover:text-white transition-colors text-xl">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Links Column -->
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-4" data-translate="footer.links">Tautan Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors" data-translate="nav.home">Beranda</a></li>
+                        <li><a href="#projects" class="text-gray-300 hover:text-white transition-colors" data-translate="nav.projects">Kreasi</a></li>
+                        <li><a href="#blog" class="text-gray-300 hover:text-white transition-colors" data-translate="nav.blog">Inspirasi</a></li>
+                        <li><a href="#gallery" class="text-gray-300 hover:text-white transition-colors" data-translate="nav.gallery">Galeri</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors" data-translate="nav.contact">Kolaborasi</a></li>
+                        <li><a href="/bio-link" class="text-gray-300 hover:text-white transition-colors">Link</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact Column -->
+                <div>
+                    <h4 class="font-heading text-lg font-bold mb-4" data-translate="footer.contact">Kontak</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-gray-300"></i>
+                            <span class="text-gray-300">zam@merakitzam.my.id</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-gray-300"></i>
+                            <span class="text-gray-300">+62 878 4800 5004</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-300"></i>
+                            <span class="text-gray-300" data-translate="footer.location">Indonesia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-gray-700 text-center">
+                <p class="text-gray-400" data-translate="footer.copyright">
+                    © 2025 MerakitZAM. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top bg-primary hover:bg-primary-dark text-white p-3 rounded-full shadow-lg transition-all duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+  <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+    <!-- Custom Scripts -->
+    <script src="js/darkmode.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/script.js"></script>
+    <script src="/js/blog.js"></script>
+</body>
+</html>
