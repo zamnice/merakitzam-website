@@ -65,15 +65,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Navbar scroll effect
-    window.addEventListener('scroll', function() {
+window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
     const scrollPosition = window.scrollY;
     
-    // Tambahkan class 'scrolled' setelah scroll 50px
+    // Tambahkan background solid setelah scroll tertentu
     if (scrollPosition > 50) {
-        navbar.classList.add('scrolled');
+        navbar.classList.add('navbar-solid');
     } else {
-        navbar.classList.remove('scrolled');
+        navbar.classList.remove('navbar-solid');
     }
 });
 
