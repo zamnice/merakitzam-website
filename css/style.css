@@ -6,9 +6,60 @@
     background: radial-gradient(circle at center, rgba(255, 107, 0, 0.1) 0%, transparent 70%);
 }
 
-/* Navbar */
-.navbar-scrolled {
-    @apply bg-background/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-md;
+/* Navbar Base Style */
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 15px 0;
+    transition: all 0.3s ease;
+    /* State awal - transparan */
+    background-color: transparent;
+    backdrop-filter: none;
+}
+
+/* Navbar dengan background saat scroll */
+#navbar-scrolled {
+    background-color: rgba(245, 239, 230, 0.95); /* Warna light mode */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode support */
+.dark #navbar.scrolled {
+    background-color: rgba(17, 24, 39, 0.95); /* Warna dark mode */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Logo dan menu items */
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Style untuk nav links */
+.nav-link {
+    color: inherit;
+    position: relative;
+    padding: 8px 12px;
+    transition: color 0.3s ease;
+}
+
+/* Style khusus untuk state awal (transparan) */
+#navbar:not(.scrolled) .nav-link {
+    color: white; /* Warna teks saat navbar transparan */
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); /* Membantu keterbacaan */
+}
+
+/* Hover effect */
+.nav-link:hover {
+    color: #FF6B00; /* Warna brand */
 }
 
 /* Project Card Hover Effect */
