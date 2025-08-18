@@ -1,22 +1,184 @@
 <!doctype html>
-<html>
+<html lang="id-ID">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ZAM ZAM Content Manager</title>
+  <title>ZAM ZAM - Manajemen Konten</title>
+  
+  <!-- Netlify Identity -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF6B00',
+            background: '#F5EFE6',
+            text: '#6F4E37'
+          },
+          fontFamily: {
+            'heading': ['"Libre Baskerville"', 'serif'],
+            'body': ['Poppins', 'sans-serif']
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.3s ease-in-out',
+            'slide-up': 'slideUp 0.4s ease-out'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0' },
+              '100%': { opacity: '1' }
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(20px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Custom Styles -->
   <style>
-    body { font-family: 'Poppins', sans-serif; background: #F5EFE6; }
-    .logo { max-height: 50px; margin: 20px auto; display: block; }
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Poppins:wght@400;500;600;700&display=swap');
+    
+    /* Base CMS Overrides */
+    .cms {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--background);
+    }
+    
+    /* Header Customization */
+    .cms .cms-header {
+      background: linear-gradient(135deg, #FF6B00 0%, #FF8C42 100%);
+      box-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
+    }
+    
+    /* Button Styling */
+    .cms .cms-btn {
+      transition: all 0.3s ease;
+    }
+    
+    .cms .cms-btn-primary {
+      background-color: #FF6B00;
+      border-color: #FF6B00;
+    }
+    
+    .cms .cms-btn-primary:hover {
+      background-color: #E05D00;
+      transform: translateY(-2px);
+    }
+    
+    /* Card Styling */
+    .cms .cms-card {
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .cms .cms-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Dark Mode Support */
+    .dark .cms {
+      background-color: #111827;
+      color: #F3F4F6;
+    }
+    
+    .dark .cms .cms-card {
+      background-color: #1F2937;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Animations */
+    .animate-fade-in {
+      animation: fadeIn 0.3s ease-in-out forwards;
+    }
+    
+    .animate-slide-up {
+      animation: slideUp 0.4s ease-out forwards;
+    }
   </style>
 </head>
-<body>
-  <!-- Custom Branding -->
-  <img src="https://merakitzam.my.id/assets/logo.png/" class="logo" alt="Zam Logo">
-  <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+<body class="bg-background dark:bg-gray-900 transition-colors duration-300">
+  <!-- Custom Header -->
+  <div class="bg-gradient-to-r from-primary to-orange-400 py-4 shadow-lg">
+    <div class="container mx-auto px-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="https://merakitzam.my.id/assets/logo.png" alt="MerakitZAM Logo" class="h-10">
+        <h1 class="text-white font-heading text-xl md:text-2xl font-bold">ZAM ZAM</h1>
+      </div>
+      <button id="darkModeToggle" class="p-2 rounded-full bg-white/20 hover:bg-white/30 transition-colors">
+        <i class="fas fa-moon text-white dark:hidden"></i>
+        <i class="fas fa-sun text-yellow-300 hidden dark:block"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Loading Animation -->
+  <div id="loadingOverlay" class="fixed inset-0 bg-white/80 dark:bg-gray-900/80 flex items-center justify-center z-50">
+    <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-primary border-opacity-80"></div>
+  </div>
+
+  <!-- CMS Container -->
+  <div id="cms-container" class="opacity-0 transform translate-y-5 transition-all duration-300">
+    <script src="https://unpkg.com/netlify-cms@^3.0.0/dist/netlify-cms.js"></script>
+  </div>
+
+  <!-- Custom Footer -->
+  <footer class="bg-gray-100 dark:bg-gray-800 py-6 mt-8">
+    <div class="container mx-auto px-4 text-center text-gray-600 dark:text-gray-300">
+      <p>© 2025 ZAM ZAM - Manajemen Konten</p>
+    </div>
+  </footer>
+
+  <!-- Font Awesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  
   <script>
-    CMS.registerPreviewStyle("/css/globals.css");
-    CMS.registerPreviewStyle("/css/style.css");
+    // Dark Mode Toggle
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+    });
+    
+    // Initialize dark mode
+    if (localStorage.getItem('darkMode') === 'true' || 
+        (window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem('darkMode'))) {
+      document.documentElement.classList.add('dark');
+    }
+    
+    // Register preview styles with delay
+    setTimeout(() => {
+      CMS.registerPreviewStyle("/css/globals.css");
+      CMS.registerPreviewStyle("/css/style.css");
+      
+      // Custom preview templates can be registered here
+      // CMS.registerPreviewTemplate("blog", MyBlogPreviewComponent);
+      
+      // Hide loading overlay when CMS is ready
+      document.getElementById('loadingOverlay').style.display = 'none';
+      document.getElementById('cms-container').classList.remove('opacity-0', 'translate-y-5');
+    }, 1000);
+    
+    // Initialize Netlify Identity
+    if (window.netlifyIdentity) {
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
+      });
+    }
   </script>
 </body>
 </html>
