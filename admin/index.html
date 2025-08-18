@@ -108,6 +108,11 @@
   </style>
 </head>
 <body class="bg-background dark:bg-gray-900 transition-colors duration-300">
+  <!-- Loading Animation -->
+  <div id="loadingOverlay" class="fixed inset-0 bg-white/80 dark:bg-gray-900/80 flex items-center justify-center z-50">
+    <div class="animate-spin rounded-full h-16 w-16 border-t-4 border-primary border-opacity-80"></div>
+  </div>
+  
   <!-- Custom Header -->
   <div class="bg-gradient-to-r from-primary to-orange-400 py-4 shadow-lg">
     <div class="container mx-auto px-4 flex justify-between items-center">
@@ -158,7 +163,12 @@
       
       // Custom preview templates can be registered here
       CMS.registerPreviewTemplate("blog", MyBlogPreviewComponent);
-      
+
+      // Hide loading overlay when CMS is ready
+      document.getElementById('loadingOverlay').style.display = 'none';     
+      document.getElementById('cms-container').classList.remove('opacity-0', 'translate-y-5');
+      }, 1000);
+    
     // Initialize Netlify Identity
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {
