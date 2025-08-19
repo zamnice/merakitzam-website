@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    
+    <!-- Halaman Utama -->
+    <url>
+        <loc>https://merakitzam.my.id/</loc>
+        <lastmod>2024-03-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+    
+    <!-- Halaman Blog -->
+    <url>
+        <loc>https://merakitzam.my.id/blog/</loc>
+        <lastmod>2024-03-15</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.9</priority>
+    </url>
+    
+    <!-- Halaman Proyek -->
+    <url>
+        <loc>https://merakitzam.my.id/projects/</loc>
+        <lastmod>2024-03-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Halaman Kontak -->
+    <url>
+        <loc>https://merakitzam.my.id/contact/</loc>
+        <lastmod>2024-03-10</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Halaman Tentang -->
+    <url>
+        <loc>https://merakitzam.my.id/about/</loc>
+        <lastmod>2024-03-05</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Contoh Artikel Blog (Generate dinamis untuk setiap artikel) -->
+    <url>
+        <loc>https://merakitzam.my.id/blog/2024-03-10-cara-meningkatkan-produktivitas</loc>
+        <lastmod>2024-03-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    
+    <!-- Halaman FAQ -->
+    <url>
+        <loc>https://merakitzam.my.id/faq/</loc>
+        <lastmod>2024-02-20</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    
+    <!-- Halaman Galeri -->
+    <url>
+        <loc>https://merakitzam.my.id/gallery/</loc>
+        <lastmod>2024-02-15</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+    <!-- Halaman Sumber Daya -->
+    <url>
+        <loc>https://merakitzam.my.id/resources/</loc>
+        <lastmod>2024-02-10</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    
+</urlset>
