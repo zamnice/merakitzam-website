@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /login/
+Disallow: /dashboard/
+Crawl-delay: 10
+Sitemap: https://merakitzam.my.id/sitemap.xml
+Host: merakitzam.my.id
