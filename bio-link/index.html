@@ -91,63 +91,20 @@
 <body class="flex flex-col items-center">
 
   <!-- Navbar -->
-   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
-        <div class="container mx-auto px-4 flex items-center justify-between">
-            <!-- Logo -->
-            <a href="#home" class="flex items-center space-x-2 group">
-                <img src="/assets/logo.svg/" alt="ZAM ZAM Logo" class="h-8 transition-transform group-hover:scale-105">
-            </a>
-            
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex items-center space-x-6">
-                <a href="#home" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.home">Beranda</a>
-                <a href="#projects" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.projects">Kreasi</a>
-                <a href="#blog" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.blog">Inspirasi</a>
-                <a href="#gallery" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.gallery">Galeri</a>
-                <a href="#faq" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.faq">FAQ</a>
-                <a href="#contact" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.contact">Kolaborasi</a>
-                <a href="/bio-link" class="nav-link px-3 py-2 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors">Link</a>
-            </div>
-            
-            <!-- Controls -->
-            <div class="flex items-center space-x-4">
-                
-                <!-- Dark Mode Toggle -->
-                <button id="darkToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
-                    <i class="fas fa-moon dark:hidden"></i>
-                    <i class="fas fa-sun hidden dark:block"></i>
-                </button>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="md:hidden p-2">
-                    <div class="hamburger w-6 h-6 flex flex-col justify-center items-center">
-                        <div class="hamburger-line w-6 h-0.5 bg-current mb-1.5 transition-all"></div>
-                        <div class="hamburger-line w-6 h-0.5 bg-current mb-1.5 transition-all"></div>
-                        <div class="hamburger-line w-6 h-0.5 bg-current transition-all"></div>
-                    </div>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobileMenu" class="md:hidden hidden bg-background dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 shadow-lg">
-            <div class="container mx-auto px-4 py-4 space-y-2">
-                <a href="#home" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.home">Beranda</a>
-                <a href="#projects" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.projects">Kreasi</a>
-                <a href="#blog" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.blog">Inspirasi</a>
-                <a href="#gallery" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.gallery">Galeri</a>
-                <a href="#faq" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.faq">FAQ</a>
-                <a href="#contact" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors" data-translate="nav.contact">Kolaborasi</a>
-                <a href="/bio-link" class="block nav-link px-4 py-3 rounded-lg hover:bg-primary/10 hover:text-primary transition-colors">Link</a>
-                <!-- Language Toggle -->
-                <button id="langToggle" class="px-3 py-1 rounded-full bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors flex items-center space-x-1">
-                    <span class="lang-label">EN</span>
-                    <i class="fas fa-globe text-sm"></i>
-                </button>
-            </div>
-        </div>
-   </nav>
+   <nav class="fixed top-0 w-full flex justify-between items-center px-4 py-3 bg-white shadow-md rounded-b-2xl z-50">
+    <a href="https://www.merakitzam.my.id">
+      <img src="https://files.catbox.moe/h0gnhf.svg" alt="MerakitZAM Logo" class="h-8">
+    </a>
+    <div class="flex gap-4 items-center">
+      <button onclick="shareSite()" class="text-[#FF6B00] text-xl"><i class="fa-solid fa-share-nodes"></i></button>
+      <button onclick="toggleSearch()" class="text-[#FF6B00] text-xl"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+  </nav>
 
+  <!-- Search box -->
+  <div id="searchBox" class="search-box w-full mt-16 px-4">
+    <input type="text" id="searchInput" onkeyup="filterLinks()" placeholder="Cari link..." class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#FF6B00]">
+  </div>
   <!-- Hero -->
   <section class="mt-28 flex flex-col items-center text-center px-4">
     <img src="https://files.catbox.moe/twmsyn.png" alt="MerakitZAM" class="profile-img mb-4" data-aos="fade-down">
