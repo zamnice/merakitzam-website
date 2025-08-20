@@ -96,13 +96,8 @@
     <div id="particles"></div>
     
     <!-- Main Content -->
-    <main class="relative z-10 text-center max-w-2xl w-full">
-        <!-- Logo with Animation -->
-        <div class="animate-float mx-auto mb-8 w-40 h-40">
-            <img src="https://merakitzam.my.id/assets/logo.png" alt="MerakitZAM Logo" class="w-full h-full object-contain">
-        </div>
-        
-        <!-- 404 Text -->
+    <main class="relative z-10 text-center max-w-2xl w-full">    
+    <!-- 404 Text -->
         <h1 class="font-heading text-6xl md:text-8xl font-bold text-primary mb-4 animate-pulse-slow">404</h1>
         <h2 class="font-heading text-2xl md:text-3xl font-bold mb-6">Halaman Tidak Ditemukan</h2>
         <p class="text-lg mb-8 max-w-lg mx-auto">
@@ -110,22 +105,19 @@
             Sementara menunggu kembalinya, mainkan game sederhana di bawah ini!
         </p>
         
-        <!-- Simple Game Canvas -->
-        <div class="mb-8 relative">
-            <canvas id="gameCanvas" width="400" height="200" class="w-full max-w-full border-2 border-primary/20 mx-auto"></canvas>
-            <div id="gameScore" class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-bold">Score: 0</div>
-        </div>
-        
         <!-- Navigation Buttons -->
         <div class="flex flex-wrap justify-center gap-4">
             <a href="/" class="home-btn bg-primary hover:bg-orange-600 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
                 <i class="fas fa-home mr-2"></i> Kembali ke Beranda
             </a>
-            <a href="/blog" class="home-btn border-2 border-primary text-primary hover:bg-primary hover:text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300">
-                <i class="fas fa-book-open mr-2"></i> Baca Blog Kami
-            </a>
         </div>
     </main>
+
+    <!-- Simple Game Canvas -->
+        <div class="mb-8 relative">
+            <canvas id="gameCanvas" width="400" height="200" class="w-full max-w-full border-2 border-primary/20 mx-auto"></canvas>
+            <div id="gameScore" class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-sm font-bold">Score: 0</div>
+        </div>
     
     <!-- Footer -->
     <footer class="mt-12 text-center text-sm text-gray-500 dark:text-gray-400">
