@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brave Pink & Hero Green Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brave-pink': '#f784c5',
+                        'hero-green': '#1b602f',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .retro-shadow {
+            box-shadow: 4px 4px 0px rgba(27, 96, 47, 0.3);
+        }
+        
+        .retro-button {
+            transition: all 0.2s ease;
+        }
+        
+        .retro-button:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px rgba(27, 96, 47, 0.3);
+        }
+        
+        .upload-area {
+            border: 3px dashed #f784c5;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            border-color: #1b602f;
+            background-color: rgba(247, 132, 197, 0.05);
+        }
+        
+        .slider-thumb::-webkit-slider-thumb {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #f784c5;
+            cursor: pointer;
+            border: 2px solid #1b602f;
+        }
+        
+        .slider-thumb::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #f784c5;
+            cursor: pointer;
+            border: 2px solid #1b602f;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-50 to-green-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-2">
+                <span class="text-brave-pink">Brave Pink</span> & 
+                <span class="text-hero-green">Hero Green</span>
+            </h1>
+            <p class="text-lg text-gray-600">Transform your images with stunning duotone effects</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto">
+            <!-- Upload Area -->
+            <div class="bg-white rounded-2xl retro-shadow p-6 mb-6">
+                <div id="uploadArea" class="upload-area rounded-xl p-8 text-center cursor-pointer min-h-[300px] flex flex-col items-center justify-center">
+                    <div id="uploadPrompt">
+                        <svg class="w-16 h-16 text-brave-pink mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                        </svg>
+                        <h3 class="text-xl font-semibold text-gray-700 mb-2">Drop your image here</h3>
+                        <p class="text-gray-500">or click to browse files</p>
+                    </div>
+                    <img id="previewImage" class="hidden max-w-full max-h-[400px] rounded-lg" alt="Preview">
+                    <canvas id="processedCanvas" class="hidden max-w-full max-h-[400px] rounded-lg"></canvas>
+                </div>
+                <input type="file" id="fileInput" accept="image/*" class="hidden">
+            </div>
+
+            <!-- Controls -->
+            <div class="bg-white rounded-2xl retro-shadow p-6 mb-6">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Effect Controls</h3>
+                
+                <!-- Preset Buttons -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <button id="bravePinkBtn" class="retro-button retro-shadow bg-brave-pink text-white px-6 py-3 rounded-lg font-semibold">
+                        Brave Pink
+                    </button>
+                    <button id="heroGreenBtn" class="retro-button retro-shadow bg-hero-green text-white px-6 py-3 rounded-lg font-semibold">
+                        Hero Green
+                    </button>
+                    <button id="duoBtn" class="retro-button retro-shadow bg-gradient-to-r from-brave-pink to-hero-green text-white px-6 py-3 rounded-lg font-semibold">
+                        Duo Pink-Green
+                    </button>
+                </div>
+
+                <!-- Sliders -->
+                <div class="space-y-4 mb-6">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Effect Intensity</label>
+                        <input type="range" id="intensitySlider" min="0" max="100" value="50" class="slider-thumb w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>Subtle</span>
+                            <span>Strong</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Original Mix</label>
+                        <input type="range" id="mixSlider" min="0" max="100" value="30" class="slider-thumb w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>Pure Effect</span>
+                            <span>Original Image</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Colors -->
+                <div class="border-t pt-4">
+                    <h4 class="text-sm font-medium text-gray-700 mb-3">Custom Colors (Advanced)</h4>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs text-gray-600 mb-1">Highlight Color</label>
+                            <input type="color" id="highlightColor" value="#f784c5" class="w-full h-10 rounded border-2 border-gray-300">
+                        </div>
+                        <div>
+                            <label class="block text-xs text-gray-600 mb-1">Shadow Color</label>
+                            <input type="color" id="shadowColor" value="#1b602f" class="w-full h-10 rounded border-2 border-gray-300">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Download Button -->
+            <div class="text-center mb-8">
+                <button id="downloadBtn" class="retro-button retro-shadow bg-gradient-to-r from-brave-pink to-hero-green text-white px-8 py-4 rounded-xl font-semibold text-lg disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                    <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-4-4m4 4l4-4m5-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Download Processed Image
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t-4 border-brave-pink mt-12">
+        <div class="container mx-auto px-4 py-6">
+            <div class="text-center">
+                <p class="text-gray-600">
+                    Created by 
+                    <a href="https://merakitzam.my.id" target="_blank" class="font-semibold text-brave-pink hover:text-hero-green transition-colors duration-200">
+                        ZAM ZAM
+                    </a>
+                </p>
+                <div class="mt-2 flex justify-center space-x-2">
+                    <div class="w-3 h-3 bg-brave-pink rounded-full"></div>
+                    <div class="w-3 h-3 bg-hero-green rounded-full"></div>
+                    <div class="w-3 h-3 bg-brave-pink rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        class DuotoneGenerator {
+            constructor() {
+                this.canvas = document.getElementById('processedCanvas');
+                this.ctx = this.canvas.getContext('2d');
+                this.originalImage = null;
+                this.currentPreset = 'duo';
+                
+                this.initializeEventListeners();
+            }
+
+            initializeEventListeners() {
+                const uploadArea = document.getElementById('uploadArea');
+                const fileInput = document.getElementById('fileInput');
+                const previewImage = document.getElementById('previewImage');
+
+                // File upload handling
+                uploadArea.addEventListener('click', () => fileInput.click());
+                uploadArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.add('border-hero-green', 'bg-pink-50');
+                });
+                uploadArea.addEventListener('dragleave', () => {
+                    uploadArea.classList.remove('border-hero-green', 'bg-pink-50');
+                });
+                uploadArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.remove('border-hero-green', 'bg-pink-50');
+                    const files = e.dataTransfer.files;
+                    if (files.length > 0) {
+                        this.handleFileUpload(files[0]);
+                    }
+                });
+
+                fileInput.addEventListener('change', (e) => {
+                    if (e.target.files.length > 0) {
+                        this.handleFileUpload(e.target.files[0]);
+                    }
+                });
+
+                // Preset buttons
+                document.getElementById('bravePinkBtn').addEventListener('click', () => {
+                    this.currentPreset = 'pink';
+                    this.applyDuotone();
+                });
+                document.getElementById('heroGreenBtn').addEventListener('click', () => {
+                    this.currentPreset = 'green';
+                    this.applyDuotone();
+                });
+                document.getElementById('duoBtn').addEventListener('click', () => {
+                    this.currentPreset = 'duo';
+                    this.applyDuotone();
+                });
+
+                // Sliders
+                document.getElementById('intensitySlider').addEventListener('input', () => this.applyDuotone());
+                document.getElementById('mixSlider').addEventListener('input', () => this.applyDuotone());
+
+                // Color pickers
+                document.getElementById('highlightColor').addEventListener('change', () => {
+                    this.currentPreset = 'custom';
+                    this.applyDuotone();
+                });
+                document.getElementById('shadowColor').addEventListener('change', () => {
+                    this.currentPreset = 'custom';
+                    this.applyDuotone();
+                });
+
+                // Download button
+                document.getElementById('downloadBtn').addEventListener('click', () => this.downloadImage());
+            }
+
+            handleFileUpload(file) {
+                if (!file.type.startsWith('image/')) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid File',
+                        text: 'Please select a valid image file.',
+                        confirmButtonColor: '#f784c5'
+                    });
+                    return;
+                }
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        this.originalImage = img;
+                        this.setupCanvas();
+                        this.showPreview();
+                        this.applyDuotone();
+                        document.getElementById('downloadBtn').disabled = false;
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            setupCanvas() {
+                const maxWidth = 800;
+                const maxHeight = 600;
+                let { width, height } = this.originalImage;
+
+                // Maintain aspect ratio
+                if (width > maxWidth) {
+                    height = (height * maxWidth) / width;
+                    width = maxWidth;
+                }
+                if (height > maxHeight) {
+                    width = (width * maxHeight) / height;
+                    height = maxHeight;
+                }
+
+                this.canvas.width = width;
+                this.canvas.height = height;
+            }
+
+            showPreview() {
+                document.getElementById('uploadPrompt').classList.add('hidden');
+                document.getElementById('previewImage').classList.add('hidden');
+                this.canvas.classList.remove('hidden');
+            }
+
+            applyDuotone() {
+                if (!this.originalImage) return;
+
+                const { width, height } = this.canvas;
+                this.ctx.drawImage(this.originalImage, 0, 0, width, height);
+
+                const imageData = this.ctx.getImageData(0, 0, width, height);
+                const data = imageData.data;
+
+                const intensity = document.getElementById('intensitySlider').value / 100;
+                const mix = document.getElementById('mixSlider').value / 100;
+
+                let highlightColor, shadowColor;
+
+                switch (this.currentPreset) {
+                    case 'pink':
+                        highlightColor = { r: 247, g: 132, b: 197 };
+                        shadowColor = { r: 139, g: 69, b: 109 };
+                        break;
+                    case 'green':
+                        highlightColor = { r: 27, g: 96, b: 47 };
+                        shadowColor = { r: 13, g: 48, b: 23 };
+                        break;
+                    case 'duo':
+                        highlightColor = { r: 247, g: 132, b: 197 };
+                        shadowColor = { r: 27, g: 96, b: 47 };
+                        break;
+                    case 'custom':
+                        highlightColor = this.hexToRgb(document.getElementById('highlightColor').value);
+                        shadowColor = this.hexToRgb(document.getElementById('shadowColor').value);
+                        break;
+                }
+
+                for (let i = 0; i < data.length; i += 4) {
+                    const r = data[i];
+                    const g = data[i + 1];
+                    const b = data[i + 2];
+
+                    // Calculate luminance
+                    const luminance = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+
+                    // Interpolate between shadow and highlight colors based on luminance
+                    const duotoneR = shadowColor.r + (highlightColor.r - shadowColor.r) * luminance;
+                    const duotoneG = shadowColor.g + (highlightColor.g - shadowColor.g) * luminance;
+                    const duotoneB = shadowColor.b + (highlightColor.b - shadowColor.b) * luminance;
+
+                    // Apply intensity and mix with original
+                    const finalR = (duotoneR * intensity + r * (1 - intensity)) * (1 - mix) + r * mix;
+                    const finalG = (duotoneG * intensity + g * (1 - intensity)) * (1 - mix) + g * mix;
+                    const finalB = (duotoneB * intensity + b * (1 - intensity)) * (1 - mix) + b * mix;
+
+                    data[i] = Math.round(finalR);
+                    data[i + 1] = Math.round(finalG);
+                    data[i + 2] = Math.round(finalB);
+                }
+
+                this.ctx.putImageData(imageData, 0, 0);
+            }
+
+            hexToRgb(hex) {
+                const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+                return result ? {
+                    r: parseInt(result[1], 16),
+                    g: parseInt(result[2], 16),
+                    b: parseInt(result[3], 16)
+                } : { r: 0, g: 0, b: 0 };
+            }
+
+            downloadImage() {
+                if (!this.canvas) return;
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Image Processed!',
+                    text: 'Your duotone image is ready for download.',
+                    confirmButtonText: 'Download Now',
+                    confirmButtonColor: '#f784c5',
+                    showCancelButton: true,
+                    cancelButtonText: 'Cancel',
+                    cancelButtonColor: '#1b602f'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        const link = document.createElement('a');
+                        link.download = `duotone-${Date.now()}.png`;
+                        link.href = this.canvas.toDataURL('image/png');
+                        link.click();
+                    }
+                });
+            }
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            new DuotoneGenerator();
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'979535c965ca9c93',t:'MTc1NjkwMjEyMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
