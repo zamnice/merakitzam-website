@@ -2,27 +2,33 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="2;url=https://instagram.com/merakitzam">
-  <title>Mengalihkan...</title>
+  <title>MerakitZam Instagram</title>
+
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Instagram @merakitzam">
+  <meta property="og:description" content="Lihat update terbaru dari MerakitZam di Instagram 🚀">
+  <meta property="og:image" content="https://merakitzam.my.id/assets/og-image.png/">
+  <meta property="og:url" content="https://www.merakitzam.my.id/to/instagram">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card (biar muncul juga di Twitter/X) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Instagram @merakitzam">
+  <meta name="twitter:description" content="Follow update terbaru dari ZAM ZAM di Instagram 🚀">
+  <meta name="twitter:image" content="https://merakitzam.my.id/assets/og-image.png/">
+
   <script>
-    // Fallback pakai JS kalau meta refresh gagal
-    setTimeout(function() {
-      window.location.href = "https://instagram.com/merakitzam";
-    }, 1000);
+    window.onload = function () {
+      // coba buka aplikasi Instagram langsung
+      window.location.href = "instagram://user?username=merakitzam";
+
+      // fallback ke web kalau gagal
+      setTimeout(function () {
+        window.location.href = "https://instagram.com/merakitzam";
+      }, 500);
+    }
   </script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-    }
-    .msg {
-      font-size: 20px;
-      color: #FF6B00;
-    }
-  </style>
 </head>
 <body>
-  <p class="msg">Sebentar... kamu sedang dialihkan ke Instagram MerakitZam 🚀</p>
 </body>
 </html>
