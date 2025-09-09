@@ -1,4 +1,4 @@
-# Merakitzam Lite Website
+# Merakitzam Website
 
 A mobile-friendly single-page website for Zam Zam's personal brand.
 
