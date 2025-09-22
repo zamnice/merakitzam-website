@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming Store Redrix - All-in-One Gaming Needs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#000000',
+                        accent: '#22C55E',
+                        light: '#F0FDF4',
+                        dark: '#0A0A0A',
+                        neon: '#00FF41'
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'exo': ['Exo 2', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Exo 2', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .logo-text {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            text-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 5px #10B981, 0 0 10px #10B981, 0 0 15px #10B981;
+        }
+        
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(16, 185, 129, 0.15);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #10B981;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #10B981, #22C55E);
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9)), 
+                        url('https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .game-bg {
+            background: linear-gradient(rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+        }
+        
+        .pulse-animation {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu.hidden {
+            opacity: 0;
+            transform: translateY(-10px);
+            pointer-events: none;
+        }
+        
+        .mobile-menu:not(.hidden) {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-dark shadow-lg border-b border-green-900">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl pulse-animation">
+                    <i class="fas fa-gamepad"></i>
+                </div>
+                <span class="ml-3 text-2xl logo-text">REDRIX<span class="text-primary">STORE</span></span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-10">
+                <a href="#home" class="nav-link text-lg">Beranda</a>
+                <a href="#products" class="nav-link text-lg">Produk</a>
+                <a href="#features" class="nav-link text-lg">Keunggulan</a>
+                <a href="#how-to-order" class="nav-link text-lg">Cara Order</a>
+                <a href="#testimonials" class="nav-link text-lg">Testimoni</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button class="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-lg font-medium hover:opacity-90 transition">Login</button>
+                <button class="md:hidden text-2xl" id="mobile-menu-button">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu hidden absolute w-full bg-dark border-b border-green-900 py-4 shadow-lg" id="mobile-menu">
+            <div class="container mx-auto px-4 flex flex-col space-y-4">
+                <a href="#home" class="py-3 px-4 rounded-lg hover:bg-green-900 transition text-lg flex items-center">
+                    <i class="fas fa-home mr-3 text-primary"></i> Beranda
+                </a>
+                <a href="#products" class="py-3 px-4 rounded-lg hover:bg-green-900 transition text-lg flex items-center">
+                    <i class="fas fa-shopping-bag mr-3 text-primary"></i> Produk
+                </a>
+                <a href="#features" class="py-3 px-4 rounded-lg hover:bg-green-900 transition text-lg flex items-center">
+                    <i class="fas fa-star mr-3 text-primary"></i> Keunggulan
+                </a>
+                <a href="#how-to-order" class="py-3 px-4 rounded-lg hover:bg-green-900 transition text-lg flex items-center">
+                    <i class="fas fa-shopping-cart mr-3 text-primary"></i> Cara Order
+                </a>
+                <a href="#testimonials" class="py-3 px-4 rounded-lg hover:bg-green-900 transition text-lg flex items-center">
+                    <i class="fas fa-comments mr-3 text-primary"></i> Testimoni
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg py-20 md:py-32">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 neon-text">Tingkatkan <span class="text-primary">Level Gaming</span> Anda</h1>
+                <p class="text-xl mb-6 font-exo">Diamond, Voucher, Top Up, dan semua kebutuhan gaming dalam satu tempat. Proses instan, aman, dan terpercaya hanya di Redrix Store.</p>
+                <div class="flex flex-wrap gap-4">
+                    <button class="bg-gradient-to-r from-primary to-accent text-white px-8 py-3 rounded-lg font-medium hover:opacity-90 transition flex items-center">
+                        <i class="fas fa-bolt mr-2"></i> Beli Sekarang
+                    </button>
+                    <button class="border border-primary text-primary px-8 py-3 rounded-lg font-medium hover:bg-green-900 transition flex items-center">
+                        <i class="fas fa-play-circle mr-2"></i> Lihat Produk
+                    </button>
+                </div>
+                <div class="mt-8 flex items-center">
+                    <div class="flex -space-x-2">
+                        <div class="w-10 h-10 rounded-full border-2 border-dark bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+                            <span class="text-white text-xs font-bold">ML</span>
+                        </div>
+                        <div class="w-10 h-10 rounded-full border-2 border-dark bg-gradient-to-r from-yellow-500 to-red-500 flex items-center justify-center">
+                            <span class="text-white text-xs font-bold">PUBG</span>
+                        </div>
+                        <div class="w-10 h-10 rounded-full border-2 border-dark bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center">
+                            <span class="text-white text-xs font-bold">GI</span>
+                        </div>
+                        <div class="w-10 h-10 rounded-full border-2 border-dark bg-gradient-to-r from-red-500 to-pink-500 flex items-center justify-center">
+                            <span class="text-white text-xs font-bold">VAL</span>
+                        </div>
+                    </div>
+                    <p class="ml-4 text-gray-300">Mendukung 100+ Game Populer</p>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-primary to-accent rounded-2xl rotate-3 opacity-20 blur-lg"></div>
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" 
+                         alt="Gaming Setup" class="relative rounded-2xl shadow-2xl w-full max-w-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 game-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Produk <span class="text-primary">Unggulan</span></h2>
+                <p class="text-lg max-w-2xl mx-auto">Temukan beragam item game online untuk game favorit Anda dengan harga terbaik.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-gradient-to-br from-dark to-gray-900 rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-r from-primary to-green-400 flex items-center justify-center relative">
+                        <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80" 
+                             alt="Mobile Legends" class="w-full h-full object-cover opacity-70">
+                        <span class="absolute text-white text-5xl font-bold">ML</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Mobile Legends Diamond</h3>
+                        <p class="text-gray-400 mb-4">Diamond Mobile Legends dengan proses instan dan harga terjangkau.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-primary">Rp 10.000</span>
+                            <button class="bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-lg hover:opacity-90 transition flex items-center">
+                                <i class="fas fa-shopping-cart mr-2"></i> Beli
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-gradient-to-br from-dark to-gray-900 rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-r from-yellow-500 to-red-500 flex items-center justify-center relative">
+                        <img src="https://images.unsplash.com/photo-1580128660010-fd027e1e587a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80" 
+                             alt="PUBG" class="w-full h-full object-cover opacity-70">
+                        <span class="absolute text-white text-5xl font-bold">PUBG</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">PUBG UC (Unknown Cash)</h3>
+                        <p class="text-gray-400 mb-4">Unknown Cash untuk PUBG Mobile dengan proses cepat dan aman.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-primary">Rp 15.000</span>
+                            <button class="bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-lg hover:opacity-90 transition flex items-center">
+                                <i class="fas fa-shopping-cart mr-2"></i> Beli
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-gradient-to-br from-dark to-gray-900 rounded-2xl overflow-hidden shadow-lg">
+                    <div class="h-48 bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center relative">
+                        <img src="https://images.unsplash.com/photo-1631448171337-9e5abcb1399e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1772&q=80" 
+                             alt="Genshin Impact" class="w-full h-full object-cover opacity-70">
+                        <span class="absolute text-white text-5xl font-bold">GI</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Genshin Impact Genesis Crystal</h3>
+                        <p class="text-gray-400 mb-4">Genesis Crystal untuk Genshin Impact dengan bonus yang menguntungkan.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-primary">Rp 25.000</span>
+                            <button class="bg-gradient-to-r from-primary to-accent text-white px-4 py-2 rounded-lg hover:opacity-90 transition flex items-center">
+                                <i class="fas fa-shopping-cart mr-2"></i> Beli
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="border border-primary text-primary px-8 py-3 rounded-lg font-medium hover:bg-green-900 transition flex items-center mx-auto">
+                    <i class="fas fa-arrow-right mr-2"></i> Lihat Semua Produk
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gradient-to-b from-dark to-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Keunggulan <span class="text-primary">Redrix Store</span></h2>
+                <p class="text-lg max-w-2xl mx-auto">Mengapa harus memilih Redrix Store untuk pembelian item game online Anda?</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl shadow-lg text-center border border-gray-700">
+                    <div class="feature-icon mx-auto text-3xl text-white">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Proses Instan</h3>
+                    <p class="text-gray-400">Item game akan langsung masuk ke akun Anda dalam waktu kurang dari 3 menit.</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl shadow-lg text-center border border-gray-700">
+                    <div class="feature-icon mx-auto text-3xl text-white">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">100% Aman</h3>
+                    <p class="text-gray-400">Transaksi aman dengan sistem terverifikasi dan terjamin keamanannya.</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl shadow-lg text-center border border-gray-700">
+                    <div class="feature-icon mx-auto text-3xl text-white">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">CS 24/7</h3>
+                    <p class="text-gray-400">Tim customer service siap membantu Anda kapan saja, setiap hari.</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl shadow-lg text-center border border-gray-700">
+                    <div class="feature-icon mx-auto text-3xl text-white">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Harga Terjangkau</h3>
+                    <p class="text-gray-400">Kami menawarkan harga terbaik dengan berbagai promo menarik setiap minggu.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Order Section -->
+    <section id="how-to-order" class="py-16 game-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Cara <span class="text-primary">Order</span></h2>
+                <p class="text-lg max-w-2xl mx-auto">Ikuti langkah-langkah mudah berikut untuk melakukan pembelian di Redrix Store.</p>
+            </div>
+            
+            <div class="flex flex-col lg:flex-row gap-8">
+                <div class="lg:w-2/3 bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700">
+                    <div class="flex flex-col md:flex-row items-start mb-8">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-2xl mr-6 mb-4 md:mb-0">1</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Pilih Produk</h3>
+                            <p class="text-gray-400">Pilih game dan item yang ingin Anda beli dari katalog produk kami. Kami mendukung 100+ game populer.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row items-start mb-8">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-2xl mr-6 mb-4 md:mb-0">2</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Masukkan Data</h3>
+                            <p class="text-gray-400">Masukkan ID game, server, dan data lainnya yang diperlukan. Pastikan data yang dimasukkan benar.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row items-start mb-8">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-2xl mr-6 mb-4 md:mb-0">3</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Pembayaran</h3>
+                            <p class="text-gray-400">Pilih metode pembayaran yang tersedia dan selesaikan transaksi Anda. Kami mendukung transfer bank, e-wallet, dan QRIS.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row items-start">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-2xl mr-6 mb-4 md:mb-0">4</div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Item Diterima</h3>
+                            <p class="text-gray-400">Item akan langsung masuk ke akun game Anda dalam waktu singkat. Proses biasanya memakan waktu 1-5 menit.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/3 bg-gradient-to-br from-primary to-accent p-8 rounded-2xl text-white">
+                    <h3 class="text-2xl font-bold mb-6">Butuh Bantuan?</h3>
+                    <p class="mb-6">Tim customer service kami siap membantu Anda 24 jam setiap hari.</p>
+                    
+                    <div class="flex items-center mb-4 p-3 bg-white bg-opacity-10 rounded-lg">
+                        <div class="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center mr-4">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Live Chat</h4>
+                            <p>Tersedia 24/7</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center mb-4 p-3 bg-white bg-opacity-10 rounded-lg">
+                        <div class="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center mr-4">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">WhatsApp</h4>
+                            <p>+62 812 3456 7890</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center p-3 bg-white bg-opacity-10 rounded-lg">
+                        <div class="w-12 h-12 rounded-full bg-white text-primary flex items-center justify-center mr-4">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Email</h4>
+                            <p>support@redrixstore.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-gradient-to-b from-dark to-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Apa Kata <span class="text-primary">Pelanggan</span> Kami?</h2>
+                <p class="text-lg max-w-2xl mx-auto">Testimoni dari gamers yang telah merasakan kemudahan berbelanja di Redrix Store.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl border border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold mr-4">A</div>
+                        <div>
+                            <h4 class="font-bold">Ahmad R.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">"Proses top up di Redrix Store sangat cepat! Hanya butuh 2 menit, diamond ML saya sudah masuk. Recommended banget!"</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl border border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold mr-4">S</div>
+                        <div>
+                            <h4 class="font-bold">Sari W.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">"Customer service ramah dan responsif. Bisa bantu kapan aja, bahkan tengah malam. Harga juga lebih murah dibanding tempat lain."</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl border border-gray-700">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold mr-4">R</div>
+                        <div>
+                            <h4 class="font-bold">Rizky P.</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-400">"Udah belanja di sini berkali-kali, selalu puas. Proses cepat, aman, dan banyak pilihan metode pembayaran. Top banget!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-primary to-accent">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Siap Meningkatkan Pengalaman Gaming Anda?</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Bergabung dengan ribuan gamers lainnya yang telah mempercayakan kebutuhan gaming mereka kepada Redrix Store.</p>
+            <button class="bg-dark text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-900 transition flex items-center mx-auto">
+                <i class="fas fa-rocket mr-2"></i> Mulai Belanja Sekarang
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold text-xl">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <span class="ml-3 text-2xl logo-text">REDRIX<span class="text-primary">STORE</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-4">Platform terpercaya untuk pembelian item game online dengan proses instan dan aman.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Tautan Cepat</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-primary transition">Beranda</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-primary transition">Produk</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-primary transition">Keunggulan</a></li>
+                        <li><a href="#how-to-order" class="text-gray-400 hover:text-primary transition">Cara Order</a></li>
+                        <li><a href="#testimonials" class="text-gray-400 hover:text-primary transition">Testimoni</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Produk Populer</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">Mobile Legends Diamond</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">PUBG UC</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">Genshin Impact Genesis Crystal</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">Valorant Points</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">Free Fire Diamond</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Kontak Kami</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-2"></i>
+                            <span class="text-gray-400">support@redrixstore.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fab fa-whatsapp text-primary mr-2"></i>
+                            <span class="text-gray-400">+62 812 3456 7890</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-primary mr-2"></i>
+                            <span class="text-gray-400">Jakarta, Indonesia</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Gaming Store Redrix. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            
+            // Change icon
+            const icon = this.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.getElementById('mobile-menu').classList.add('hidden');
+                document.getElementById('mobile-menu-button').querySelector('i').classList.remove('fa-times');
+                document.getElementById('mobile-menu-button').querySelector('i').classList.add('fa-bars');
+            });
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
