@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelas Olimpiade - SMP Tech Champions</title>
+    <title>Kelas 8 Astronomy - SMP Sukamakmur 15</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -15,21 +16,36 @@
                         secondary: '#C4B5FD',
                         accent: '#7E22CE',
                         light: '#F5F3FF',
+                        dark: '#1E1B4B',
+                    },
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'space': ['Space Grotesk', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-        
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Space Grotesk', sans-serif;
             scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Orbitron', sans-serif;
         }
         
         .gradient-bg {
             background: linear-gradient(135deg, #F5F3FF 0%, #DDD6FE 100%);
+        }
+        
+        .astronomy-bg {
+            background: linear-gradient(rgba(30, 27, 75, 0.8), rgba(30, 27, 75, 0.9)), url('https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
         
         .card-hover {
@@ -70,18 +86,97 @@
         .message-form {
             box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
         }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .constellation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite alternate;
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        
+        .planet-illustration {
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            bottom: -8px;
+            left: 0;
+            background: linear-gradient(90deg, #8B5CF6, #7E22CE);
+            border-radius: 2px;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-dark z-50 flex flex-col items-center justify-center md:hidden">
+        <button id="closeMenu" class="absolute top-6 right-6 text-white text-2xl">
+            <i class="fas fa-times"></i>
+        </button>
+        
+        <nav class="flex flex-col items-center space-y-8 text-white text-xl">
+            <a href="#home" class="hover:text-primary transition py-2">Home</a>
+            <a href="#about" class="hover:text-primary transition py-2">Tentang</a>
+            <a href="#structure" class="hover:text-primary transition py-2">Struktur</a>
+            <a href="#gallery" class="hover:text-primary transition py-2">Galeri</a>
+            <a href="#achievements" class="hover:text-primary transition py-2">Prestasi</a>
+            <a href="#message" class="hover:text-primary transition py-2">Pesan</a>
+        </nav>
+        
+        <div class="mt-12 text-center text-light">
+            <div class="flex items-center justify-center mb-4">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold mr-2">8A</div>
+                <span class="text-xl font-bold">Kelas 8 Astronomy</span>
+            </div>
+            <p class="max-w-xs">SMP Sukamakmur 15</p>
+        </div>
+    </div>
+
     <!-- Header & Navigation -->
-    <header class="sticky top-0 z-50 bg-white shadow-md">
+    <header class="sticky top-0 z-40 bg-white shadow-md">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold mr-2">KO</div>
-                <span class="text-xl font-bold text-primary">Kelas Olimpiade</span>
+                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold mr-2">8A</div>
+                <span class="text-xl font-bold text-primary font-orbitron">Kelas 8 Astronomy</span>
             </div>
             
-            <nav class="hidden md:flex space-x-8">
+            <nav class="hidden md:flex space-x-8 font-space">
                 <a href="#home" class="hover:text-primary transition">Home</a>
                 <a href="#about" class="hover:text-primary transition">Tentang</a>
                 <a href="#structure" class="hover:text-primary transition">Struktur</a>
@@ -90,21 +185,23 @@
                 <a href="#message" class="hover:text-primary transition">Pesan</a>
             </nav>
             
-            <button class="md:hidden text-primary">
+            <button id="openMenu" class="md:hidden text-primary">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="gradient-bg py-16 md:py-24">
-        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+    <section id="home" class="astronomy-bg text-white py-16 md:py-24 relative overflow-hidden">
+        <div class="constellation" id="constellation"></div>
+        
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center relative z-10">
             <div class="md:w-1/2 mb-10 md:mb-0">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-4">Kelas <span class="text-primary">Olimpiade</span> SMP Tech Champions</h1>
-                <p class="text-lg text-gray-600 mb-6">Wadah bagi siswa berprestasi untuk mengembangkan bakat dalam bidang sains, matematika, dan teknologi.</p>
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">Kelas 8 <span class="text-primary">Astronomy</span><br>SMP Sukamakmur 15</h1>
+                <p class="text-lg text-light mb-6">Menggali misteri alam semesta, mengeksplorasi bintang-bintang, dan meraih prestasi di bidang astronomi dan sains.</p>
                 <div class="flex space-x-4">
-                    <a href="#about" class="bg-primary hover:bg-accent text-white px-6 py-3 rounded-lg font-medium transition">Jelajahi</a>
-                    <a href="#message" class="border border-primary text-primary hover:bg-light px-6 py-3 rounded-lg font-medium transition">Kirim Pesan</a>
+                    <a href="#about" class="bg-primary hover:bg-accent text-white px-6 py-3 rounded-lg font-medium transition">Jelajahi Kelas</a>
+                    <a href="#message" class="border border-primary text-primary hover:bg-dark px-6 py-3 rounded-lg font-medium transition">Kirim Pesan</a>
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center">
@@ -112,10 +209,13 @@
                     <div class="absolute -top-6 -left-6 w-32 h-32 rounded-full bg-secondary opacity-50"></div>
                     <div class="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-primary opacity-30"></div>
                     <div class="relative bg-white rounded-xl shadow-xl p-2 transform rotate-2">
-                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=500" alt="Kelas Olimpiade" class="rounded-lg w-full h-64 object-cover">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kelas Astronomy" class="rounded-lg w-full h-64 object-cover">
                     </div>
                     <div class="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 transform -rotate-6">
-                        <div class="text-sm font-bold text-primary">Tim Olimpiade Sains 2023</div>
+                        <div class="text-sm font-bold text-primary">Tim Astronomy 2023</div>
+                    </div>
+                    <div class="absolute top-10 -left-10 planet-illustration">
+                        <i class="fas fa-globe-americas text-6xl text-secondary opacity-70"></i>
                     </div>
                 </div>
             </div>
@@ -126,33 +226,33 @@
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Tentang <span class="text-primary">Kelas Olimpiade</span></h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Kelas Olimpiade adalah program khusus untuk siswa-siswa terpilih yang memiliki minat dan bakat dalam bidang akademik khususnya sains dan matematika.</p>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title">Tentang <span class="text-primary">Kelas Astronomy</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Kelas 8 Astronomy adalah program khusus SMP Sukamakmur 15 untuk siswa-siswa terpilih yang memiliki minat dan bakat dalam bidang astronomi, fisika, dan eksplorasi sains.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="bg-light rounded-xl p-6 card-hover">
                     <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white mb-4">
-                        <i class="fas fa-atom text-2xl"></i>
+                        <i class="fas fa-star-and-crescent text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Fokus Sains</h3>
-                    <p class="text-gray-600">Pembelajaran mendalam tentang fisika, kimia, biologi, dan astronomi dengan pendekatan praktis.</p>
+                    <h3 class="text-xl font-semibold mb-2">Astronomi & Astrofisika</h3>
+                    <p class="text-gray-600">Pembelajaran tentang tata surya, bintang, galaksi, dan fenomena kosmik dengan pendekatan ilmiah.</p>
                 </div>
                 
                 <div class="bg-light rounded-xl p-6 card-hover">
                     <div class="w-14 h-14 rounded-full bg-accent flex items-center justify-center text-white mb-4">
-                        <i class="fas fa-calculator text-2xl"></i>
+                        <i class="fas fa-satellite text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Matematika Advance</h3>
-                    <p class="text-gray-600">Penguasaan konsep matematika tingkat tinggi dan penerapannya dalam pemecahan masalah kompleks.</p>
+                    <h3 class="text-xl font-semibold mb-2">Teknologi Antariksa</h3>
+                    <p class="text-gray-600">Pengenalan teknologi satelit, roket, dan eksplorasi ruang angkasa beserta penerapannya.</p>
                 </div>
                 
                 <div class="bg-light rounded-xl p-6 card-hover">
                     <div class="w-14 h-14 rounded-full bg-secondary flex items-center justify-center text-white mb-4">
-                        <i class="fas fa-laptop-code text-2xl"></i>
+                        <i class="fas fa-user-astronaut text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">Teknologi & Coding</h3>
-                    <p class="text-gray-600">Pengenalan pemrograman, robotika, dan teknologi digital untuk mengembangkan kemampuan abad 21.</p>
+                    <h3 class="text-xl font-semibold mb-2">Observasi & Penelitian</h3>
+                    <p class="text-gray-600">Praktik observasi langit malam, pengolahan data astronomi, dan metode penelitian ilmiah.</p>
                 </div>
             </div>
         </div>
@@ -162,36 +262,36 @@
     <section id="structure" class="py-16 gradient-bg">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Struktur <span class="text-primary">Kelas</span></h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Kelas Olimpiade dipimpin oleh guru-guru berkompeten dan dibantu oleh pengurus kelas yang dipilih secara demokratis.</p>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title">Struktur <span class="text-primary">Kelas</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Kelas Astronomy dipimpin oleh guru-guru ahli dan dibantu oleh pengurus kelas yang berdedikasi.</p>
             </div>
             
             <div class="flex flex-wrap justify-center gap-8">
                 <div class="bg-white rounded-xl p-6 text-center w-64 shadow-md card-hover">
                     <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-4 border-light">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="Guru Pembimbing" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Guru Pembimbing" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xl font-semibold">Dr. Ahmad Santoso</h3>
-                    <p class="text-primary font-medium">Guru Pembimbing Matematika</p>
-                    <p class="text-gray-600 text-sm mt-2">Pengajar berprestasi nasional dengan pengalaman 15 tahun.</p>
+                    <h3 class="text-xl font-semibold">Dr. Arifin Wijaya, M.Si</h3>
+                    <p class="text-primary font-medium">Guru Pembimbing Astronomi</p>
+                    <p class="text-gray-600 text-sm mt-2">Alumnus Astronomi ITB dengan pengalaman 10 tahun mengajar.</p>
                 </div>
                 
                 <div class="bg-white rounded-xl p-6 text-center w-64 shadow-md card-hover">
                     <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-4 border-light">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Guru Pembimbing" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Guru Pembimbing" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xl font-semibold">Dra. Siti Rahayu</h3>
-                    <p class="text-primary font-medium">Guru Pembimbing Sains</p>
-                    <p class="text-gray-600 text-sm mt-2">Spesialis kimia dan biologi, lulusan terbaik Universitas Indonesia.</p>
+                    <h3 class="text-xl font-semibold">Diana Sari, S.Pd</h3>
+                    <p class="text-primary font-medium">Guru Pembimbing Fisika</p>
+                    <p class="text-gray-600 text-sm mt-2">Spesialis fisika modern dan kosmologi, pembimbing olimpiade nasional.</p>
                 </div>
                 
                 <div class="bg-white rounded-xl p-6 text-center w-64 shadow-md card-hover">
                     <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-4 border-light">
-                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=400" alt="Ketua Kelas" class="w-full h-full object-cover">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Ketua Kelas" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xl font-semibold">Raka Pratama</h3>
+                    <h3 class="text-xl font-semibold">Rizki Maulana</h3>
                     <p class="text-primary font-medium">Ketua Kelas</p>
-                    <p class="text-gray-600 text-sm mt-2">Siswa berprestasi dengan segudang penghargaan sains tingkat nasional.</p>
+                    <p class="text-gray-600 text-sm mt-2">Peraih medali emas Olimpiade Astronomi tingkat provinsi 2023.</p>
                 </div>
             </div>
         </div>
@@ -201,28 +301,46 @@
     <section id="gallery" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Galeri <span class="text-primary">Kegiatan</span></h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Dokumentasi kegiatan belajar, eksperimen, dan kompetisi yang diikuti oleh siswa Kelas Olimpiade.</p>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title">Galeri <span class="text-primary">Kegiatan</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Dokumentasi kegiatan observasi, eksperimen, dan kompetisi astronomi.</p>
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                 <div class="gallery-item rounded-xl overflow-hidden h-64">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=500" alt="Eksperimen Sains" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Observasi Bintang" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 text-white">
+                        <p class="font-semibold">Observasi Bintang</p>
+                    </div>
                 </div>
                 <div class="gallery-item rounded-xl overflow-hidden h-64">
-                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=500" alt="Diskusi Kelompok" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1502136969935-8d8eef54d77b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Eksperimen Fisika" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 text-white">
+                        <p class="font-semibold">Eksperimen Fisika</p>
+                    </div>
                 </div>
                 <div class="gallery-item rounded-xl overflow-hidden h-64">
-                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=500" alt="Kompetisi" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kunjungan Planetarium" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 text-white">
+                        <p class="font-semibold">Kunjungan Planetarium</p>
+                    </div>
                 </div>
                 <div class="gallery-item rounded-xl overflow-hidden h-64">
-                    <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?auto=format&fit=crop&q=80&w=500" alt="Presentasi" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1505506874110-6a7a69069a08?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pembuatan Teleskop" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 text-white">
+                        <p class="font-semibold">Pembuatan Teleskop</p>
+                    </div>
                 </div>
                 <div class="gallery-item rounded-xl overflow-hidden h-64">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=500" alt="Belajar Coding" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Simulasi Tata Surya" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 text-white">
+                        <p class="font-semibold">Simulasi Tata Surya</p>
+                    </div>
                 </div>
                 <div class="gallery-item rounded-xl overflow-hidden h-64">
-                    <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e2?auto=format&fit=crop&q=80&w=500" alt="Studi Lapangan" class="w-full h-full object-cover">
+                    <img src="https://images.unsplash.com/photo-1446776877081-d282a0f896e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Kompetisi Astronomi" class="w-full h-full object-cover">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4 text-white">
+                        <p class="font-semibold">Kompetisi Astronomi</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -232,8 +350,8 @@
     <section id="achievements" class="py-16 gradient-bg">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Prestasi <span class="text-primary">Kelas</span></h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Berbagai penghargaan dan prestasi yang telah diraih oleh siswa-siswa Kelas Olimpiade.</p>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title">Prestasi <span class="text-primary">Kelas</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Berbagai penghargaan dan prestasi yang telah diraih oleh siswa-siswa Kelas 8 Astronomy.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -244,19 +362,19 @@
                             <div class="achievement-badge bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
                                 <i class="fas fa-trophy"></i>
                             </div>
-                            <span>Juara 1 Olimpiade Sains Nasional Tingkat Provinsi</span>
+                            <span>Juara 1 Olimpiade Astronomi Tingkat Nasional</span>
                         </li>
                         <li class="flex items-start">
                             <div class="achievement-badge bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
                                 <i class="fas fa-medal"></i>
                             </div>
-                            <span>Medali Perak Olimpiade Matematika Internasional</span>
+                            <span>Medali Emas International Space Challenge</span>
                         </li>
                         <li class="flex items-start">
                             <div class="achievement-badge bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
                                 <i class="fas fa-award"></i>
                             </div>
-                            <span>Best Project National Science Fair</span>
+                            <span>Best Research Paper Junior Astronomy Fair</span>
                         </li>
                     </ul>
                 </div>
@@ -268,21 +386,29 @@
                             <div class="achievement-badge bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
                                 <i class="fas fa-trophy"></i>
                             </div>
-                            <span>Juara 2 Kompetisi Robotik Regional</span>
+                            <span>Juara 2 Kompetisi Roket Air Regional</span>
                         </li>
                         <li class="flex items-start">
                             <div class="achievement-badge bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
                                 <i class="fas fa-medal"></i>
                             </div>
-                            <span>3 Medali Emas Olimpiade Matematika Se-Kota</span>
+                            <span>3 Medali Perak Olimpiade Sains Se-Kota</span>
                         </li>
                         <li class="flex items-start">
                             <div class="achievement-badge bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
                                 <i class="fas fa-award"></i>
                             </div>
-                            <span>Penghargaan Inovasi Sains dari Walikota</span>
+                            <span>Penghargaan Inovasi Sains dari Dinas Pendidikan</span>
                         </li>
                     </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <div class="bg-white rounded-xl p-8 max-w-2xl mx-auto shadow-md">
+                    <h3 class="text-2xl font-bold text-dark mb-4">Observatorium Mini Kelas</h3>
+                    <p class="text-gray-600 mb-6">Kelas 8 Astronomy memiliki observatorium mini dengan teleskop reflektor 8 inci yang digunakan untuk praktik observasi langsung.</p>
+                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Observatorium Mini" class="rounded-lg mx-auto w-full max-w-md">
                 </div>
             </div>
         </div>
@@ -292,8 +418,8 @@
     <section id="message" class="py-16 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-gray-800 mb-4">Kirim Pesan <span class="text-primary">Anonim</span></h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Berikan semangat, saran, atau pesan untuk Kelas Olimpiade secara anonim.</p>
+                <h2 class="text-3xl font-bold text-gray-800 mb-4 section-title">Kirim Pesan <span class="text-primary">Anonim</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Berikan semangat, saran, atau pesan untuk Kelas 8 Astronomy secara anonim.</p>
             </div>
             
             <div class="max-w-2xl mx-auto message-form bg-light rounded-xl p-8">
@@ -315,37 +441,37 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-12">
+    <footer class="bg-dark text-white py-12">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
                     <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold mr-2">KO</div>
-                        <span class="text-xl font-bold">Kelas Olimpiade</span>
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold mr-2">8A</div>
+                        <span class="text-xl font-bold font-orbitron">Kelas 8 Astronomy</span>
                     </div>
-                    <p class="text-gray-400">Program khusus untuk siswa berprestasi dalam bidang sains, matematika, dan teknologi.</p>
+                    <p class="text-gray-400">Program khusus SMP Sukamakmur 15 untuk eksplorasi astronomi dan sains antariksa.</p>
                 </div>
                 
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Kontak</h3>
+                    <h3 class="text-lg font-semibold mb-4 font-orbitron">Kontak</h3>
                     <ul class="space-y-2 text-gray-400">
                         <li class="flex items-center">
                             <i class="fas fa-map-marker-alt mr-3 text-primary"></i>
-                            <span>Jl. Pendidikan No. 123, Kota Akademik</span>
+                            <span>Jl. Pendidikan No. 15, Sukamakmur</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-envelope mr-3 text-primary"></i>
-                            <span>info@kelasolimpiade.sch.id</span>
+                            <span>astronomy@smp-sukamakmur15.sch.id</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fas fa-phone mr-3 text-primary"></i>
-                            <span>(021) 4567-8901</span>
+                            <span>(021) 4567-8915</span>
                         </li>
                     </ul>
                 </div>
                 
                 <div>
-                    <h3 class="text-lg font-semibold mb-4">Tautan</h3>
+                    <h3 class="text-lg font-semibold mb-4 font-orbitron">Tautan</h3>
                     <ul class="space-y-2 text-gray-400">
                         <li><a href="#home" class="hover:text-primary transition">Home</a></li>
                         <li><a href="#about" class="hover:text-primary transition">Tentang</a></li>
@@ -357,12 +483,33 @@
             </div>
             
             <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2023 Kelas Olimpiade. All rights reserved.</p>
+                <p>&copy; 2023 Kelas 8 Astronomy - SMP Sukamakmur 15. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Mobile menu functionality
+        const openMenuButton = document.getElementById('openMenu');
+        const closeMenuButton = document.getElementById('closeMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        openMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+        
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+        
+        // Close menu when clicking on a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
         // Form submission handling
         document.getElementById('messageForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -399,6 +546,38 @@
                 }
             });
         });
+        
+        // Create constellation effect
+        function createConstellation() {
+            const constellation = document.getElementById('constellation');
+            const starsCount = 50;
+            
+            for (let i = 0; i < starsCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random position
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                
+                // Random size
+                const size = Math.random() * 3 + 1;
+                
+                // Random twinkle delay
+                const delay = Math.random() * 3;
+                
+                star.style.top = `${top}%`;
+                star.style.left = `${left}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.animationDelay = `${delay}s`;
+                
+                constellation.appendChild(star);
+            }
+        }
+        
+        // Initialize constellation when page loads
+        window.addEventListener('load', createConstellation);
     </script>
 </body>
 </html>
