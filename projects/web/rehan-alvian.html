@@ -1,0 +1,494 @@
+Landing Page Portofolio Rehan Alvian
+
+Berikut adalah landing page yang simpel dan menarik untuk Rehan Alvian, dengan tema putih-biru yang cerah, gambar ilustratif, dan font yang playful sesuai profilnya:
+
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rehan Alvian | Pelajar & Seniman</title>
+    <meta property="og:image" content="https://img.freepik.com/free-vector/creative-idea-concept-illustration_114360-1101.jpg?w=740&t=st=1717580100~exp=1717580700~hmac=9c6">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#60A5FA',
+                        accent: '#BFDBFE',
+                        dark: '#1E293B',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        'nunito': ['Nunito', 'sans-serif'],
+                        'comic': ['Comic Neue', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .playful-text {
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
+        }
+        
+        .mobile-menu {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .hamburger span {
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-white text-dark">
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary playful-text">Rehan<span class="text-secondary">Alvian</span></a>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-primary transition-colors font-medium">Home</a>
+                <a href="#about" class="hover:text-primary transition-colors font-medium">Tentang</a>
+                <a href="#gallery" class="hover:text-primary transition-colors font-medium">Karya</a>
+                <a href="#skills" class="hover:text-primary transition-colors font-medium">Keahlian</a>
+                <a href="#contact" class="hover:text-primary transition-colors font-medium">Kontak</a>
+            </nav>
+            
+            <button id="mobile-menu-button" class="md:hidden hamburger flex flex-col w-6 h-5 justify-between">
+                <span class="w-full h-0.5 bg-primary rounded"></span>
+                <span class="w-full h-0.5 bg-primary rounded"></span>
+                <span class="w-full h-0.5 bg-primary rounded"></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-0 z-40 bg-white md:hidden pt-20 px-6">
+            <div class="flex flex-col space-y-6 text-lg">
+                <a href="#home" class="hover:text-primary transition-colors py-2 border-b">Home</a>
+                <a href="#about" class="hover:text-primary transition-colors py-2 border-b">Tentang</a>
+                <a href="#gallery" class="hover:text-primary transition-colors py-2 border-b">Karya</a>
+                <a href="#skills" class="hover:text-primary transition-colors py-2 border-b">Keahlian</a>
+                <a href="#contact" class="hover:text-primary transition-colors py-2 border-b">Kontak</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="container mx-auto px-4 py-16 md:py-24 flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 mb-10 md:mb-0">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 playful-text">Hai, Saya <span class="text-primary">Rehan Alvian</span></h1>
+            <p class="text-xl mb-6">Seorang Pelajar yang Passionate dalam Dunia Seni dan Gambar</p>
+            <div class="flex space-x-4">
+                <a href="#gallery" class="bg-primary hover:bg-secondary text-white px-6 py-3 rounded-lg shadow-md transition-colors font-medium">Lihat Karya Saya</a>
+                <a href="#about" class="border-2 border-primary text-primary hover:bg-blue-50 px-6 py-3 rounded-lg shadow-md transition-colors font-medium">Tentang Saya</a>
+            </div>
+        </div>
+        
+        <div class="md:w-1/2 flex justify-center">
+            <div class="relative w-64 h-64 md:w-80 md:h-80">
+                <img src="https://img.freepik.com/free-vector/hand-drawn-people-taking-notes_23-2148917150.jpg?w=740&t=st=1717580007~exp=1717580607~hmac=4d4a4a3c7b7d5d0f38b4d2c5c2b6c5f5d6a5b5c5d6a5b5c5d6a5b5c5d6a5b5c5" alt="Rehan sedang menggambar" class="w-full h-full object-contain">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="bg-white py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 playful-text">Tentang <span class="text-primary">Saya</span></h2>
+            
+            <div class="flex flex-col md:flex-row items-center gap-10">
+                <div class="md:w-2/5 flex justify-center">
+                    <div class="w-64 h-64 bg-gradient-to-br from-primary to-secondary rounded-full overflow-hidden shadow-xl">
+                        <img src="https://img.freepik.com/free-vector/creative-idea-concept-illustration_114360-1101.jpg?w=740&t=st=1717580100~exp=1717580700~hmac=9c6b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5" alt="Rehan dan hobi menggambarnya" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                
+                <div class="md:w-3/5">
+                    <p class="text-lg mb-4">
+                        Halo! Saya Rehan Alvian, seorang pelajar SMA yang memiliki passion besar dalam dunia seni dan gambar. 
+                        Sejak kecil, saya selalu tertarik dengan berbagai bentuk ekspresi kreatif, terutama menggambar.
+                    </p>
+                    <p class="text-lg mb-4">
+                        Saya senang mengeksplorasi berbagai teknik dan gaya menggambar, mulai dari sketsa pensil, ilustrasi digital, 
+                        hingga kartun dan karakter design. Setiap garis dan warna adalah cerita yang ingin saya sampaikan.
+                    </p>
+                    <p class="text-lg">
+                        Saat ini, saya sedang mengembangkan keterampilan saya sambil mengejar pendidikan di SMA. 
+                        Saya percaya bahwa seni adalah bahasa universal yang dapat menyentuh hati banyak orang.
+                    </p>
+                    
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-graduation-cap text-primary mr-3"></i>
+                            <span class="font-medium">SMA Negeri 1 Creative</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-palette text-primary mr-3"></i>
+                            <span class="font-medium">Seni Rupa & Desain</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-location-dot text-primary mr-3"></i>
+                            <span class="font-medium">Bandung, Indonesia</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-heart text-primary mr-3"></i>
+                            <span class="font-medium">Menggambar & Ilustrasi</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-gradient-to-br from-blue-50 to-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 playful-text">Karya <span class="text-primary">Saya</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Karya 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="h-48 bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+                        <img src="https://img.freepik.com/free-vector/hand-drawn-flat-design-stack-books-illustration_23-2149331975.jpg?w=740&t=st=1717580300~exp=1717580900~hmac=9c6b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5" alt="Ilustrasi buku" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Ilustrasi Buku Cerita</h3>
+                        <p class="text-gray-600 mb-4">Ilustrasi untuk buku cerita anak dengan karakter yang lucu dan warna-warni.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Digital Art</span>
+                            <a href="#" class="text-primary font-medium hover:underline">Lihat Detail →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Karya 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="h-48 bg-gradient-to-r from-secondary to-accent flex items-center justify-center">
+                        <img src="https://img.freepik.com/free-vector/hand-drawn-nature-scene_23-2151056312.jpg?w=740&t=st=1717580400~exp=1717581000~hmac=9c6b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5" alt="Pemandangan alam" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Lanskap Alam</h3>
+                        <p class="text-gray-600 mb-4">Gambar pemandangan alam dengan teknik cat air yang menampilkan keindahan alam.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Watercolor</span>
+                            <a href="#" class="text-primary font-medium hover:underline">Lihat Detail →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Karya 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+                    <div class="h-48 bg-gradient-to-r from-accent to-primary flex items-center justify-center">
+                        <img src="https://img.freepik.com/free-vector/hand-drawn-people-working-together_23-2148827161.jpg?w=740&t=st=1717580500~exp=1717581100~hmac=9c6b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5b5" alt="Karakter kartun" class="h-full w-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Karakter Kartun</h3>
+                        <p class="text-gray-600 mb-4">Desain karakter kartun unik dengan kepribadian yang berbeda-beda.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500">Character Design</span>
+                            <a href="#" class="text-primary font-medium hover:underline">Lihat Detail →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-flex items-center text-primary font-semibold hover:underline playful-text">
+                    Lihat Lebih Banyak Karya
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 playful-text">Keahlian <span class="text-primary">Saya</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-light p-6 rounded-xl shadow-md card-hover">
+                    <h3 class="text-xl font-semibold mb-4 text-primary"><i class="fas fa-paint-brush mr-2"></i> Teknik Menggambar</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Sketsa Pensil</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-primary h-3 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Ilustrasi Digital</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-primary h-3 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Cat Air</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-primary h-3 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-light p-6 rounded-xl shadow-md card-hover">
+                    <h3 class="text-xl font-semibold mb-4 text-primary"><i class="fas fa-palette mr-2"></i> Bidang Seni</h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Character Design</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-primary h-3 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Ilustrasi Buku</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-primary h-3 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span>Kartun & Komik</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-primary h-3 rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tools -->
+            <div class="mt-12 bg-light p-6 rounded-xl shadow-md card-hover">
+                <h3 class="text-xl font-semibold mb-6 text-primary text-center"><i class="fas fa-tools mr-2"></i> Alat yang Digunakan</h3>
+                
+                <div class="flex flex-wrap justify-center gap-6">
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-2">
+                            <i class="fas fa-pencil-alt text-primary text-2xl"></i>
+                        </div>
+                        <span class="text-sm">Drawing Tablet</span>
+                    </div>
+                    
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-2">
+                            <i class="fab fa-adobe text-red-500 text-2xl"></i>
+                        </div>
+                        <span class="text-sm">Adobe Illustrator</span>
+                    </div>
+                    
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-2">
+                            <i class="fas fa-paint-brush text-green-500 text-2xl"></i>
+                        </div>
+                        <span class="text-sm">Krita</span>
+                    </div>
+                    
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-2">
+                            <i class="fas fa-water text-blue-500 text-2xl"></i>
+                        </div>
+                        <span class="text-sm">Watercolor</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gradient-to-br from-primary to-secondary text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 playful-text">Hubungi <span class="text-accent">Saya</span></h2>
+            
+            <div class="max-w-2xl mx-auto bg-white bg-opacity-10 p-8 rounded-xl">
+                <form class="space-y-6">
+                    <div>
+                        <label for="name" class="block mb-2 font-medium">Nama Lengkap</label>
+                        <input type="text" id="name" class="w-full px-4 py-3 rounded-lg bg-blue-100 bg-opacity-20 border border-blue-300 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="Nama Anda">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block mb-2 font-medium">Email</label>
+                        <input type="email" id="email" class="w-full px-4 py-3 rounded-lg bg-blue-100 bg-opacity-20 border border-blue-300 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="email@contoh.com">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block mb-2 font-medium">Pesan</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-blue-100 bg-opacity-20 border border-blue-300 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent" placeholder="Tulis pesan Anda di sini..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-accent text-primary font-semibold py-3 px-4 rounded-lg shadow-md hover:bg-blue-100 transition-colors playful-text">Kirim Pesan</button>
+                </form>
+                
+                <div class="mt-8 pt-8 border-t border-blue-300 border-opacity-30">
+                    <h3 class="text-xl font-semibold mb-4 text-center">Atau hubungi saya melalui</h3>
+                    
+                    <div class="flex justify-center space-x-6">
+                        <a href="#" class="w-12 h-12 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-accent transition-colors">
+                            <i class="fab fa-instagram text-white text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-accent transition-colors">
+                            <i class="fab fa-whatsapp text-white text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-accent transition-colors">
+                            <i class="fab fa-deviantart text-white text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 rounded-full bg-white bg-opacity-20 flex items-center justify-center hover:bg-accent transition-colors">
+                            <i class="fas fa-envelope text-white text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="playful-text text-lg">&copy; 2023 Rehan Alvian. Dibuat dengan <i class="fas fa-heart text-red-500"></i> untuk berbagi seni</p>
+            <p class="mt-2 text-blue-200">Setiap gambar punya cerita, setiap cerita punya jiwa</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 rounded-full bg-primary text-white shadow-lg hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            mobileMenuButton.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                mobileMenuButton.classList.remove('active');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+                mobileMenuButton.classList.remove('active');
+            }
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+```
+
+Fitur-fitur Landing Page Rehan Alvian
+
+1. Navigasi responsif dengan hamburger menu yang berfungsi dengan baik
+2. Tema putih-biru cerah yang sesuai dengan permintaan
+3. Font playful (Comic Neue) untuk judul dan bagian tertentu
+4. Gambar ilustratif dari Freepik yang sesuai dengan profil Rehan sebagai pelajar yang suka menggambar
+5. Struktur sederhana dengan bagian:
+   · Hero section dengan gambar dan pengenalan
+   · Tentang Rehan Alvian
+   · Galeri karya seni
+   · Keahlian dalam menggambar
+   · Form kontak
+   · Footer
+
+Landing page ini sudah responsif dan siap digunakan. Anda dapat menyesuaikan konten, gambar, dan informasi sesuai kebutuhan Rehan Alvian.
