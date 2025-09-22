@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Andrana - Kebutuhan Wanita Modern</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#e11d48', // Warna merah yang cerah
+                        secondary: '#fecaca', // Merah muda untuk aksen
+                        accent: '#fda4af'   // Merah muda lebih soft
+                    },
+                    fontFamily: {
+                        'display': ['Playfair Display', 'serif'],
+                        'body': ['Poppins', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        .faq-item.active .fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            max-height: 300px;
+        }
+        
+        .hero-image {
+            background-image: url('https://images.unsplash.com/photo-1558769132-cb1aea458c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header & Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-bold text-primary brand-name">Toko <span class="text-gray-800">Andrana</span></h1>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-700 hover:text-primary font-medium">Beranda</a>
+                <a href="#products" class="text-gray-700 hover:text-primary font-medium">Produk</a>
+                <a href="#advantages" class="text-gray-700 hover:text-primary font-medium">Keunggulan</a>
+                <a href="#how-to-order" class="text-gray-700 hover:text-primary font-medium">Cara Order</a>
+                <a href="#faq" class="text-gray-700 hover:text-primary font-medium">FAQ</a>
+            </nav>
+            
+            <div class="flex items-center space-x-4">
+                <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+                <div class="hidden md:flex items-center space-x-4 text-gray-700">
+                    <div class="relative">
+                        <input type="text" placeholder="Cari produk..." class="bg-gray-100 rounded-full py-2 px-4 text-sm w-40 focus:outline-none focus:ring-2 focus:ring-primary">
+                        <i class="fas fa-search absolute right-3 top-2.5 text-gray-500"></i>
+                    </div>
+                    <div class="relative">
+                        <i class="fas fa-shopping-cart text-lg hover:text-primary cursor-pointer"></i>
+                        <span class="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+                    </div>
+                    <i class="fas fa-user text-lg hover:text-primary cursor-pointer"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu bg-white md:hidden">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#home" class="text-gray-700 hover:text-primary font-medium py-2">Beranda</a>
+                <a href="#products" class="text-gray-700 hover:text-primary font-medium py-2">Produk</a>
+                <a href="#advantages" class="text-gray-700 hover:text-primary font-medium py-2">Keunggulan</a>
+                <a href="#how-to-order" class="text-gray-700 hover:text-primary font-medium py-2">Cara Order</a>
+                <a href="#faq" class="text-gray-700 hover:text-primary font-medium py-2">FAQ</a>
+                <div class="pt-4 border-t border-gray-200">
+                    <div class="relative mb-4">
+                        <input type="text" placeholder="Cari produk..." class="bg-gray-100 rounded-full py-2 px-4 text-sm w-full focus:outline-none focus:ring-2 focus:ring-primary">
+                        <i class="fas fa-search absolute right-3 top-2.5 text-gray-500"></i>
+                    </div>
+                    <div class="flex justify-between">
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-shopping-cart text-lg"></i>
+                            <span>Keranjang</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <i class="fas fa-user text-lg"></i>
+                            <span>Akun</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4 font-display">Kebutuhan <span class="text-primary">Wanita Modern</span> di Satu Tempat</h2>
+                <p class="text-gray-700 mb-6">Temukan koleksi fashion, kosmetik, parfum, dan kebutuhan wanita lainnya dengan kualitas premium dan harga terjangkau.</p>
+                <div class="flex space-x-4">
+                    <a href="#products" class="bg-primary hover:bg-red-700 text-white font-medium py-3 px-8 rounded-full transition duration-300">Belanja Sekarang</a>
+                    <a href="#how-to-order" class="border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-8 rounded-full transition duration-300">Cara Order</a>
+                </div>
+                <div class="mt-8 flex items-center space-x-6">
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-primary">500+</p>
+                        <p class="text-gray-600 text-sm">Produk Tersedia</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-primary">10K+</p>
+                        <p class="text-gray-600 text-sm">Pelanggan Puas</p>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-2xl font-bold text-primary">4.9</p>
+                        <p class="text-gray-600 text-sm">Rating</p>
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="w-80 h-80 rounded-2xl overflow-hidden shadow-xl hero-image"></div>
+                    <div class="absolute -bottom-4 -left-4 bg-white rounded-xl shadow-lg p-4 w-48">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+                                <i class="fas fa-truck text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Gratis Ongkir</p>
+                                <p class="text-xs text-gray-600">Min. belanja Rp 250rb</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -top-4 -right-4 bg-white rounded-xl shadow-lg p-4 w-48">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-accent rounded-full flex items-center justify-center">
+                                <i class="fas fa-gift text-white"></i>
+                            </div>
+                            <div>
+                                <p class="font-semibold">Diskon Spesial</p>
+                                <p class="text-xs text-gray-600">Untuk member baru</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan Section -->
+    <section id="advantages" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12 font-display">Kenapa Memilih <span class="text-primary">Toko Andrana</span>?</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:bg-secondary transition duration-300">
+                    <div class="bg-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Gratis Ongkir</h3>
+                    <p class="text-gray-600">Gratis ongkos kirim untuk pembelian di atas Rp 250.000</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:bg-secondary transition duration-300">
+                    <div class="bg-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-undo-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Garansi 7 Hari</h3>
+                    <p class="text-gray-600">Bebas return dalam 7 hari jika barang tidak sesuai</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:bg-secondary transition duration-300">
+                    <div class="bg-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-award text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Kualitas Terjamin</h3>
+                    <p class="text-gray-600">Produk dengan kualitas terbaik dan bahan premium</p>
+                </div>
+                
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:bg-secondary transition duration-300">
+                    <div class="bg-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">CS Ramah</h3>
+                    <p class="text-gray-600">Customer service siap membantu 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4 font-display">Produk <span class="text-primary">Unggulan</span></h2>
+            <p class="text-center text-gray-600 mb-12">Temukan berbagai produk fashion dan kecantikan terbaik untuk wanita modern</p>
+            
+            <div class="flex justify-center space-x-4 mb-10 overflow-x-auto py-2">
+                <button class="category-btn bg-primary text-white px-6 py-2 rounded-full whitespace-nowrap">Semua Produk</button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-2 rounded-full whitespace-nowrap">Fashion</button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-2 rounded-full whitespace-nowrap">Kosmetik</button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-2 rounded-full whitespace-nowrap">Parfum</button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-2 rounded-full whitespace-nowrap">Aksesoris</button>
+                <button class="category-btn bg-white text-gray-700 px-6 py-2 rounded-full whitespace-nowrap">Kebutuhan Rumah</button>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Blouse Wanita" class="w-full h-48 object-cover">
+                        <span class="bg-primary text-white text-xs font-medium px-2 py-1 absolute top-2 right-2">TERLARIS</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2">Blouse Katun Modern</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(4.5)</span>
+                        </div>
+                        <p class="text-primary font-bold text-xl">Rp 149.000</p>
+                        <p class="text-gray-500 text-sm line-through">Rp 199.000</p>
+                        <button class="mt-4 w-full bg-primary hover:bg-red-700 text-white py-2 rounded transition duration-300">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1629196916192-9dc0c145f0a8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Kosmetik" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2">Lipstik Matte Luxury</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(4.8)</span>
+                        </div>
+                        <p class="text-primary font-bold text-xl">Rp 89.000</p>
+                        <button class="mt-4 w-full bg-primary hover:bg-red-700 text-white py-2 rounded transition duration-300">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=684&q=80" alt="Parfum" class="w-full h-48 object-cover">
+                        <span class="bg-primary text-white text-xs font-medium px-2 py-1 absolute top-2 right-2">BARU</span>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2">Parfum Floral Bouquet</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(4.9)</span>
+                        </div>
+                        <p class="text-primary font-bold text-xl">Rp 199.000</p>
+                        <button class="mt-4 w-full bg-primary hover:bg-red-700 text-white py-2 rounded transition duration-300">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=701&q=80" alt="Dress" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-lg mb-2">Dress Maxi Elegan</h3>
+                        <div class="flex items-center mb-2">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="text-gray-600 text-sm ml-2">(4.0)</span>
+                        </div>
+                        <p class="text-primary font-bold text-xl">Rp 279.000</p>
+                        <p class="text-gray-500 text-sm line-through">Rp 349.000</p>
+                        <button class="mt-4 w-full bg-primary hover:bg-red-700 text-white py-2 rounded transition duration-300">Tambah ke Keranjang</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-8 rounded-full transition duration-300">Lihat Semua Produk</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Order Section -->
+    <section id="how-to-order" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4 font-display">Cara <span class="text-primary">Order</span></h2>
+            <p class="text-center text-gray-600 mb-12">Ikuti langkah-langkah mudah berikut untuk melakukan pemesanan</p>
+            
+            <div class="flex flex-col md:flex-row space-y-8 md:space-y-0 md:space-x-8">
+                <div class="flex-1 flex flex-col items-center text-center">
+                    <div class="bg-primary rounded-full w-16 h-16 flex items-center justify-center text-white text-xl font-bold mb-4">1</div>
+                    <h3 class="text-xl font-semibold mb-2">Pilih Produk</h3>
+                    <p class="text-gray-600">Pilih produk yang Anda inginkan dan tambahkan ke keranjang belanja</p>
+                </div>
+                
+                <div class="flex-1 flex flex-col items-center text-center">
+                    <div class="bg-primary rounded-full w-16 h-16 flex items-center justify-center text-white text-xl font-bold mb-4">2</div>
+                    <h3 class="text-xl font-semibold mb-2">Checkout</h3>
+                    <p class="text-gray-600">Isi data diri dan alamat pengiriman dengan lengkap dan benar</p>
+                </div>
+                
+                <div class="flex-1 flex flex-col items-center text-center">
+                    <div class="bg-primary rounded-full w-16 h-16 flex items-center justify-center text-white text-xl font-bold mb-4">3</div>
+                    <h3 class="text-xl font-semibold mb-2">Pembayaran</h3>
+                    <p class="text-gray-600">Lakukan pembayaran melalui transfer bank atau metode pembayaran lainnya</p>
+                </div>
+                
+                <div class="flex-1 flex flex-col items-center text-center">
+                    <div class="bg-primary rounded-full w-16 h-16 flex items-center justify-center text-white text-xl font-bold mb-4">4</div>
+                    <h3 class="text-xl font-semibold mb-2">Konfirmasi</h3>
+                    <p class="text-gray-600">Konfirmasi pembayaran dan tunggu produk dikirim ke alamat Anda</p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-secondary rounded-lg p-8">
+                <h3 class="text-2xl font-semibold text-center mb-6">Butuh Bantuan?</h3>
+                <p class="text-center text-gray-700 mb-6">Tim customer service kami siap membantu Anda 24/7</p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#" class="bg-primary hover:bg-red-700 text-white font-medium py-3 px-6 rounded-full transition duration-300 text-center">
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                    </a>
+                    <a href="#" class="bg-white hover:bg-gray-100 text-primary font-medium py-3 px-6 rounded-full transition duration-300 text-center">
+                        <i class="fas fa-phone-alt mr-2"></i> Telepon
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4 font-display">Pertanyaan <span class="text-primary">Umum</span></h2>
+            <p class="text-center text-gray-600 mb-12">Temukan jawaban dari pertanyaan yang sering diajukan</p>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-lg flex justify-between items-center">
+                        <span>Bagaimana cara mengetahui ukuran yang tepat untuk saya?</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 pt-0 text-gray-600">
+                            Kami menyediakan panduan ukuran detail pada setiap halaman produk. Anda juga dapat menghubungi customer service kami untuk konsultasi ukuran yang tepat sesuai dengan tubuh Anda.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-lg flex justify-between items-center">
+                        <span>Berapa lama waktu pengiriman?</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 pt-0 text-gray-600">
+                            Waktu pengiriman bervariasi tergantung lokasi pengiriman. Untuk wilayah Jawa biasanya 2-3 hari kerja, luar Jawa 3-7 hari kerja, dan daerah terpencil mungkin membutuhkan waktu lebih lama.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-lg flex justify-between items-center">
+                        <span>Bagaimana cara return barang?</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 pt-0 text-gray-600">
+                            Anda dapat mengajukan return dalam waktu 7 hari setelah barang diterima. Barang harus dalam kondisi baru, belum dicuci, dan dengan label masih terpasang. Hubungi customer service kami untuk proses return.
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-white rounded-lg shadow-md mb-4 overflow-hidden">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-lg flex justify-between items-center">
+                        <span>Apakah produk kosmetik aman untuk kulit sensitif?</span>
+                        <i class="fas fa-chevron-down text-primary transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="p-6 pt-0 text-gray-600">
+                            Produk kosmetik kami telah teruji dermatologis dan bebas dari bahan berbahaya. Namun, jika Anda memiliki kulit sangat sensitif, kami sarankan untuk melakukan tes pada area kecil kulit terlebih dahulu.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4 font-display">Dapatkan Penawaran Spesial</h2>
+            <p class="mb-8 max-w-2xl mx-auto">Berlangganan newsletter kami untuk mendapatkan update produk terbaru, penawaran eksklusif, dan diskon spesial untuk member</p>
+            
+            <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                <input type="email" placeholder="Alamat email Anda" class="flex-grow px-4 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
+                <button type="submit" class="bg-white text-primary font-semibold px-6 py-3 rounded-full hover:bg-gray-100 transition duration-300">Berlangganan</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 brand-name">Toko <span class="text-primary">Andrana</span></h3>
+                    <p class="mb-4">Menyediakan berbagai kebutuhan fashion dan kecantikan untuk wanita modern Indonesia.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tautan Cepat</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white">Beranda</a></li>
+                        <li><a href="#products" class="text-gray-400 hover:text-white">Produk</a></li>
+                        <li><a href="#advantages" class="text-gray-400 hover:text-white">Keunggulan</a></li>
+                        <li><a href="#how-to-order" class="text-gray-400 hover:text-white">Cara Order</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-white">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Kategori Produk</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Fashion Wanita</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Kosmetik & Skincare</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Parfum & Body Care</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Aksesoris</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Kebutuhan Rumah</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Kontak Kami</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">Jl. Kemang Raya No. 12, Jakarta Selatan</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt text-primary mr-3"></i>
+                            <span class="text-gray-400">+62 21 1234 5678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope text-primary mr-3"></i>
+                            <span class="text-gray-400">info@tokoandrana.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Toko Andrana. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Product Category Filter
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('bg-primary', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-700');
+                });
+                
+                button.classList.remove('bg-white', 'text-gray-700');
+                button.classList.add('bg-primary', 'text-white');
+                
+                // In a real application, this would filter the products
+                // For this demo, we'll just show an alert
+                alert('Menampilkan kategori: ' + button.textContent);
+            });
+        });
+
+        // Add to Cart Animation
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('Tambah ke Keranjang')) {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const originalText = this.textContent;
+                    this.textContent = '✓ Ditambahkan';
+                    this.classList.remove('bg-primary');
+                    this.classList.add('bg-green-500');
+                    
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.classList.remove('bg-green-500');
+                        this.classList.add('bg-primary');
+                    }, 2000);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
