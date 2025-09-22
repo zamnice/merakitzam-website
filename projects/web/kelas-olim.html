@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelas Olimpiade - SMP Tech Champions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',
+                        secondary: '#C4B5FD',
+                        accent: '#7E22CE',
+                        light: '#F5F3FF',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #F5F3FF 0%, #DDD6FE 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.2);
+        }
+        
+        .achievement-badge {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .gallery-item {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .message-form {
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold mr-2">KO</div>
+                <span class="text-xl font-bold text-primary">Kelas Olimpiade</span>
+            </div>
+            
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-primary transition">Home</a>
+                <a href="#about" class="hover:text-primary transition">Tentang</a>
+                <a href="#structure" class="hover:text-primary transition">Struktur</a>
+                <a href="#gallery" class="hover:text-primary transition">Galeri</a>
+                <a href="#achievements" class="hover:text-primary transition">Prestasi</a>
+                <a href="#message" class="hover:text-primary transition">Pesan</a>
+            </nav>
+            
+            <button class="md:hidden text-primary">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg py-16 md:py-24">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-4">Kelas <span class="text-primary">Olimpiade</span> SMP Tech Champions</h1>
+                <p class="text-lg text-gray-600 mb-6">Wadah bagi siswa berprestasi untuk mengembangkan bakat dalam bidang sains, matematika, dan teknologi.</p>
+                <div class="flex space-x-4">
+                    <a href="#about" class="bg-primary hover:bg-accent text-white px-6 py-3 rounded-lg font-medium transition">Jelajahi</a>
+                    <a href="#message" class="border border-primary text-primary hover:bg-light px-6 py-3 rounded-lg font-medium transition">Kirim Pesan</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-full max-w-md">
+                    <div class="absolute -top-6 -left-6 w-32 h-32 rounded-full bg-secondary opacity-50"></div>
+                    <div class="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-primary opacity-30"></div>
+                    <div class="relative bg-white rounded-xl shadow-xl p-2 transform rotate-2">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=500" alt="Kelas Olimpiade" class="rounded-lg w-full h-64 object-cover">
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 bg-white rounded-lg shadow-lg p-3 transform -rotate-6">
+                        <div class="text-sm font-bold text-primary">Tim Olimpiade Sains 2023</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Tentang <span class="text-primary">Kelas Olimpiade</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Kelas Olimpiade adalah program khusus untuk siswa-siswa terpilih yang memiliki minat dan bakat dalam bidang akademik khususnya sains dan matematika.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-light rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-atom text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Fokus Sains</h3>
+                    <p class="text-gray-600">Pembelajaran mendalam tentang fisika, kimia, biologi, dan astronomi dengan pendekatan praktis.</p>
+                </div>
+                
+                <div class="bg-light rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 rounded-full bg-accent flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-calculator text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Matematika Advance</h3>
+                    <p class="text-gray-600">Penguasaan konsep matematika tingkat tinggi dan penerapannya dalam pemecahan masalah kompleks.</p>
+                </div>
+                
+                <div class="bg-light rounded-xl p-6 card-hover">
+                    <div class="w-14 h-14 rounded-full bg-secondary flex items-center justify-center text-white mb-4">
+                        <i class="fas fa-laptop-code text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Teknologi & Coding</h3>
+                    <p class="text-gray-600">Pengenalan pemrograman, robotika, dan teknologi digital untuk mengembangkan kemampuan abad 21.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Structure Section -->
+    <section id="structure" class="py-16 gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Struktur <span class="text-primary">Kelas</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Kelas Olimpiade dipimpin oleh guru-guru berkompeten dan dibantu oleh pengurus kelas yang dipilih secara demokratis.</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-8">
+                <div class="bg-white rounded-xl p-6 text-center w-64 shadow-md card-hover">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-4 border-light">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400" alt="Guru Pembimbing" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold">Dr. Ahmad Santoso</h3>
+                    <p class="text-primary font-medium">Guru Pembimbing Matematika</p>
+                    <p class="text-gray-600 text-sm mt-2">Pengajar berprestasi nasional dengan pengalaman 15 tahun.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 text-center w-64 shadow-md card-hover">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-4 border-light">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400" alt="Guru Pembimbing" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold">Dra. Siti Rahayu</h3>
+                    <p class="text-primary font-medium">Guru Pembimbing Sains</p>
+                    <p class="text-gray-600 text-sm mt-2">Spesialis kimia dan biologi, lulusan terbaik Universitas Indonesia.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 text-center w-64 shadow-md card-hover">
+                    <div class="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden border-4 border-light">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=400" alt="Ketua Kelas" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-semibold">Raka Pratama</h3>
+                    <p class="text-primary font-medium">Ketua Kelas</p>
+                    <p class="text-gray-600 text-sm mt-2">Siswa berprestasi dengan segudang penghargaan sains tingkat nasional.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Galeri <span class="text-primary">Kegiatan</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Dokumentasi kegiatan belajar, eksperimen, dan kompetisi yang diikuti oleh siswa Kelas Olimpiade.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="gallery-item rounded-xl overflow-hidden h-64">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&q=80&w=500" alt="Eksperimen Sains" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item rounded-xl overflow-hidden h-64">
+                    <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=500" alt="Diskusi Kelompok" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item rounded-xl overflow-hidden h-64">
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&q=80&w=500" alt="Kompetisi" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item rounded-xl overflow-hidden h-64">
+                    <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?auto=format&fit=crop&q=80&w=500" alt="Presentasi" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item rounded-xl overflow-hidden h-64">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=500" alt="Belajar Coding" class="w-full h-full object-cover">
+                </div>
+                <div class="gallery-item rounded-xl overflow-hidden h-64">
+                    <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e2?auto=format&fit=crop&q=80&w=500" alt="Studi Lapangan" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="py-16 gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Prestasi <span class="text-primary">Kelas</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Berbagai penghargaan dan prestasi yang telah diraih oleh siswa-siswa Kelas Olimpiade.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-primary">2023</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="achievement-badge bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <span>Juara 1 Olimpiade Sains Nasional Tingkat Provinsi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="achievement-badge bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <span>Medali Perak Olimpiade Matematika Internasional</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="achievement-badge bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <span>Best Project National Science Fair</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 shadow-md">
+                    <h3 class="text-xl font-semibold mb-4 text-primary">2022</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <div class="achievement-badge bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-trophy"></i>
+                            </div>
+                            <span>Juara 2 Kompetisi Robotik Regional</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="achievement-badge bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <span>3 Medali Emas Olimpiade Matematika Se-Kota</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="achievement-badge bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center mr-3 flex-shrink-0">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <span>Penghargaan Inovasi Sains dari Walikota</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Message Section -->
+    <section id="message" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Kirim Pesan <span class="text-primary">Anonim</span></h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Berikan semangat, saran, atau pesan untuk Kelas Olimpiade secara anonim.</p>
+            </div>
+            
+            <div class="max-w-2xl mx-auto message-form bg-light rounded-xl p-8">
+                <form id="messageForm">
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 mb-2">Pesan Anda</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent" placeholder="Tulis pesan Anda di sini..."></textarea>
+                    </div>
+                    <button type="submit" class="bg-primary hover:bg-accent text-white px-6 py-3 rounded-lg font-medium transition w-full">Kirim Pesan</button>
+                </form>
+                
+                <div id="thankYouMessage" class="hidden text-center mt-8 p-6 bg-primary text-white rounded-lg">
+                    <i class="fas fa-check-circle text-4xl mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-2">Terima Kasih!</h3>
+                    <p>Pesan Anda telah berhasil dikirim. Kami sangat menghargai dukungan Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center text-white font-bold mr-2">KO</div>
+                        <span class="text-xl font-bold">Kelas Olimpiade</span>
+                    </div>
+                    <p class="text-gray-400">Program khusus untuk siswa berprestasi dalam bidang sains, matematika, dan teknologi.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Kontak</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-primary"></i>
+                            <span>Jl. Pendidikan No. 123, Kota Akademik</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-primary"></i>
+                            <span>info@kelasolimpiade.sch.id</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-3 text-primary"></i>
+                            <span>(021) 4567-8901</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Tautan</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-primary transition">Home</a></li>
+                        <li><a href="#about" class="hover:text-primary transition">Tentang</a></li>
+                        <li><a href="#gallery" class="hover:text-primary transition">Galeri</a></li>
+                        <li><a href="#achievements" class="hover:text-primary transition">Prestasi</a></li>
+                        <li><a href="#message" class="hover:text-primary transition">Pesan</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Kelas Olimpiade. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission handling
+        document.getElementById('messageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate sending message
+            const messageTextarea = document.getElementById('message');
+            if (messageTextarea.value.trim() !== '') {
+                // In a real application, you would send the data to a server here
+                
+                // Show thank you message
+                document.getElementById('thankYouMessage').classList.remove('hidden');
+                messageTextarea.value = '';
+                
+                // Hide thank you message after 5 seconds
+                setTimeout(() => {
+                    document.getElementById('thankYouMessage').classList.add('hidden');
+                }, 5000);
+            }
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
