@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warung Butet - Warung Tegal Terbaik</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .brand-font {
+            font-family: 'Playfair Display', serif;
+        }
+    </style>
+</head>
+<body class="bg-amber-50 text-amber-900">
+    <!-- Header & Navigation -->
+    <header class="bg-amber-100 shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-utensils text-amber-700 text-2xl mr-2"></i>
+                <h1 class="brand-font text-2xl font-bold text-amber-800">Warung Butet</h1>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-8">
+                <li><a href="#home" class="hover:text-amber-600 font-medium">Beranda</a></li>
+                <li><a href="#produk" class="hover:text-amber-600 font-medium">Menu</a></li>
+                <li><a href="#keunggulan" class="hover:text-amber-600 font-medium">Keunggulan</a></li>
+                <li><a href="#cara-order" class="hover:text-amber-600 font-medium">Cara Order</a></li>
+                <li><a href="#kontak" class="hover:text-amber-600 font-medium">Kontak</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Button -->
+            <button id="menu-toggle" class="md:hidden text-amber-800">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-amber-100 px-4 pb-4">
+            <a href="#home" class="block py-2 hover:text-amber-600 font-medium">Beranda</a>
+            <a href="#produk" class="block py-2 hover:text-amber-600 font-medium">Menu</a>
+            <a href="#keunggulan" class="block py-2 hover:text-amber-600 font-medium">Keunggulan</a>
+            <a href="#cara-order" class="block py-2 hover:text-amber-600 font-medium">Cara Order</a>
+            <a href="#kontak" class="block py-2 hover:text-amber-600 font-medium">Kontak</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="py-16 px-4 bg-gradient-to-r from-amber-200 to-amber-100">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-8 md:mb-0">
+                <h2 class="brand-font text-4xl md:text-5xl font-bold mb-4 text-amber-800">Selamat Datang di Warung Butet</h2>
+                <p class="text-lg mb-6">Rasa autentik masakan rumahan dengan cita rasa khas Tegal yang menggugah selera. Nikmati kelezatan makanan kami yang dibuat dengan bahan-bahan segar dan resep turun-temurun.</p>
+                <a href="#produk" class="bg-amber-600 hover:bg-amber-700 text-white font-medium py-3 px-6 rounded-lg inline-block transition duration-300">Lihat Menu</a>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                     alt="Makanan Warung Butet" class="rounded-lg shadow-lg max-w-full h-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Produk Section -->
+    <section id="produk" class="py-16 px-4">
+        <div class="container mx-auto">
+            <h2 class="brand-font text-3xl md:text-4xl font-bold text-center mb-12 text-amber-800">Menu Andalan Kami</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Produk 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
+                         alt="Nasi Rames Komplit" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Nasi Rames Komplit</h3>
+                        <p class="text-amber-600 mb-4">Rp 25.000</p>
+                        <p class="text-gray-600">Nasi putih dengan lauk pauk lengkap: ayam goreng, telur balado, tempe, tahu, dan sayuran segar.</p>
+                    </div>
+                </div>
+                
+                <!-- Produk 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1563379091339-03246963d96f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                         alt="Soto Ayam" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Soto Ayam Tegal</h3>
+                        <p class="text-amber-600 mb-4">Rp 20.000</p>
+                        <p class="text-gray-600">Soto ayam khas Tegal dengan kuah bening yang gurih, dilengkapi suwiran ayam, tauge, dan soun.</p>
+                    </div>
+                </div>
+                
+                <!-- Produk 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=999&q=80" 
+                         alt="Sate Ayam" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Sate Ayam Tegal</h3>
+                        <p class="text-amber-600 mb-4">Rp 30.000</p>
+                        <p class="text-gray-600">Sate ayam dengan bumbu kacang yang khas, disajikan dengan lontong dan irisan bawang merah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan Section -->
+    <section id="keunggulan" class="py-16 px-4 bg-amber-100">
+        <div class="container mx-auto">
+            <h2 class="brand-font text-3xl md:text-4xl font-bold text-center mb-12 text-amber-800">Keunggulan Warung Butet</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="bg-amber-200 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-leaf text-amber-700 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Bahan Segar</h3>
+                    <p class="text-gray-700">Kami menggunakan bahan-bahan segar pilihan setiap hari untuk memastikan kualitas dan rasa terbaik.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="bg-amber-200 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-amber-700 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Masakan Segar</h3>
+                    <p class="text-gray-700">Masakan kami dimasak setiap hari, tidak menggunakan bahan pengawet atau MSG berlebihan.</p>
+                </div>
+                
+                <div class="text-center p-6">
+                    <div class="bg-amber-200 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-dollar-sign text-amber-700 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Harga Terjangkau</h3>
+                    <p class="text-gray-700">Dengan kualitas terbaik, kami menawarkan harga yang terjangkau untuk semua kalangan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cara Order Section -->
+    <section id="cara-order" class="py-16 px-4">
+        <div class="container mx-auto">
+            <h2 class="brand-font text-3xl md:text-4xl font-bold text-center mb-12 text-amber-800">Cara Memesan</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <div class="text-center p-4">
+                    <div class="bg-amber-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">1</div>
+                    <h3 class="text-lg font-bold mb-2">Pilih Menu</h3>
+                    <p class="text-gray-700">Pilih menu favorit Anda dari daftar menu kami.</p>
+                </div>
+                
+                <div class="text-center p-4">
+                    <div class="bg-amber-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">2</div>
+                    <h3 class="text-lg font-bold mb-2">Hubungi Kami</h3>
+                    <p class="text-gray-700">Hubungi kami melalui WhatsApp atau telepon untuk pemesanan.</p>
+                </div>
+                
+                <div class="text-center p-4">
+                    <div class="bg-amber-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">3</div>
+                    <h3 class="text-lg font-bold mb-2">Konfirmasi</h3>
+                    <p class="text-gray-700">Konfirmasi pesanan dan alamat pengiriman (jika diperlukan).</p>
+                </div>
+                
+                <div class="text-center p-4">
+                    <div class="bg-amber-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4 text-xl font-bold">4</div>
+                    <h3 class="text-lg font-bold mb-2">Tunggu & Nikmati</h3>
+                    <p class="text-gray-700">Tunggu pesanan Anda dan nikmati makanan lezat dari Warung Butet!</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="https://wa.me/6281234567890" class="bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg inline-flex items-center transition duration-300">
+                    <i class="fab fa-whatsapp mr-2"></i> Pesan via WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="py-16 px-4 bg-amber-800 text-amber-50">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h2 class="brand-font text-3xl font-bold mb-4">Hubungi Kami</h2>
+                    <p class="mb-6">Warung Butet siap melayani Anda dengan makanan terbaik khas Tegal.</p>
+                    
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-map-marker-alt mr-3 text-amber-200"></i>
+                        <p>Jl. Raya Tegal No. 123, Tegal, Jawa Tengah</p>
+                    </div>
+                    
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-phone mr-3 text-amber-200"></i>
+                        <p>(0283) 1234567</p>
+                    </div>
+                    
+                    <div class="flex items-center mb-4">
+                        <i class="fab fa-whatsapp mr-3 text-amber-200"></i>
+                        <p>0812-3456-7890</p>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <i class="fas fa-clock mr-3 text-amber-200"></i>
+                        <p>Buka Setiap Hari: 07.00 - 21.00 WIB</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Lokasi Kami</h3>
+                    <div class="bg-amber-200 h-64 rounded-lg overflow-hidden">
+                        <!-- Placeholder untuk peta -->
+                        <div class="w-full h-full flex items-center justify-center text-amber-800">
+                            <i class="fas fa-map-marked-alt text-4xl mr-2"></i>
+                            <span>Peta Lokasi Warung Butet</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-amber-900 text-amber-200 py-8 px-4">
+        <div class="container mx-auto text-center">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="#" class="hover:text-amber-50"><i class="fab fa-facebook text-xl"></i></a>
+                <a href="#" class="hover:text-amber-50"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="hover:text-amber-50"><i class="fab fa-whatsapp text-xl"></i></a>
+            </div>
+            <p>&copy; 2023 Warung Butet. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll untuk anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Tutup mobile menu jika terbuka
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    mobileMenu.classList.add('hidden');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
