@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TK Vauget - Taman Kanak-kanak Unggulan di Blitar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .font-nunito {
+            font-family: 'Nunito', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(rgba(255, 215, 0, 0.8), rgba(255, 240, 150, 0.7)), 
+                        url('https://images.unsplash.com/photo-1519452635265-7b1fbfd81e7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .section-bg {
+            background-color: #fff9e6;
+        }
+        .yellow-bg {
+            background-color: #ffd700;
+        }
+        .light-yellow-bg {
+            background-color: #fff9c4;
+        }
+        .text-yellow {
+            color: #b8860b;
+        }
+        .border-yellow {
+            border-color: #ffd700;
+        }
+        .slider-item {
+            transition: transform 0.3s ease;
+        }
+        .slider-item:hover {
+            transform: scale(1.03);
+        }
+        .hamburger-line {
+            transition: all 0.3s ease;
+        }
+        .hamburger-active > span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger-active > span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger-active > span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        .nav-menu {
+            transition: all 0.3s ease;
+        }
+        .nav-hidden {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-20px);
+        }
+        .nav-visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-12 h-12 rounded-full yellow-bg flex items-center justify-center mr-3">
+                    <i class="fas fa-child text-white text-xl"></i>
+                </div>
+                <h1 class="text-2xl font-bold text-yellow font-nunito">TK Vauget</h1>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#beranda" class="font-semibold text-gray-700 hover:text-yellow transition">Beranda</a>
+                <a href="#profil" class="font-semibold text-gray-700 hover:text-yellow transition">Profil</a>
+                <a href="#program" class="font-semibold text-gray-700 hover:text-yellow transition">Program</a>
+                <a href="#guru" class="font-semibold text-gray-700 hover:text-yellow transition">Guru</a>
+                <a href="#galeri" class="font-semibold text-gray-700 hover:text-yellow transition">Galeri</a>
+                <a href="#kontak" class="font-semibold text-gray-700 hover:text-yellow transition">Kontak</a>
+            </nav>
+            
+            <!-- Mobile Hamburger Menu -->
+            <button id="hamburger" class="md:hidden flex flex-col w-6 h-5 justify-between">
+                <span class="hamburger-line w-full h-0.5 bg-gray-700 rounded"></span>
+                <span class="hamburger-line w-full h-0.5 bg-gray-700 rounded"></span>
+                <span class="hamburger-line w-full h-0.5 bg-gray-700 rounded"></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="nav-menu" class="nav-menu md:hidden nav-hidden absolute w-full bg-white shadow-lg">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#beranda" class="font-semibold text-gray-700 hover:text-yellow transition py-2">Beranda</a>
+                <a href="#profil" class="font-semibold text-gray-700 hover:text-yellow transition py-2">Profil</a>
+                <a href="#program" class="font-semibold text-gray-700 hover:text-yellow transition py-2">Program</a>
+                <a href="#guru" class="font-semibold text-gray-700 hover:text-yellow transition py-2">Guru</a>
+                <a href="#galeri" class="font-semibold text-gray-700 hover:text-yellow transition py-2">Galeri</a>
+                <a href="#kontak" class="font-semibold text-gray-700 hover:text-yellow transition py-2">Kontak</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="hero-bg py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-white font-nunito mb-4">Selamat Datang di TK Vauget</h1>
+            <p class="text-xl md:text-2xl text-white mb-8 max-w-3xl mx-auto">Membentuk generasi cerdas, kreatif, dan berakhlak mulia di Blitar</p>
+            <a href="#profil" class="inline-block bg-white text-yellow font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition">Tentang Kami</a>
+        </div>
+    </section>
+
+    <!-- Profil Sekolah Section -->
+    <section id="profil" class="py-16 section-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-yellow font-nunito mb-4">Profil TK Vauget</h2>
+                <div class="w-24 h-1 bg-yellow mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
+                         alt="TK Vauget" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">TK Unggulan di Blitar</h3>
+                    <p class="text-gray-600 mb-4">TK Vauget telah menjadi pilihan utama orang tua di Blitar untuk pendidikan anak usia dini sejak tahun 2005. Kami berkomitmen untuk memberikan pendidikan terbaik dengan pendekatan yang menyenangkan dan sesuai dengan perkembangan anak.</p>
+                    <p class="text-gray-600 mb-6">Dengan fasilitas yang lengkap dan lingkungan yang nyaman, kami menciptakan suasana belajar yang mendukung perkembangan fisik, kognitif, sosial, dan emosional setiap anak.</p>
+                    <div class="flex flex-wrap">
+                        <div class="w-1/2 mb-4">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full yellow-bg flex items-center justify-center mr-3">
+                                    <i class="fas fa-graduation-cap text-white"></i>
+                                </div>
+                                <span class="font-semibold">Guru Berpengalaman</span>
+                            </div>
+                        </div>
+                        <div class="w-1/2 mb-4">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full yellow-bg flex items-center justify-center mr-3">
+                                    <i class="fas fa-paint-brush text-white"></i>
+                                </div>
+                                <span class="font-semibold">Kurikulum Kreatif</span>
+                            </div>
+                        </div>
+                        <div class="w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full yellow-bg flex items-center justify-center mr-3">
+                                    <i class="fas fa-shield-alt text-white"></i>
+                                </div>
+                                <span class="font-semibold">Lingkungan Aman</span>
+                            </div>
+                        </div>
+                        <div class="w-1/2">
+                            <div class="flex items-center">
+                                <div class="w-10 h-10 rounded-full yellow-bg flex items-center justify-center mr-3">
+                                    <i class="fas fa-heart text-white"></i>
+                                </div>
+                                <span class="font-semibold">Pengasuhan Penuh Kasih</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Section -->
+    <section id="program" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-yellow font-nunito mb-4">Program Unggulan</h2>
+                <div class="w-24 h-1 bg-yellow mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border border-yellow">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Program Bermain Sambil Belajar" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Bermain Sambil Belajar</h3>
+                        <p class="text-gray-600">Mengoptimalkan perkembangan anak melalui kegiatan bermain yang edukatif dan menyenangkan.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border border-yellow">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1541692641319-981f79b10a82?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Program Pengembangan Karakter" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Pengembangan Karakter</h3>
+                        <p class="text-gray-600">Membentuk karakter anak yang berakhlak mulia, mandiri, dan bertanggung jawab.</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden border border-yellow">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" 
+                             alt="Program Kreativitas dan Seni" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Kreativitas dan Seni</h3>
+                        <p class="text-gray-600">Mengembangkan kreativitas dan bakat seni anak melalui berbagai kegiatan menarik.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guru Section -->
+    <section id="guru" class="py-16 section-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-yellow font-nunito mb-4">Guru Kami</h2>
+                <div class="w-24 h-1 bg-yellow mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden text-center p-6">
+                    <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border-4 border-yellow">
+                        <img src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Bu Sari" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-1">Bu Sari, S.Pd.</h3>
+                    <p class="text-yellow font-semibold mb-3">Kepala Sekolah</p>
+                    <p class="text-gray-600">Pengalaman 15 tahun dalam pendidikan anak usia dini.</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden text-center p-6">
+                    <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border-4 border-yellow">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Bu Rina" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-1">Bu Rina, S.Pd.AUD</h3>
+                    <p class="text-yellow font-semibold mb-3">Guru Kelas A</p>
+                    <p class="text-gray-600">Spesialis dalam metode belajar sambil bermain.</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden text-center p-6">
+                    <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border-4 border-yellow">
+                        <img src="https://images.unsplash.com/photo-1588072432904-843af37f03ed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Bu Dian" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-1">Bu Dian, S.Pd.</h3>
+                    <p class="text-yellow font-semibold mb-3">Guru Kelas B</p>
+                    <p class="text-gray-600">Ahli dalam pengembangan karakter anak.</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden text-center p-6">
+                    <div class="w-32 h-32 rounded-full overflow-hidden mx-auto mb-4 border-4 border-yellow">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Bu Maya" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-1">Bu Maya, S.Pd.</h3>
+                    <p class="text-yellow font-semibold mb-3">Guru Seni & Musik</p>
+                    <p class="text-gray-600">Mengembangkan kreativitas anak melalui seni.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Section -->
+    <section id="galeri" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-yellow font-nunito mb-4">Galeri Kegiatan</h2>
+                <div class="w-24 h-1 bg-yellow mx-auto"></div>
+            </div>
+            
+            <div class="relative overflow-hidden">
+                <div id="slider" class="flex transition-transform duration-500 ease-in-out">
+                    <!-- Slider items will be added here by JavaScript -->
+                </div>
+                
+                <button id="prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-yellow bg-opacity-80 text-white p-3 rounded-r-lg hover:bg-opacity-100 transition">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="next" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-yellow bg-opacity-80 text-white p-3 rounded-l-lg hover:bg-opacity-100 transition">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="flex justify-center mt-6">
+                <div id="slider-dots" class="flex space-x-2">
+                    <!-- Dots will be added here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section id="kontak" class="py-16 section-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-yellow font-nunito mb-4">Hubungi Kami</h2>
+                <div class="w-24 h-1 bg-yellow mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Informasi Kontak</h3>
+                    <div class="mb-6">
+                        <div class="flex items-start mb-4">
+                            <div class="w-10 h-10 rounded-full yellow-bg flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-map-marker-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Alamat</h4>
+                                <p class="text-gray-600">Jl. Merdeka No. 123, Blitar, Jawa Timur</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-4">
+                            <div class="w-10 h-10 rounded-full yellow-bg flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-phone-alt text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Telepon</h4>
+                                <p class="text-gray-600">(0342) 123456</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start mb-4">
+                            <div class="w-10 h-10 rounded-full yellow-bg flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-envelope text-white"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Email</h4>
+                                <p class="text-gray-600">info@tkvauget.blitar.sch.id</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Jam Operasional</h3>
+                    <div class="bg-white rounded-lg p-4 shadow-md">
+                        <div class="flex justify-between py-2 border-b">
+                            <span class="font-semibold">Senin - Jumat</span>
+                            <span>07:00 - 16:00</span>
+                        </div>
+                        <div class="flex justify-between py-2 border-b">
+                            <span class="font-semibold">Sabtu</span>
+                            <span>08:00 - 12:00</span>
+                        </div>
+                        <div class="flex justify-between py-2">
+                            <span class="font-semibold">Minggu</span>
+                            <span>Tutup</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Kirim Pesan</h3>
+                    <form id="contact-form" class="bg-white rounded-lg p-6 shadow-md">
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 font-semibold mb-2">Nama Lengkap</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 font-semibold mb-2">Subjek</label>
+                            <input type="text" id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow" required>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="message" class="block text-gray-700 font-semibold mb-2">Pesan</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-yellow" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full yellow-bg text-white font-bold py-3 rounded-lg hover:bg-yellow-600 transition">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 rounded-full yellow-bg flex items-center justify-center mr-3">
+                            <i class="fas fa-child text-white"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold font-nunito">TK Vauget</h2>
+                    </div>
+                    <p class="mt-2 text-gray-400">Taman Kanak-kanak Unggulan di Blitar</p>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-yellow transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-yellow transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center hover:bg-yellow transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 TK Vauget Blitar. Semua Hak Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('hamburger-active');
+            navMenu.classList.toggle('nav-hidden');
+            navMenu.classList.toggle('nav-visible');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('hamburger-active');
+                navMenu.classList.add('nav-hidden');
+                navMenu.classList.remove('nav-visible');
+            });
+        });
+        
+        // Image Slider
+        const sliderImages = [
+            {
+                src: 'https://images.unsplash.com/photo-1541692641319-981f79b10a82?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
+                alt: 'Kegiatan Belajar di TK Vauget'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
+                alt: 'Kegiatan Outdoor TK Vauget'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
+                alt: 'Kegiatan Seni di TK Vauget'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
+                alt: 'Permainan Edukatif di TK Vauget'
+            },
+            {
+                src: 'https://images.unsplash.com/photo-1519452635265-7b1fbfd81e7a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80',
+                alt: 'Fasilitas Bermain TK Vauget'
+            }
+        ];
+        
+        const slider = document.getElementById('slider');
+        const sliderDots = document.getElementById('slider-dots');
+        const prevBtn = document.getElementById('prev');
+        const nextBtn = document.getElementById('next');
+        
+        let currentSlide = 0;
+        
+        // Create slider items and dots
+        sliderImages.forEach((image, index) => {
+            // Create slider item
+            const slide = document.createElement('div');
+            slide.className = 'slider-item w-full flex-shrink-0';
+            slide.innerHTML = `
+                <img src="${image.src}" alt="${image.alt}" class="w-full h-64 md:h-96 object-cover rounded-lg">
+                <div class="text-center mt-4">
+                    <p class="text-gray-700">${image.alt}</p>
+                </div>
+            `;
+            slider.appendChild(slide);
+            
+            // Create dot
+            const dot = document.createElement('button');
+            dot.className = `w-3 h-3 rounded-full ${index === 0 ? 'bg-yellow' : 'bg-gray-300'}`;
+            dot.addEventListener('click', () => goToSlide(index));
+            sliderDots.appendChild(dot);
+        });
+        
+        // Function to go to specific slide
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+        }
+        
+        // Function to update slider position and active dot
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update active dot
+            document.querySelectorAll('#slider-dots button').forEach((dot, index) => {
+                dot.className = `w-3 h-3 rounded-full ${index === currentSlide ? 'bg-yellow' : 'bg-gray-300'}`;
+            });
+        }
+        
+        // Previous button event
+        prevBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + sliderImages.length) % sliderImages.length;
+            updateSlider();
+        });
+        
+        // Next button event
+        nextBtn.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % sliderImages.length;
+            updateSlider();
+        });
+        
+        // Auto slide every 5 seconds
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % sliderImages.length;
+            updateSlider();
+        }, 5000);
+        
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah berhasil dikirim. Kami akan menghubungi Anda segera.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
